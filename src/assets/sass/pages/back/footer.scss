@@ -1,0 +1,24 @@
+.menu-footer{
+    
+    display:flex;
+    justify-content: center ;
+    align-items: center;
+
+
+    &__logo-footer{
+        // background-color: blue;
+        width: 3.5rem;
+    }
+    &__item{
+        // font-weight: inherit;
+        text-transform: uppercase;
+        font-size:.8rem;
+        list-style: none;
+        text-decoration: none;
+        color: var(--color-blue-dark);
+    }
+    &__copy{
+        
+    }
+
+}

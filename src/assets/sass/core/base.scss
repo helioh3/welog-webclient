@@ -1,0 +1,52 @@
+html {
+    font-size: 62.5%; //fonte de 1rem = 10, 10/16=62.5%
+    
+}
+
+body{
+    background-color: var(--color-green-light-1);
+    background-size: cover;
+    color: var(--color-grey-dark);
+}
+
+
+.container {
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: 5rem 1fr 6vh;
+
+   grid-template-areas: "admin-header"
+                        "admin-main"
+                        "admin-footer";
+    
+}
+
+/* ===========================
+    PAGE DASHBOARD
+=============================*/
+.admin-header{
+    //background-color: #ccc;
+    background-color: var(--color-blue-dark);
+    grid-area: admin-header;
+    display: flex;
+   
+}
+
+.admin-main{
+    grid-area: admin-main;
+    flex: 1;
+}
+
+.box{
+    // background-color: red;
+    // display: flex;
+    padding: 1rem 0;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.admin-footer{
+    // background-color: #ccc;
+    color: white;
+    grid-area: admin-footer;
+}

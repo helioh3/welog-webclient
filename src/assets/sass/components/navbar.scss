@@ -1,0 +1,102 @@
+.navbar{
+    font-size: 1.6rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .brand{
+        // background-color: red;
+        margin-left: 3rem;
+    
+        &__logo{
+            width: 8rem;
+           
+        }
+    
+    }
+
+    .menu-nav{
+        // background-color: red;
+        display: flex;
+        flex: 0 30%;
+        font-size: 1.6rem;
+        justify-content: space-between;
+
+        &__item{
+            color: var(--color-white);
+            text-decoration: none;
+        }
+    }
+    
+    .menu-user{
+        // background-color: yellow;
+        display: flex;
+        align-self: stretch;
+        align-items: center; 
+       
+        
+        &__item{
+            // background-color: chartreuse;
+            display: flex;
+            align-items: center;
+            color: var(--color-white);
+            list-style: none;
+            padding: 0 1rem;
+            height: 100%;
+            // padding-right: 2rem;
+            position: relative;
+
+            &:not(:first-child){
+                margin-right: 2rem;
+            }
+            
+            &:hover{
+                background-color: #ccc;
+                cursor: pointer;   
+            }   
+        }
+    
+        &__icon{
+            height: 2.5rem;
+            width: 2.6rem;
+        }
+    
+        &__notification{
+            font-size: .8rem;
+            height:1.5rem;
+            width: 1.5rem;
+            border-radius: 50%;
+            background-color: var(--color-green);
+            color: var(--color-white);
+            position: absolute;
+            top: .5rem;
+            right: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // border: .09rem solid var(--color-blue-dark);
+        }
+    
+        &__photo{
+            display: flex;
+            width: 3.2rem;
+            height: 3.2rem;
+            
+            border-radius: 50%;
+            // border: .3rem solid var(--color-white);
+        }
+
+        &__name{
+            font-size: inherit;
+            margin-right: .9rem;
+        }
+    
+    }
+    
+}
+
+
+
+

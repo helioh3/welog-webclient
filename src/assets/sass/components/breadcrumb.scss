@@ -1,0 +1,37 @@
+.breadcrumb{
+    font-size: 1.5rem;
+    line-height: inherit;
+    display: flex;
+    
+    .active{
+        color: var(--color-gray-dark) !important;
+        cursor: default;
+    }
+
+   li{
+        list-style: none;
+        margin: 0 .5rem;
+
+       a{
+           &:link,
+           &:visited{
+                text-decoration: none;
+                color: var(--color-green);
+                transition: all .2s;
+           }
+             
+            &:hover,
+            &:active{
+                color: var(--color-gray);
+            }
+       }
+
+       &:not(:first-child){
+            &::before{
+                content:  "\0002f";
+                margin-right: 1rem;
+                color: var(--color-grey-light);
+            }
+       }
+   }
+}

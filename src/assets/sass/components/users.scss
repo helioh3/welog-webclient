@@ -1,0 +1,75 @@
+.box-users{
+
+   
+}
+
+
+
+.user{
+    margin-bottom: .8rem;
+
+    .al-left{
+        display: flex;
+        align-items: center;
+    
+    }
+    .al-right{
+        display: flex;
+    }
+
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 2rem;
+    padding: 1.5rem 5rem 1.5rem;
+    transition: all .2s;
+    cursor: pointer;
+    
+    &:hover{
+        background-color:var(--color-green);
+        color: #fff;
+        .__date, .__name, .__perfil{
+            color: #fff;
+        }
+    }
+
+    &__date{
+        display: flex;
+        margin-right: 1rem;
+
+        &--month{
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        &--day{
+            font-size: .9rem;
+            color: #ccc
+        }
+    }
+    &__photo{
+        width: 4.5rem;
+        height: 4.5rem;
+        border-radius: 50%;
+    }
+    &__name{
+        width: 10rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.8rem;
+        margin-right:2.5rem;
+        margin-left: 2.5rem;
+       
+    }
+    &__perfil{
+        background-color: var(--color-grey-light-small);
+        padding: 1rem 2rem;
+        border-radius: 3rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+
+
+    }
+    &__desc{}
+
+}

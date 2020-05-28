@@ -1,0 +1,28 @@
+.paginate {
+    display: flex;
+    align-content: center;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+
+    li {
+        
+        a {
+            padding: 0.5rem 1rem;
+            
+            &:link,
+            &:visited {
+                text-decoration: none;
+            }
+            &:hover,
+            &:active{
+                background-color: yellow;
+                color: var(--color-gray);
+            }
+            
+
+        }
+    }
+}

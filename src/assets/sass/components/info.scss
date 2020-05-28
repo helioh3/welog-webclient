@@ -1,0 +1,51 @@
+.info{
+    width: 100%;
+    margin-top: 3rem;;
+    display: flex;
+    border-radius: .5rem;
+    overflow: hidden;
+    border-bottom: .4rem solid rgba(0, 0, 0, 0.1);
+    // box-shadow: 10px 10px 5px black;
+    // background-color: red;
+
+    &__item{
+        flex: 1;
+        list-style: none;
+        background-color: #fff;
+        padding: 2rem;
+        position: relative;
+        
+        &:not(:last-child){
+            border-right: 1px solid #E6E5E5;
+        }
+
+        &--title, &--value, &--months{
+            margin: .5rem;
+        }
+
+        &--title{
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        &--icon{
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+
+            align-items: center;
+            width: 3rem;
+            height: 3rem;
+            stroke:var(--color-grey-light);
+        }
+
+        &--value{
+            font-size: 1.5rem;
+            color: var(--color-green);
+        }
+
+        &--months{
+            
+        }
+    }
+}

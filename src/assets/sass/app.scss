@@ -1,0 +1,41 @@
+
+// Fonts
+// @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+// @import "variables";
+
+@import '~vue-snotify/styles/material';
+
+@import 'helpers/mixins';
+@import 'helpers/functions';
+@import 'helpers/variables';
+@import 'helpers/utilities';
+
+
+@import 'core/minireset';
+@import 'core/base';
+@import 'core/typography';
+
+// loader spinner
+@import "spinner/gauge";
+
+@import 'components/navbar';
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/breadcrumb';
+@import 'components/tabs';
+@import 'components/tables';
+@import 'components/search';
+@import 'components/info';
+@import 'components/users';
+@import 'components/categories';
+@import 'components/paginate';
+
+@import 'pages/back/dashboard';
+@import 'pages/back/expenses-view';
+@import 'pages/back/footer';
+@import 'pages/back/login';
+
+
+@import 'pages/front/home';

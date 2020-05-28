@@ -1,0 +1,202 @@
+.box-but{
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
+    // background-color: red;
+    margin-bottom: 1rem;
+}
+.but{
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    border-radius: .7rem;
+    border:none;
+    outline: none;
+    transition: .1s all;
+    text-decoration: none;
+    
+}
+.but-group{
+    display: flex;
+}
+
+.primary{
+    background-color: var(--color-green);
+    border-bottom: .4rem solid rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: .8rem;
+    border-bottom-right-radius: .8rem;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    color: #fff;
+
+    &:hover{
+        background-color: rgba(6, 166, 84, 0.9);
+        color:var(--color-white);
+    }
+}
+
+.printer{
+    background-color: white;
+    border-bottom: .4rem solid rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: .8rem;
+    border-bottom-right-radius: .8rem;
+    padding: 1.2rem 2rem;
+    cursor: pointer;
+    
+    &:hover{
+       background-color: rgba(6, 166, 84, 0.5); 
+
+        .feather{
+            stroke: var(--color-blue-dark);
+        }   
+    }
+}
+
+.secundary{
+    background-color: white;
+    border-bottom: .4rem solid rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: .8rem;
+    border-bottom-right-radius: .8rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    
+    &:hover{
+       background-color: rgba(6, 166, 84, 0.5); 
+
+        .feather{
+            stroke: var(--color-blue-dark);
+        }   
+    }
+}
+
+.delete{
+    border-bottom: .4rem solid rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: .8rem;
+    border-bottom-right-radius: .8rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+
+    .feather{
+        stroke: var(--color-pink);
+    } 
+    
+    &:hover{
+       background-color: rgba(6, 166, 84, 0.5); 
+
+        .feather{
+            stroke: var(--color-blue-dark);
+        }   
+    }
+}
+
+.tertiary{
+
+    background-color: var(--color-white);
+    border-bottom: .4rem solid rgba(0, 0, 0, 0.2);
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: .0rem;
+    border-bottom-right-radius: .0rem;
+    
+    color:var(--color-grey-dark);
+    padding: 1rem 2rem;
+
+}
+
+.prev{
+    background-color: var(--color-green);
+    border-bottom: .4rem solid rgba(0, 0, 0, 0.2);
+    border-top-right-radius: 0;
+    border-bottom-left-radius: .8rem;
+    border-bottom-right-radius: .0rem; 
+    padding: 1.2rem 1rem;
+    cursor: pointer;
+
+    .feather{
+        stroke: var(--color-blue-dark);
+    } 
+
+    &:hover{
+        background-color: rgba(6, 166, 84, 0.9);
+        .feather{
+            stroke: var(--color-white);
+        } 
+    }
+}
+.next{
+    background-color: var(--color-green);
+    border-bottom: .4rem solid rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: .0rem;
+    border-bottom-right-radius: .8rem;
+    color: #fff;
+    padding: 1.2rem 1rem;
+    cursor: pointer;
+
+    .feather{
+        stroke: var(--color-blue-dark);
+    } 
+
+    &:hover{
+        background-color: rgba(6, 166, 84, 0.9);
+        .feather{
+            stroke: var(--color-white);
+        }
+    }
+}
+
+.but-icon{
+    cursor: pointer;
+    background-color: transparent;
+    
+    padding: .2rem;
+
+    
+
+    .active{
+        // fill: blue;
+        stroke: blue;
+
+    }
+    .feather{
+        width: 2rem;
+        height: 2rem;
+        // stroke: red;
+        // fill: red;
+
+        &:hover{
+            stroke: #fff;
+        }
+    }
+    &:disabled{
+        background-color: transparent;
+    }
+}
+
+.but-login{
+    background-color: var(--color-green);
+    // border-bottom: .3rem solid rgba(0, 0, 0, 0.2);
+    // border-bottom-left-radius: .8rem;
+    // border-bottom-right-radius: .8rem;
+    cursor: pointer;
+    color:var(--color-blue-dark);
+    padding: 2rem;
+    width: 100%;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: .4rem;
+    
+
+    &:hover{
+        background-color: rgba(6, 166, 84, 0.9);
+        color:var(--color-white);
+    }
+
+
+}
+
+
+

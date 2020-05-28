@@ -1,0 +1,114 @@
+.tabs-container{
+    margin-top: 2rem;
+    
+}
+
+.table-data{
+    margin-top: 1.5rem;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #ccc;
+    
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    border-bottom: .4rem solid rgba(0, 0, 0, 0.1);
+
+    width: 100%;
+    overflow: hidden;
+
+    tr{
+        border: 1px solid #ccc;
+        // padding: 1rem;
+        
+        th{
+            // border-bottom: 1px solid black;
+            // background-color: red;
+            font-size: 1.2rem;
+            padding: 1rem;
+        }
+    }
+
+    tbody{
+        font-size: 1.2rem;
+        
+        tr{
+            background-color: #ffff;
+
+            td{
+                padding: 1rem;
+                border-top: 1px solid #ccc;
+            }
+
+            &:hover{
+                background-color: var(--color-yellow-light);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+.box-table{
+    // background-color: red;
+    padding: 1rem 2.5rem;
+}
+
+.field-table{
+    border-collapse: separate;
+    border-spacing: 0;   
+    width: 100%;
+    border: 1px solid var(--color-grey-light);
+
+    tr{
+
+        th{
+            padding: 1rem;
+
+        }
+    }
+
+    tbody{
+
+        tr{
+            // background-color: red;
+            td{
+                border-top: 1px dotted var(--color-grey-light);
+                padding: .5rem 1rem;
+
+                .field{
+
+                    &__input{
+                        padding: .9rem;
+                        width: 50%;
+                        outline: none;
+                        border-radius: .4rem;
+                        
+                        border: 2px solid var(--color-grey-light-small);
+                        background-color: var(--color-grey-light-small-2);
+                        &:focus{
+                            background-color: #fff;
+                            border: 2px solid var(--color-grey1);
+                        }
+                        &:hover{
+                            border: 2px solid var(--color-grey1);
+                        }
+
+                        &:disabled{
+                
+                            border: 2px solid var(--color-grey-light-small);
+                            background-color: var(--color-grey-light-small-2);
+                            
+                            &:hover{
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+}
