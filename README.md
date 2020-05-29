@@ -1,4 +1,4 @@
-## Welcome to Swift
+## Welcome to Welog Web Client
 
 Swift is a high-performance system programming language.  It has a clean
 and modern syntax, offers seamless access to existing C and Objective-C code
