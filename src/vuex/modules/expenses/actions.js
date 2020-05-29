@@ -13,6 +13,7 @@ export default {
                 console.log(error)
             })
             .finally( () => context.commit('PRELOADER', false))
+            
     },
 
     loadExpense (context, id) {
@@ -25,7 +26,6 @@ export default {
 
         })
     },
-
 
     storeExpenses (context, params){
         context.commit('PRELOADER', true)

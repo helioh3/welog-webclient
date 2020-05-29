@@ -17,6 +17,7 @@
 
     </div>
 </template>
+
 <script>
     import FormExpense from './partials/FormExpense'
 

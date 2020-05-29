@@ -1,6 +1,6 @@
 <template>
    <div>
-       <div class="box-form view-form">
+       <!-- <div class="box-form view-form">
             <h2 class="box-form__title">Dados da despesa</h2>
             
             <div class="box-field">
@@ -142,7 +142,7 @@
                 
             </div>
         </div>
-    </div>
+    </div> -->
         
 </template>
 

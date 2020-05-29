@@ -1,9 +1,7 @@
 <template>
   <div>
       <vue-snotify></vue-snotify>
-         
       <preloader-panel></preloader-panel>
-
       <router-view></router-view>
   </div>
 </template>

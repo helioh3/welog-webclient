@@ -65,7 +65,7 @@
                     <!-- <router-link class="tabs__item tabs__item--active" :to="{name: 'painel.categorias', params:{id: category.id}}">
                         
                     </router-link> -->
-                    <tr v-for="expense in expenses.data" :key="expense.id" @dblclick="view(expense.id)">
+                    <tr v-for="expense in expenses.data" :key="expense.id" @dblclick="edit(expense.id)">
                         <td>{{ expense.codigo }}</td>
                         <td class="ac">22/06/2019</td>
                         <td>Serviços de reparo em caminhão Ford 2010 </td>
@@ -97,8 +97,6 @@
             >
             </paginate>
         </div>
-
-
 
     </div>
 </template>
@@ -141,7 +139,7 @@
                 this.loadExpenses(1)
             },
 
-            view (id) {
+            edit (id) {
                 this.$store.dispatch('loadExpense', id)
                     .then(reponse => {
                         this.$router.push({ name: 'painel.despesas.visualizar', params: {id: id}})
@@ -150,19 +148,6 @@
                         this.$snotify.error('Algo errado ao visualizar', 'Erro')
                     })
             }
-
-            // edit (id) {
-            //     this.$store.dispatch('loadExpense', id)
-            //         .then(response => {
-            //             console.log(response)
-            //             this.$router.push({name: 'painel.despesas.editar', params: {id: id}})
-            //         })
-            //         .catch(error => {
-            //             this.$snotify.error('algo errado', 'Erro')
-            //         })
-            
-            // }
-
         },
 
         components: {

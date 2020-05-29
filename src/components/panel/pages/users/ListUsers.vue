@@ -6,6 +6,7 @@
         </nav>  
 
         <nav class="tabs">
+            <button class="tabs__item tabs__item">Categorias</button>
             <button class="tabs__item tabs__item--active">Usuários</button>
         </nav>
 
@@ -15,7 +16,7 @@
                 <div class="box-but-left">
                     <button class="but printer ma-r-small">
                         <svg class="feather">
-                            <use xlink:href="node_modules/feather-icons/dist/feather-sprite.svg#plus-circle"></use>
+                            <use xlink:href="@/assets/svg/feather-sprite.svg#plus-circle"></use>
                         </svg>
                     </button>
 
@@ -42,13 +43,13 @@
                     <div class="al-right">
                         <button class="but printer ma-r-small">
                             <svg class="feather">
-                                <use xlink:href="node_modules/feather-icons/dist/feather-sprite.svg#edit-2"></use>
+                                <use xlink:href="@/assets/svg/feather-sprite.svg#edit-2"></use>
                             </svg>
                         </button>
 
                         <button class="but printer">
                             <svg class="feather">
-                                <use xlink:href="node_modules/feather-icons/dist/feather-sprite.svg#trash-2"></use>
+                                <use xlink:href="@/assets/svg/feather-sprite.svg#trash-2"></use>
                             </svg>
                         </button>
                     </div>
@@ -72,13 +73,13 @@
                     <div class="al-right">
                         <button class="but printer ma-r-small">
                             <svg class="feather">
-                                <use xlink:href="node_modules/feather-icons/dist/feather-sprite.svg#edit-2"></use>
+                                <use xlink:href="@/assets/svg/feather-sprite.svg#edit-2"></use>
                             </svg>
                         </button>
 
                         <button class="but printer">
                             <svg class="feather">
-                                <use xlink:href="node_modules/feather-icons/dist/feather-sprite.svg#trash-2"></use>
+                                <use xlink:href="@/assets/svg/feather-sprite.svg#trash-2"></use>
                             </svg>
                         </button>
                     </div>
