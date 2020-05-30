@@ -5,7 +5,7 @@
             <li><a href="#">inicio</a></li>
             <li><a href="#">despesas</a></li>
             <li><a href="#" class="active">editar</a></li>
-        </nav>  
+        </nav>
 
         <nav class="tabs">
             <button class="tabs__item tabs__item--active">Despesa</button>
@@ -14,7 +14,7 @@
         <div class="tabs-container">
 
             <form-expense
-              :expense="expense"
+              :value="expense"
               :update="true"
             >
             </form-expense>
@@ -32,9 +32,9 @@ export default {
             require: true
         }
     },
-    
+
     created () {
-        
+
         this.$store.dispatch('loadExpense', this.id)
             .then(response => {
                 this.expense = response
@@ -53,12 +53,12 @@ export default {
                 codigo: '',
                 category_id: '',
                 valor: ''
-            
+
             }
         }
     },
 
     components: { FormExpense }
-    
+
 }
 </script>
