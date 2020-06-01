@@ -24,6 +24,23 @@
     margin-left: 1rem;
 }
 
+.w-mini-small{
+    width: 15rem !important;
+}
+
+.w-small{
+    width: 20rem !important;
+}
+
+.w-medium{
+    width: 50rem !important;
+}
+
+.w-big{
+    width: 70rem !important;
+}
+
+
 .view-form{
     border: 1px solid var(--color-grey-light-small);
     background-color: transparent !important;
@@ -43,6 +60,7 @@
 .white{
     stroke: var(--color-white);
 }
+
 
 
 

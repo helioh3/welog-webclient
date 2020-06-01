@@ -77,6 +77,7 @@
                     <label class="field__label">Fornecedor</label>
                     <div class="field__select">
                         <select disabled>
+                            <!-- <option selected="selected"> mudar</option> -->
                             <option value="">Selecione</option>
                             <option value="">Selecione</option>
                             <option value="">Selecione</option>

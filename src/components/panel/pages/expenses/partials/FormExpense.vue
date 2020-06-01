@@ -37,7 +37,10 @@
                         </select>
                     </div>
                 </div>
+                
+            </div>
 
+            <div class="box-field">
                 <div class="field">
                     <label class="field__label">Empresa de Origem</label>
                     <div class="field__select">
@@ -48,21 +51,10 @@
                         </select>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="box-form">
-            <h2 class="box-form__title">Dados da despesa</h2>
-
-            <div class="box-field">
+               
                 <div class="field">
-                    <label class="field__label">Valor Total(R$)</label>
-                    <input class="field__input" type="number" v-model="expense.valor" :class="['field_input', {'has-error': errors.valor}]" >
-                </div>
-
-                <div class="field">
-                    <label class="field__label">Data de Competência</label>
-                    <input class="field__input" type="date">
+                    <label class="field__label">Data de cadastro</label>
+                    <input class="field__input w-mini-small" type="text">
                 </div>
 
                 <div class="field">
@@ -75,16 +67,26 @@
                         </select>
                     </div>
                 </div>
+                 <div class="field">
+                    <label class="field__label">Valor (R$)</label>
+                    <input class="field__input w-mini-small" type="number" v-model="expense.valor" :class="['field_input', {'has-error': errors.valor}]" >
+                </div>
             </div>
+        </div>
+
+        <div class="box-form">
+            <h2 class="box-form__title">Parcelamento</h2>
 
             <div class="box-table">
                 <table class="field-table">
                     <thead>
                         <tr>
-                            <th>&nbsp;</th>
+                            <!-- <th>&nbsp;</th> -->
                             <th>Parcela</th>
-                            <th>Vencimento</th>
-                            <th>Valor(R$)</th>
+                             <th>Data inicial</th>
+                            <th>Data final</th>
+                            <th>Valor (R$)</th>
+                            <th></th>
                         </tr>
                     </thead>
 
@@ -93,29 +95,53 @@
                           v-for="(item, index) in expense.items"
                           :key="index"
                         >
-                            <td>
-                                <button type="button" class="but" @click="removeItem(index)">-</button>
-                            </td>
                             <td>{{ index + 1 }}/{{ expense.items.length }}</td>
                             <td>
                                 <div class="field">
-                                    <input type="date" class="field__input" v-model="item.data">
+                                    <input type="text" class="field__input">
+                                </div>
+                            </td>
+
+                             <td>
+                                <div class="field">
+                                    <input type="text" class="field__input" v-model="item.data">
                                 </div>
                             </td>
                             <td>
-                                <input class="field__input" type="number" v-model="item.valor"/>
+                                <input class="field__input" type="text" v-model="item.valor"/>
+                            </td>
+
+                             <td>
+                                <!-- <button type="button" class="but" @click="removeItem(index)">- </button> -->
+                                 <svg class="feather" @click="removeItem(index)" >
+                                    <use xlink:href="@/assets/svg/feather-sprite.svg#minus-circle"></use>
+                                </svg>
                             </td>
                         </tr>
-                    </tbody>
-                </table>
-                <button type="button" class="but" @click="addItem">+</button>
-            </div>
 
+                    </tbody>
+
+                </table>
+
+                <!-- <button type="button" class="but" @click="addItem">+</button> -->
+
+                 <!-- <svg class="feather" @click="addItem" >
+                    <use xlink:href="@/assets/svg/feather-sprite.svg#plus-circle"></use>
+                </svg> -->
+
+                <button class="but printer"  @click.prevent="addItem">
+                    <svg class="feather">
+                        <use xlink:href="@/assets/svg/feather-sprite.svg#plus-circle"></use>
+                    </svg>
+                    
+                </button>
+                
+            </div>
 
         </div>
 
         <div class="box-form">
-            <h2 class="box-form__title">Informções extra</h2>
+            <h2 class="box-form__title">Informações extra</h2>
             <div class="box-field">
                 <div class="field">
                     <label>Observação</label>

@@ -1,15 +1,19 @@
 .box-form{
     margin-bottom: 1.5rem;
     background-color: #fff;
-    border-radius: .4rem;
+    border-radius: .5rem;
     overflow: hidden;
+    padding: 2rem 0rem 4rem;
+    border: 1px solid var(--color-grey-light-small);
     
 
     &__title{
-        font-size: 1.5rem;
-        font-weight: 600;
+        font-size: 2rem;
+        font-weight: 400;
         padding: 1rem 2.5rem;
-        background-color: var(--color-grey-light-small);
+        // background-color: var(--color-grey-light-small);
+      
+        border-bottom: 1px dotted var(--color-grey-light-small);
     }
 }
 
@@ -26,7 +30,6 @@
         flex-direction: column;
         flex: 1;
         margin: 0 1rem;
-       
 
         &__label{
             font-size: 1.2rem;
@@ -35,7 +38,7 @@
     
         &__input, textarea {
             padding: 1rem;
-            width: 100%;
+            // width: 100%;
             outline: none;
             border-radius: .4rem;
             
@@ -85,6 +88,7 @@
                     }
                 }
             }
+
             
         }
 
@@ -130,6 +134,10 @@
     display: flex;
     justify-content: space-between;
 }
+
+
+
+
 
 
 /* ===========================

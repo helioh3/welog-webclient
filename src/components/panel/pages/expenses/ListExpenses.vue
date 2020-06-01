@@ -52,6 +52,11 @@
             <table class="table-data">
                 <thead>
                     <tr>
+                        <th>
+                            <label>
+                                 <input type="checkbox" class="field__checkbox">
+                            </label>
+                        </th>
                         <th>#codigo</th>
                         <th class="ac">Data</th>
                         <th>Descrição</th>
@@ -66,6 +71,11 @@
                         
                     </router-link> -->
                     <tr v-for="expense in expenses.data" :key="expense.id" @dblclick="edit(expense.id)">
+                        <td>
+                             <label>
+                                 <input type="checkbox" class="field__checkbox">
+                            </label>
+                        </td>
                         <td>{{ expense.codigo }}</td>
                         <td class="ac">22/06/2019</td>
                         <td>Serviços de reparo em caminhão Ford 2010 </td>
