@@ -42,13 +42,13 @@
                         
                     </button>
 
-                    <button class="but printer ma-r-small" @click="edit(expense.id)">
+                    <button class="but printer ma-r-small" @click.prevent="edit(expense.id)">
                         <svg class="feather">
                             <use xlink:href="@/assets/svg/feather-sprite.svg#edit-2"></use>
                         </svg>
                     </button>
 
-                    <button class="but printer">
+                    <button class="but printer" @click.prevent="confirmDelete(expense)">
                         <svg class="feather">
                             <use xlink:href="@/assets/svg/feather-sprite.svg#trash-2"></use>
                         </svg>
@@ -231,6 +231,7 @@ export default {
     data(){
         return {
             expense: {
+                id: '',
                 codigo: '',
                 valor: '',
             
@@ -249,6 +250,33 @@ export default {
                     
                     this.$snotify.error('Houve um erro ao editar', 'Erro')
                 })
+        },
+
+        confirmDelete(expense){
+            this.$snotify.error(`Deseja deletar as despesa codigo: ${expense.id}`, 'Confirme', {
+                position: "centerCenter",
+                timeout: 10000,
+                showProgressBar: true,
+                closeOnClick: true, 
+                buttons:[
+                     {text: 'Não', action: null },
+                     {text: 'Sim', action: (value)=>  {this.delExpense(expense.id), this.$snotify.remove(value.id)} }
+                ] 
+            })
+        },
+        
+        delExpense (id){
+            this.$store.dispatch('delExpense', id)
+                .then(() => {
+                    this.$snotify.success(`Sucesso ao deletar`)
+                    this.$router.push({name: 'painel.despesas'})
+                })
+                .catch(error => {
+                        console.log(error)
+
+                        this.$snotify.error('Erro ao deletar categoria', 'Erro')
+                    })
+           
         }
     }
      

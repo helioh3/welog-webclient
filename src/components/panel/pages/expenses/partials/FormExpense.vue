@@ -204,7 +204,9 @@
 
         methods: {
             onSubmit () {
-                this.$store.dispatch('storeExpenses', this.expense)
+                let action = this.update ? 'updateExpense' : 'storeExpenses'
+
+                this.$store.dispatch(action, this.expense)
                     .then( ()=> {
                         this.$snotify.success('Salvo com sucesso')
                         this.$router.push({name: 'painel.despesas'})
@@ -216,12 +218,14 @@
                         this.errors = error.response.data.errors
                     })
             },
+
             addItem () {
                 this.expense.items.push({
                     data: '',
                     valor: 0
                 })
             },
+            
             removeItem (index) {
                 this.expense.items.splice(index, 1)
             }
