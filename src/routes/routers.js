@@ -12,6 +12,9 @@ import NewExpense from '../components/panel/pages/expenses/NewExpense'
 import ViewExpense from '../components/panel/pages/expenses/ViewExpense'
 import EditExpense from '../components/panel/pages/expenses/EditExpense'
 
+import PayExpense from '../components/panel/pages/expenses/PayExpense'
+
+
 
 
 import IndexPanel from '../components/panel/IndexPanel'
@@ -41,6 +44,9 @@ const routes = [
       { path: 'despesas/:id/visualizar', component: ViewExpense, name: 'painel.despesas.visualizar', props: true },
       
       { path: 'despesas/:id/editar', component: EditExpense, name: 'painel.despesas.editar', props: true },
+
+      { path: 'despesas/:id/pagar', component: PayExpense, name: 'painel.despesas.pagar', props: true },
+
 
     ]
   },

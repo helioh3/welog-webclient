@@ -11,6 +11,17 @@
             <!-- <button class="tabs__item">Produtos</button> -->
         </nav>
         <div class="tabs-container">
+            <div class="box-but">
+                <div class="box-but-left">
+                    
+                    <button class="but printer">
+                        <svg class="feather">
+                            <use xlink:href="@/assets/svg/feather-sprite.svg#arrow-left"></use>
+                        </svg>
+                        Voltar
+                    </button>
+                </div>
+            </div>
             
             <form-expense></form-expense>
         </div>

@@ -59,7 +59,8 @@ export default {
                 .catch(error => reject())
                 .finally(() => context.commit('PRELOADER', false))
         })
-    }
+    },
+
 
 
 }

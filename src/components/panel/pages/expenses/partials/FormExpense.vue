@@ -6,14 +6,14 @@
             <h2 class="box-form__title">Dados da despesa</h2>
             <div class="box-field">
                 <div class="field">
-                    <label class="field__label">Anexar NFe</label>
+                    <label class="field__label">Anexo</label>
                     <input class="field__input--file" type="file">
                 </div>
 
                 <div class="field">
                     <label class="field__label">N. Nota Fiscal</label>
-                    <input type="text" class="field__input" v-model="expense.codigo" :class="['field__input', {'has-error': errors.codigo}]">
-                     <!-- <div v-if="errors.codigo">{{errors.codigo[0]}}</div> -->
+                    <input type="text" class="field__input" v-model="expense.numero" :class="['field__input', {'has-error': errors.numero}]">
+                     <!-- <div v-if="errors.numero">{{errors.numero[0]}}</div> -->
                 </div>
 
                 <div class="field">
@@ -83,8 +83,7 @@
                         <tr>
                             <!-- <th>&nbsp;</th> -->
                             <th>Parcela</th>
-                             <th>Data inicial</th>
-                            <th>Data final</th>
+                            <th>Vencimento</th>
                             <th>Valor (R$)</th>
                             <th></th>
                         </tr>
@@ -92,19 +91,14 @@
 
                     <tbody>
                         <tr
-                          v-for="(item, index) in expense.items"
+                          v-for="(item, index) in expense.installments"
                           :key="index"
                         >
-                            <td>{{ index + 1 }}/{{ expense.items.length }}</td>
-                            <td>
-                                <div class="field">
-                                    <input type="text" class="field__input">
-                                </div>
-                            </td>
+                            <td>{{ index + 1 }}/{{ expense.installments.length }}</td>
 
                              <td>
                                 <div class="field">
-                                    <input type="text" class="field__input" v-model="item.data">
+                                    <input type="text" name="name" class="field__input" v-model="item.data_vencimento">
                                 </div>
                             </td>
                             <td>
@@ -123,17 +117,10 @@
 
                 </table>
 
-                <!-- <button type="button" class="but" @click="addItem">+</button> -->
-
-                 <!-- <svg class="feather" @click="addItem" >
-                    <use xlink:href="@/assets/svg/feather-sprite.svg#plus-circle"></use>
-                </svg> -->
-
                 <button class="but printer"  @click.prevent="addItem">
                     <svg class="feather">
                         <use xlink:href="@/assets/svg/feather-sprite.svg#plus-circle"></use>
                     </svg>
-                    
                 </button>
                 
             </div>
@@ -168,12 +155,12 @@
                 default: () => {
                     return {
                         id: '',
-                        codigo: '',
+                        numero: '',
                         category_id: '',
                         valor: '',
-                        items: [
+                        installments: [
                             {
-                                data: '',
+                                data_vencimento: '',
                                 valor: 0
                             }
                         ]
@@ -186,7 +173,6 @@
                 type: Boolean,
                 default: false
             },
-
         },
 
         data () {
@@ -220,14 +206,14 @@
             },
 
             addItem () {
-                this.expense.items.push({
-                    data: '',
+                this.expense.installments.push({
+                    data_vencimento: '',
                     valor: 0
                 })
             },
             
             removeItem (index) {
-                this.expense.items.splice(index, 1)
+                this.expense.installments.splice(index, 1)
             }
         },
 

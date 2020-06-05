@@ -57,7 +57,7 @@
                                  <input type="checkbox" class="field__checkbox">
                             </label>
                         </th>
-                        <th>#codigo</th>
+                        <th>#numero</th>
                         <th class="ac">Data</th>
                         <th>Descrição</th>
                         <th>Fornecedor</th>
@@ -76,7 +76,7 @@
                                  <input type="checkbox" class="field__checkbox">
                             </label>
                         </td>
-                        <td>{{ expense.codigo }}</td>
+                        <td>{{ expense.numero }}</td>
                         <td class="ac">22/06/2019</td>
                         <td>Serviços de reparo em caminhão Ford 2010 </td>
                         <td>JR AUTO PEÇAS </td>
@@ -88,17 +88,6 @@
                     
                 </tbody>
             </table>
-
-            <!-- paginação -->
-            <!-- <ul v-if="expenses.last_page > 1">
-                <li v-if="expenses.current_page > 1">
-                    <a href="#" @click.prevent="loadExpenses(expenses.current_page - 1)">anterior</a>
-                </li>
-                
-                <li v-if="expenses.current_page < expenses.last_page">
-                    <a href="#" @click.prevent="loadExpenses(expenses.current_page + 1)">proxima</a>
-                </li>
-            </ul> -->
 
             <paginate
                 :pagination="expenses"
