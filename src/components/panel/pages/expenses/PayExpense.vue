@@ -104,7 +104,7 @@
                
                 <div class="field">
                     <label class="field__label">Data de cadastro</label>
-                    <input class="field__input w-mini-small" type="text" disabled>
+                    <input v-mask="'##/##/####'" class="field__input w-mini-small" type="text" disabled>
                 </div>
 
                 <div class="field">
@@ -119,7 +119,7 @@
                 </div>
                  <div class="field">
                     <label class="field__label">Valor (R$)</label>
-                    <input class="field__input w-mini-small" type="number" v-model="expense.valor" disabled>
+                    <money class="field__input w-mini-small" type="text" v-model="expense.valor" disabled />
                 </div>
             </div>     
         </div> 

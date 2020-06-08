@@ -1,4 +1,3 @@
-
 import Vue from 'vue'
 import Snotify from 'vue-snotify'
 
@@ -7,16 +6,25 @@ import store from './vuex/store'
 
 import App from './App.vue'
 
-const feather = require('feather-icons')
+import VueTheMask from 'vue-the-mask'
+import money from 'v-money'
 
+
+const feather = require('feather-icons')
 
 Vue.config.productionTip = false
 
 Vue.use(Snotify, {toast: {showProgressBar: false}})
 // this.$snotify
 
+Vue.use(VueTheMask)
+Vue.use(money, {precision: 2, prefix: 'R$ ', decimal: ',', thousands: '.', masked: true})
+
+
 Vue.component('index-panel', () => import('./components/panel/IndexPanel'))
 Vue.component('preloader-panel', () => import('./components/share/PreloaderPanel'))
+
+
 
 const app = new Vue({
     router,
@@ -26,14 +34,3 @@ const app = new Vue({
   });
 
 store.dispatch('getCategories')
-
-
-
-// import Vue from 'vue'
-// import App from './App.vue'
-
-
-
-// new Vue({
-//   render: h => h(App),
-// }).$mount('#app')

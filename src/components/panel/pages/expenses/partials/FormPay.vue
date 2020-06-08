@@ -11,6 +11,7 @@
                         <th>Vencimento</th>
                         <th>Valor (R$)</th>
                         <th>Anexar comprovante</th>
+                        <th>Data de pagamento</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -24,19 +25,24 @@
 
                         <td>
                             <div class="field">
-                                <input type="text" name="name" class="field__input" v-model="item.data_vencimento" disabled>
+                                <input type="text" name="name" class="field__input"  v-model="item.data_vencimento" disabled>
                             </div>
                         </td>
                         
                         <td>
                             <div class="field">
-                                <input type="text" name="name" class="field__input" v-model="item.valor" disabled>
+                                <money type="text" name="name" class="field__input" v-model="item.valor" disabled />
                             </div>
                         </td>
 
                         <td>
                             <div class="field">
                                 <input type="file" name="comprovate" class="field__input">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <input type="text" name="name" class="field__input" v-model="item.data_vencimento" disabled>
                             </div>
                         </td>
 

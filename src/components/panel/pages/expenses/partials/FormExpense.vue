@@ -1,5 +1,5 @@
 <template>
-    <form action="" @submit.prevent="onSubmit">
+    <form @submit.prevent="onSubmit">
         <pre id="pre"></pre>
 
         <div class="box-form">
@@ -7,12 +7,12 @@
             <div class="box-field">
                 <div class="field">
                     <label class="field__label">Anexo</label>
-                    <input class="field__input--file" type="file">
+                    <input type="file" class="field__input--file" @change="onFileChange" />
                 </div>
 
                 <div class="field">
                     <label class="field__label">N. Nota Fiscal</label>
-                    <input type="text" class="field__input" v-model="expense.numero" :class="['field__input', {'has-error': errors.numero}]">
+                    <input type="text" name="numero" class="field__input" v-model="expense.numero" :class="['field__input', {'has-error': errors.numero}]">
                      <!-- <div v-if="errors.numero">{{errors.numero[0]}}</div> -->
                 </div>
 
@@ -54,7 +54,7 @@
                
                 <div class="field">
                     <label class="field__label">Data de cadastro</label>
-                    <input class="field__input w-mini-small" type="text">
+                    <input  type="text" v-mask="'##/##/####'" class="field__input w-mini-small">
                 </div>
 
                 <div class="field">
@@ -69,14 +69,13 @@
                 </div>
                  <div class="field">
                     <label class="field__label">Valor (R$)</label>
-                    <input class="field__input w-mini-small" type="number" v-model="expense.valor" :class="['field_input', {'has-error': errors.valor}]" >
+                    <money class="field__input w-mini-small" type="text" name="valor" v-model="expense.valor" :class="['field_input', {'has-error': errors.valor}]"/>
                 </div>
             </div>
         </div>
 
         <div class="box-form">
             <h2 class="box-form__title">Parcelamento</h2>
-
             <div class="box-table">
                 <table class="field-table">
                     <thead>
@@ -98,11 +97,11 @@
 
                              <td>
                                 <div class="field">
-                                    <input type="text" name="name" class="field__input" v-model="item.data_vencimento">
+                                    <input type="text" v-mask="'##/##/####'" class="field__input" v-model="item.data_vencimento">
                                 </div>
                             </td>
                             <td>
-                                <input class="field__input" type="text" v-model="item.valor"/>
+                                <money type="text" name="valor" class="field__input"  v-model="item.valor"/>
                             </td>
 
                              <td>
@@ -155,8 +154,9 @@
                 default: () => {
                     return {
                         id: '',
-                        numero: '',
                         category_id: '',
+                        // anexo: '',
+                        numero: '',
                         valor: '',
                         installments: [
                             {
@@ -178,7 +178,8 @@
         data () {
            return {
                errors: {},
-               expense: {}
+               expense: {},
+               uploadExpense: null
            }
         },
 
@@ -191,8 +192,20 @@
         methods: {
             onSubmit () {
                 let action = this.update ? 'updateExpense' : 'storeExpenses'
+                
+                //upload de arquivos
+                const formData = new FormData()
+                if(this.uploadExpense != null)
+                    formData.append('anexo', this.uploadExpense)
 
-                this.$store.dispatch(action, this.expense)
+                formData.append('id', this.expense.id)
+                formData.append('category_id', this.expense.category_id)
+                formData.append('numero', this.expense.numero)
+                formData.append('valor', this.expense.valor)
+                formData.append({data_vencimento: '', valor: 0}, this.expense.installments)
+                
+          
+                this.$store.dispatch(action, formData)
                     .then( ()=> {
                         this.$snotify.success('Salvo com sucesso')
                         this.$router.push({name: 'painel.despesas'})
@@ -214,6 +227,14 @@
             
             removeItem (index) {
                 this.expense.installments.splice(index, 1)
+            },
+
+            onFileChange (e){
+                let files = e.target.files ||  e.dataTransfer.files
+                if(!files.length)
+                    return
+                
+                this.uploadExpense = files[0];
             }
         },
 

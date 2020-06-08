@@ -62,12 +62,12 @@
             <div class="box-field">
                  <div class="field">
                     <label class="field__label">numero</label>
-                    <input class="field__input" type="text" placeholder="" v-model="expense.id" disabled> 
+                    <input class="field__input" type="text" placeholder="" v-model="expense.id" disabled /> 
                 </div>
 
                 <div class="field">
                     <label class="field__label">N. Nota Fiscal</label>
-                    <input class="field__input" type="text" placeholder="" v-model="expense.numero" disabled> 
+                    <input class="field__input" type="text" placeholder="" v-model="expense.numero" disabled /> 
                 </div>
         
                 <div class="field">
@@ -123,7 +123,7 @@
                 </div>
                  <div class="field">
                     <label class="field__label">Valor (R$)</label>
-                    <input class="field__input w-mini-small" type="number" v-model="expense.valor" disabled>
+                    <money class="field__input w-mini-small" type="text" v-model="expense.valor" disabled />
                 </div>
             </div>     
         </div> 
@@ -144,33 +144,37 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1/3</td>
+                        <tr
+                            v-for="(item, index) in expense.installments"
+                            :key="index"
+                        >
+                            <td>{{ index + 1 }}/{{ expense.installments.length }}</td>
+
+                            <td>
+                                <div class="field">
+                                    {{item.data_vencimento }}
+                                </div>
+                            </td>
                             
                             <td>
-                               22/09/2020
-                            </td>
-                            <td>
-                                22/09/2020
+                                <div class="field">
+                                   {{'R$ '+ item.valor }}
+                                </div>
                             </td>
 
                             <td>
-                                <button class="but printer ma-r-small">
-                                    <svg class="feather">
+                                <div class="field">
+                                    <svg class="feather" style="text-align: center">
                                         <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
                                     </svg>
-                                    
-                                </button>
+                                </div>
                             </td>
 
-                            <td>R$ 200,00</td>
                             <td>
-                                <button class="but but-icon" disabled>
-                                    <svg class="feather menu-user__icon">
-                                        <use xlink:href="svg/feather-sprite.svg#thumbs-up"/>
-                                    </svg>
-                                </button> 
+                                but de pagto
                             </td>
+                            <td></td>
+                        
                         </tr>
                     </tbody>
                 </table>
@@ -195,7 +199,6 @@
 <script>
     // import FormViewExpense from './partials/FormViewExpense'
     export default {
-
         name: 'ViewExpense',
 
         props: {
@@ -205,12 +208,10 @@
         },
 
         created(){
-            
             this.$store.dispatch('loadExpense', this.id)
                 .then(response => {
                     this.expense = response
                 })
-
         },
 
         data(){
@@ -220,7 +221,15 @@
                     numero: '',
                     valor: '',
                 
-                }
+                },
+
+                installments: [
+                    {
+                        data_vencimento: '',
+                        valor: 0
+                    }
+                ]
+              
             }
         },
 
@@ -271,7 +280,7 @@
             delExpense (id){
                 this.$store.dispatch('delExpense', id)
                     .then(() => {
-                        this.$snotify.success(`Sucesso ao deletar`)
+                        this.$snotify.success(`Deletado com sucesso`)
                         this.$router.push({name: 'painel.despesas'})
                     })
                     .catch(error => {
