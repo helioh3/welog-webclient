@@ -17,13 +17,7 @@
             <div class="box-but">
                 
                 <div class="box-but-left">
-                    <button class="but printer">
-                        <svg class="feather">
-                            <use xlink:href="@/assets/svg/feather-sprite.svg#arrow-left"></use>
-                        </svg>
-                        Voltar
-                    </button>
-
+                   <button-back></button-back>
                 </div>
 
                 <div class="box-but-right">
@@ -158,7 +152,7 @@
                             
                             <td>
                                 <div class="field">
-                                   {{'R$ '+ item.valor }}
+                                   {{item.data_pagamento }}
                                 </div>
                             </td>
 
@@ -198,6 +192,8 @@
 </template>
 <script>
     // import FormViewExpense from './partials/FormViewExpense'
+    import ButtonBack from '../../share/ButtonBack'
+
     export default {
         name: 'ViewExpense',
 
@@ -226,6 +222,7 @@
                 installments: [
                     {
                         data_vencimento: '',
+                        data_pagamento: '',
                         valor: 0
                     }
                 ]
@@ -288,7 +285,11 @@
 
                         this.$snotify.error('Erro ao deletar categoria', 'Erro')
                     })
-            }
+            },
+
+        },
+        components: {
+            ButtonBack
         }
 
     }

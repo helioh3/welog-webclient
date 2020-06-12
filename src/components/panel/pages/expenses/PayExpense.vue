@@ -17,13 +17,7 @@
             <div class="box-but">
                 
                 <div class="box-but-left">
-                    
-                    <button class="but printer">
-                        <svg class="feather">
-                            <use xlink:href="@/assets/svg/feather-sprite.svg#arrow-left"></use>
-                        </svg>
-                        Voltar
-                    </button>
+                   <button-back></button-back>
 
                 </div>
 
@@ -142,6 +136,7 @@
 <script>
     // import FormViewExpense from './partials/FormViewExpense'
     import FormPay from './partials/FormPay'
+    import ButtonBack from '../../share/ButtonBack'
 
     export default {
         name: 'PayExpense',
@@ -205,7 +200,8 @@
         },
 
        components: {
-           FormPay
+           FormPay,
+           ButtonBack
           
         }
 

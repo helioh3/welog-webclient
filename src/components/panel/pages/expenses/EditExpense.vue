@@ -15,12 +15,7 @@
             <div class="box-but">
                 
                 <div class="box-but-left">
-                    <button class="but printer">
-                        <svg class="feather">
-                            <use xlink:href="@/assets/svg/feather-sprite.svg#arrow-left"></use>
-                        </svg>
-                        Voltar
-                    </button>
+                    <button-back></button-back>
 
                 </div>
 
@@ -72,6 +67,7 @@
 </template>
 <script>
     import FormExpense from './partials/FormExpense'
+    import ButtonBack from '../../share/ButtonBack'
 
 export default {
     props: {
@@ -131,9 +127,10 @@ export default {
                 })
         },
 
+
     },
 
-    components: { FormExpense }
+    components: { FormExpense, ButtonBack }
 
 }
 </script>

@@ -138,12 +138,14 @@
         </div>
 
         <div class="box-button">
-            <button class="but secundary">Cancelar</button>
+            <button @click.prevent="buttonBack()"  class="but secundary">Cancelar</button>
             <button type="submit" class="but primary">Salvar</button>
         </div>
     </form>
 </template>
 <script>
+
+    import { objectToFormData} from '../../../../../helpers/will'
 
     export default {
 
@@ -155,7 +157,6 @@
                     return {
                         id: '',
                         category_id: '',
-                        // anexo: '',
                         numero: '',
                         valor: '',
                         installments: [
@@ -194,16 +195,8 @@
                 let action = this.update ? 'updateExpense' : 'storeExpenses'
                 
                 //upload de arquivos
-                const formData = new FormData()
-                if(this.uploadExpense != null)
-                    formData.append('anexo', this.uploadExpense)
+                const formData = objectToFormData(this.expense)
 
-                formData.append('id', this.expense.id)
-                formData.append('category_id', this.expense.category_id)
-                formData.append('numero', this.expense.numero)
-                formData.append('valor', this.expense.valor)
-                formData.append({data_vencimento: '', valor: 0}, this.expense.installments)
-                
           
                 this.$store.dispatch(action, formData)
                     .then( ()=> {
@@ -234,8 +227,12 @@
                 if(!files.length)
                     return
                 
-                this.uploadExpense = files[0];
-            }
+                this.expense.anexo = files[0];
+            },
+
+            buttonBack(){
+                this.$router.push({name: 'painel.despesas'})
+            },
         },
 
         watch: {

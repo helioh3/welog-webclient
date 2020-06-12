@@ -13,13 +13,7 @@
         <div class="tabs-container">
             <div class="box-but">
                 <div class="box-but-left">
-                    
-                    <button class="but printer">
-                        <svg class="feather">
-                            <use xlink:href="@/assets/svg/feather-sprite.svg#arrow-left"></use>
-                        </svg>
-                        Voltar
-                    </button>
+                    <button-back></button-back>
                 </div>
             </div>
             
@@ -31,12 +25,20 @@
 
 <script>
     import FormExpense from './partials/FormExpense'
+    import ButtonBack from '../../share/ButtonBack'
 
     export default {
 
+        methods: {
+            buttonBack(){
+                this.$router.push({name: 'painel.despesas'})
+              
+            }
+        },
 
         components: {
-            FormExpense
+            FormExpense,
+            ButtonBack
         }
         
     }

@@ -4,15 +4,12 @@
             <div action="" class="search ma-r-big">
                 <input type="text" class="search__input" v-model="filter" placeholder="pesquisar">
                 
-                
             </div>
             
         </form>
 
-        
     </div>
 
-    
 </template>
 <script>
 export default {

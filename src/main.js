@@ -18,7 +18,7 @@ Vue.use(Snotify, {toast: {showProgressBar: false}})
 // this.$snotify
 
 Vue.use(VueTheMask)
-Vue.use(money, {precision: 2, prefix: 'R$ ', decimal: ',', thousands: '.', masked: true})
+Vue.use(money, {precision: 2, prefix: 'R$ ', decimal: ',', thousands: '.', masked: false})
 
 
 Vue.component('index-panel', () => import('./components/panel/IndexPanel'))

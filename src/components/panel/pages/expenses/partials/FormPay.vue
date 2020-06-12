@@ -37,17 +37,17 @@
 
                         <td>
                             <div class="field">
-                                <input type="file" name="comprovate" class="field__input">
+                                <input type="file" name="comprovate" class="field__input" @change="onFileInstallment($event, item)">
                             </div>
                         </td>
                         <td>
                             <div class="field">
-                                <input type="text" name="name" class="field__input" v-model="item.data_vencimento" disabled>
+                                <input type="text" name="name" class="field__input" v-model="item.data_pagamento">
                             </div>
                         </td>
 
                         <td>
-                            but de pagto
+                            <button @click.prevent="save(item)">pagar</button>
                         </td>
                     
                     </tr>
@@ -61,6 +61,9 @@
     </div>
 </template>
 <script>
+
+import { objectToFormData} from '../../../../../helpers/will'
+
 export default {
     props: {
         value: {
@@ -71,6 +74,7 @@ export default {
                     installments: [
                         {
                             data_vencimento: '',
+                            data_pagamento: '',
                             valor: 0
                         }
                     ]
@@ -85,6 +89,35 @@ export default {
             expense: {}
         }
     },
+    methods: {
+        save (installment) {
+            
+            //upload de arquivos
+            const formData = objectToFormData(installment)
+
+            this.$store.dispatch('updateInstallment', formData)
+                .then( ()=> {
+                    this.$snotify.success('Salvo com sucesso')
+                    this.$router.push({name: 'painel.despesas'})
+                })
+                .catch(error => {
+                    this.$snotify.error('Não foi possível salvar', 'Erro')
+
+                    console.log(error.response.data.errors)
+                    this.errors = error.response.data.errors
+                })
+        },
+
+        onFileInstallment (e, item){
+            let files = e.target.files ||  e.dataTransfer.files
+            if(!files.length)
+                return
+            
+            item.comprovante = files[0];
+                
+            }
+    },
+
 
     watch: {
         value: {
