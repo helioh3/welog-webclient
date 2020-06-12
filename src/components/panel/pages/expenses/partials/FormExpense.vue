@@ -196,8 +196,8 @@
                 
                 //upload de arquivos
                 const formData = objectToFormData(this.expense)
-
-          
+                formData.id = this.expense.id
+                
                 this.$store.dispatch(action, formData)
                     .then( ()=> {
                         this.$snotify.success('Salvo com sucesso')

@@ -61,7 +61,7 @@ export default {
     updateExpense (context, params){
         context.commit('PRELOADER', true)
         return new Promise((resolve, reject) => {
-            http.put(`${RESOURCE}/${params.id}`, params)
+            http.post(`${RESOURCE}/${params.id}`, params)
                 .then(response => resolve())
                 .catch(error => {
                     context.commit('PRELOADER', false)
