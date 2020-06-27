@@ -41,7 +41,7 @@
             </div>
 
             <div class="box-field">
-                <div class="field">
+                <div class="field" style="none;">
                     <label class="field__label">Empresa de Origem</label>
                     <div class="field__select">
                         <select>

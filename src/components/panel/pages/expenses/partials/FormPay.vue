@@ -97,11 +97,11 @@ export default {
 
             this.$store.dispatch('updateInstallment', formData)
                 .then( ()=> {
-                    this.$snotify.success('Salvo com sucesso')
+                    this.$snotify.success('Pagamento efetuado com sucesso')
                     this.$router.push({name: 'painel.despesas'})
                 })
                 .catch(error => {
-                    this.$snotify.error('Não foi possível salvar', 'Erro')
+                    this.$snotify.error('Não foi possivel efetuar pagamento', 'Erro')
 
                     console.log(error.response.data.errors)
                     this.errors = error.response.data.errors

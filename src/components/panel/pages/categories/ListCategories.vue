@@ -2,14 +2,16 @@
     <div class="box">
         <nav class="breadcrumb">
             <li><a href="index.html">inicio</a></li>
-            <li><a href="#" class="active">cadastros</a></li>
+            <li><a href="#" class="active">categorias</a></li>
         </nav>  
 
-        <nav class="tabs">
-            <button class="tabs__item tabs__item--active">Categorias</button>
-            <button class="tabs__item tabs__item">Usuários</button>
-        </nav>
+       <nav class="tabs">
+            <router-link class="tabs__item tabs__item" :to="{name: 'painel.fornecedores'}">Fornecedores</router-link>
+            <router-link class="tabs__item tabs__item" :to="{name: 'painel.empresas'}">Empresas</router-link>
+            
+            <router-link class="tabs__item tabs__item--active" :to="{name: 'painel.categorias'}">Categorias</router-link>
 
+        </nav>
         <div class="tabs-container">
 
             <div class="box-but">
@@ -25,7 +27,6 @@
                 </div>
 
                 <div class="box-but-right"></div>
-
             </div>
 
             <div class="box-categories">  

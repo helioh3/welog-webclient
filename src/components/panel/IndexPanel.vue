@@ -12,8 +12,8 @@
                     
                     <ul class="menu-nav">
                         <li><router-link :to="{ name: 'painel.dashboard'}" class="menu-nav__item">Inicio</router-link></li>
-                        <li><router-link :to="{ name: 'painel.despesas'}" class="menu-nav__item">Despesas</router-link></li>
-                        <li><router-link :to="{ name: 'painel.categorias'}" class="menu-nav__item">Cadastros</router-link></li>
+                        <li><router-link :to="{ name: 'painel.despesas'}" class="menu-nav__item">Financeiro</router-link></li>
+                        <li><router-link :to="{ name: 'painel.fornecedores'}" class="menu-nav__item">Cadastros</router-link></li>
                         <li><router-link :to="{ name: 'painel.usuarios'}" class="menu-nav__item">Relatórios</router-link></li>                      
                     </ul>
 

@@ -7,7 +7,7 @@
         <ul class="menu-nav">
             <li><router-link :to="{ name: 'painel.dashboard'}" class="menu-nav__item">Inicio</router-link></li>
             <li><router-link :to="{ name: 'painel.dashboard'}" class="menu-nav__item">Despesas</router-link></li>
-            <li><router-link :to="{ name: 'painel.categorias'}" class="menu-nav__item">Cadastros</router-link></li>
+            <li><router-link :to="{ name: 'painel.empresas'}" class="menu-nav__item">Cadastros</router-link></li>
             <li><router-link :to="{ name: 'painel.dashboard'}" class="menu-nav__item">Relatórios</router-link></li>
 
             <!-- <li class="menu-nav__item"></li>

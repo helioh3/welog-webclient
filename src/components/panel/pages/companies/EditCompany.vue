@@ -10,56 +10,53 @@
             <button class="tabs__item tabs__item--active">Editar</button>
             <!-- <button class="tabs__item">Produtos</button> -->
         </nav>
+
         <div class="tabs-container">
-
-            <div class="box-form">
-                <h2 class="box-form__title">Dados da empresa</h2>
-                
-                <div class="box-field">
-                    <div class="field">
-                        <label class="field__label">logo</label>
-                        <input class="field__input" type="file"> 
-                    </div>
-            
-                    <div class="field">
-                        <label class="field__label">Nome (Empresa)</label>
-                        <input class="field__input" type="text"> 
-                    </div>
-            
-            
-                    <div class="field">
-                        <label class="field__label">CNPJ</label>
-                        <input class="field__input" type="text"> 
-                    </div>
-            
-
-            
-                    <div class="field">
-                        <label class="field__label">Cidade</label>
-                        <div class="field__select">
-                            <select>
-                                <option value="">Dianopolis</option>
-                                <option value="">Bahia</option>
-                                <option value="">Selecione</option>
-                            </select> 
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label class="field__label">E-mail</label>
-                        <input class="field__input" type="text"> 
-                    </div>
-            
-                </div>
-            </div>
-            
-            <div class="box-button">
-                <button class="but secundary">X</button>
-                <button class="but primary">Atualizar</button>
-            </div>
-
+            <form-company 
+                :value="company"
+                :update="true"
+            >
+            </form-company>
             
         </div>
 
     </div>
 </template>
+<script>
+    import FormCompany from './partials/FormCompany'
+
+    export default {
+
+        props: {
+            id: {
+                require: true
+            }
+        },
+
+        created () {
+            this.$store.dispatch('loadCompany', this.id)
+                .then(response => {
+                    this.company = response
+                   
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+
+        },
+
+        data () {
+            return {
+                company: {
+                    id: '',
+                    empresa: '',
+                    cnpj: ''
+                }
+            }
+        },
+            
+        components: {
+            FormCompany
+        }
+    }
+</script>

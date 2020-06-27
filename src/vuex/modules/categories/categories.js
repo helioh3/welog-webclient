@@ -16,17 +16,15 @@ export default {
 
     actions: {
         getCategories (context){
-
             context.commit('PRELOADER', true)
             http.get('/api/v1/categorias')
-            .then(response => {
-                console.log(response)
-                context.commit('LOAD_CATEGORIES', response)
-            })
-            .catch(error => {
-                console.log(errors)
-            })
-            .finally( () => context.commit('PRELOADER', false))
+                .then(response => {
+                    context.commit('LOAD_CATEGORIES', response)
+                })
+                .catch(error => {
+                    // console.log(errors)
+                })
+                .finally( () => context.commit('PRELOADER', false))
         },
 
         getCategory (context, id){

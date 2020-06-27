@@ -7,7 +7,7 @@
 
         <nav class="tabs">
             <button class="tabs__item tabs__item--active">Despesas</button>
-            <button class="tabs__item">Produtos</button>
+            
         </nav>
 
         <div class="tabs-container">
@@ -49,7 +49,7 @@
 
             </div>
             
-            <table class="table-rounded">
+            <table>
                 <thead>
                     <tr>
                         <th>
@@ -58,12 +58,12 @@
                             </label>
                         </th>
                         <th>#numero</th>
-                        <th>Data</th>
+                        <th class="ac">Data</th>
                         <th>Descrição</th>
                         <th>Fornecedor</th>
                         <th>Vencimento</th>
-                        <th>Status</th>
-                        <th>Valor</th>                        
+                        <th class="ac">Status</th>
+                        <th class="ac">Valor</th>                        
                     </tr>
                 </thead>
                 <tbody>
@@ -84,12 +84,12 @@
                             </label>
                         </td>
                         <td>{{ expense.numero }}</td>
-                        <td>22/06/2019</td>
+                        <td class="ac">22/06/2019</td>
                         <td>Serviços de reparo em caminhão Ford 2010 </td>
                         <td>JR AUTO PEÇAS </td>
                         <td> 30/06/2019   </td>
-                        <td>-----</td>
-                        <td>R$ {{ expense.valor }}</td>
+                        <td class="ac">-----</td>
+                        <td class="ac">R$ {{ expense.valor }}</td>
                     </tr>
                     
                     
@@ -176,7 +176,7 @@
                 if ($event.target.checked){
                         this.selected = this.expenses.data.map( (expense) => expense.id)
                      
-                     return 
+                    return 
                 }
 
                 this.selected = []
@@ -189,7 +189,7 @@
             onPress ($event){
                 // console.log($event.keyCode)
                 if(!this.focused){
-                    
+
                     return
                 }
 
@@ -200,7 +200,7 @@
                 }
 
                 let index = this.expenses.data.findIndex( (element) => this.focused === element.id)
-                
+
                 if ($event.keyCode === 38) {
                     index--
                 } else if ($event.keyCode === 40) {

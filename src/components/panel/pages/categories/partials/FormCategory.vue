@@ -25,52 +25,51 @@
 </template>
 
 <script>
-
-export default {
-    props: {
-        category: {
-            require: false,
-            type: Object |  Array,
-            default: ()=> {
-                return {
-                    id: '',
-                    nome: ''
+    export default {
+        props: {
+            category: {
+                require: false,
+                type: Object |  Array,
+                default: ()=> {
+                    return {
+                        id: '',
+                        nome: ''
+                    }
                 }
+            },
+            update: {
+                require: false,
+                type: Boolean,
+                default: false,
             }
         },
-        update: {
-            require: false,
-            type: Boolean,
-            default: false,
-        }
-    },
 
-    data (){
-        return {
-            errors: {}
-        }
-    },
-    
-    methods: {
-        onSubmit () {
-            const action = this.update ? 'updateCategory' : 'addCategories'
+        data (){
+            return {
+                category: {},
+                errors: {}
+            }
+        },
+        
+        methods: {
+            onSubmit () {
+                const action = this.update ? 'updateCategory' : 'addCategories'
 
-            this.$store.dispatch(action, this.category)
-                .then( ()=> {
-                    this.$snotify.success('Salvo com sucesso')
-                    this.$router.push({name: 'painel.categorias'})
-                })
-                .catch(error => {
-                    this.$snotify.error('Não foi possível salvar', 'Erro')
+                this.$store.dispatch(action, this.category)
+                    .then( ()=> {
+                        this.$snotify.success('Salvo com sucesso')
+                        this.$router.push({name: 'painel.categorias'})
+                    })
+                    .catch(error => {
+                        this.$snotify.error('Não foi possível salvar', 'Erro')
 
-                    console.log(error.response.data.errors)
-                    this.errors = error.response.data.errors
-                })
+                        // console.log(error.response.data.errors)
+                        this.errors = error.response.data.errors
+                    })
+            }
         }
+
     }
-
-
-}
 </script>
 
 <style scoped> 
