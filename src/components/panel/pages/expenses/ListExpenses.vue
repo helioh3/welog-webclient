@@ -49,13 +49,15 @@
 
             </div>
             
-            <table class="table-rounded">
+            <table class="table-list">
                 <thead>
                     <tr>
                         <th>
-                            <label>
-                                 <input type="checkbox" class="field__checkbox" @click="selectAll($event)">
-                            </label>
+                            <!-- <label>
+                                selecionar tudo
+                                <input type="checkbox" class="field__checkbox" @click="selectAll($event)">
+                            </label> -->
+                            Marcar
                         </th>
                         <th>#numero</th>
                         <th>Data</th>

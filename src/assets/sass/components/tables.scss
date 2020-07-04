@@ -53,42 +53,46 @@
 
 .box-table{
     // background-color: red;
-    padding: 1rem 2.5rem;
+    // padding: 1rem 2.5rem;
 }
 
 .field-table{
     border-collapse: separate;
     border-spacing: 0;   
     width: 100%;
-    border: 1px solid var(--color-grey-light);
+    border-top: 1px solid var(--color-grey-light-small);
+    border-bottom: 1px solid var(--color-grey-light-small);
+    // border-bottom: 1px solid var(--color-grey-light);
     margin-bottom: 1rem;
 
+    thead tr th{
+        border-bottom: 1px solid var(--color-grey-light-small);
+    }
+
     tr{
-
         th{
-            padding: 1rem;
-
+            font-size: 1rem;
+            text-align: left;
+            padding: 1.2rem;
+            text-transform: uppercase;
         }
     }
 
     tbody{
-
         tr{
-            // background-color: red;
             td{
-                border-top: 1px dotted var(--color-grey-light);
-                padding: .5rem 1rem;
+                // border-top: 1px solid var(--color-grey-light-small);
+                padding: 1rem 1rem;
 
                 .field{
-
                     &__input{
-                        padding: .9rem;
+                        padding: .7rem;
                         width: 50%;
                         outline: none;
                         border-radius: .4rem;
                         
                         border: 2px solid var(--color-grey-light-small);
-                        background-color: var(--color-grey-light-small-2);
+                        background-color: var(--color-grey-light-small);
                         &:focus{
                             background-color: #fff;
                             border: 2px solid var(--color-grey1);
@@ -113,18 +117,17 @@
             }
         }
 
-
     }
 }
 
-.table-rounded{
+.table-list{
     width: 100%;
-    
     text-align: center;
-    // border: 1px solid black;
     border-collapse: separate;
     border-radius: 10px;
     border-spacing: 0 .5rem;
+
+   
    
     td, th {
         padding: 15px 20px;
