@@ -77,7 +77,6 @@ export default {
     },
 
     created () {
-
         this.$store.dispatch('loadExpense', this.id)
             .then(response => {
                 this.expense = response
@@ -86,7 +85,6 @@ export default {
             .catch(error => {
                 console.log(error)
             })
-
     },
 
     data(){
@@ -96,7 +94,6 @@ export default {
                 numero: '',
                 category_id: '',
                 valor: ''
-
             }
         }
     },
@@ -110,7 +107,6 @@ export default {
                     this.$router.push({name: 'painel.despesas.pagar', params:{id: id}})
                 })
                 .catch(error => {
-                    
                     this.$snotify.error('Houve um erro ao pagar', 'Erro')
                 })
         },
@@ -126,8 +122,6 @@ export default {
                     this.$snotify.error('Houve um erro ao editar', 'Erro')
                 })
         },
-
-
     },
 
     components: { FormExpense, ButtonBack }

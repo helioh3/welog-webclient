@@ -45,19 +45,6 @@ export default {
         })
     },
 
-    // storeExpenses (context, params){
-    //     context.commit('PRELOADER', true)
-    //     return new Promise((resolve, reject) => {
-    //         http.post(`${EXPENSE}`, params)
-    //             .then(response => resolve())
-    //             .catch(error => {
-    //                 context.commit('PRELOADER', false)
-
-    //                 reject(error.response)
-    //             })
-    //     })
-    // },
-
     updateExpense (context, params){
         context.commit('PRELOADER', true)
         return new Promise((resolve, reject) => {

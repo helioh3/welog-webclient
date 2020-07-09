@@ -44,21 +44,13 @@
                             <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
                         </svg>
                     </button>
-
                 </div>
-
             </div>
             
             <table class="table-list">
                 <thead>
                     <tr>
-                        <th>
-                            <!-- <label>
-                                selecionar tudo
-                                <input type="checkbox" class="field__checkbox" @click="selectAll($event)">
-                            </label> -->
-                            Marcar
-                        </th>
+                        <th>Marcar</th>
                         <th>#numero</th>
                         <th>Data</th>
                         <th>Descrição</th>
@@ -68,10 +60,8 @@
                         <th>Valor</th>                        
                     </tr>
                 </thead>
+
                 <tbody>
-                    <!-- <router-link class="tabs__item tabs__item--active" :to="{name: 'painel.categorias', params:{id: category.id}}">
-                        
-                    </router-link> -->
                     <tr class="dotted" :class="{focused: focused === expense.id }" 
                         v-for="expense in expenses.data" :key="expense.id" 
                         @click.stop="focus(expense.id)" 
@@ -93,8 +83,6 @@
                         <td>-----</td>
                         <td>R$ {{ expense.valor }}</td>
                     </tr>
-                    
-                    
                 </tbody>
             </table>
 
@@ -160,13 +148,11 @@
             },
 
             select(id, checked) {
-                
                 if(checked){
                     this.selected.push(id)
                     return
                 }
                 const index = this.selected.findIndex( (element) => id === element )
-                
                 //Early return tecnica
                 if(index < 0 ){
                     return

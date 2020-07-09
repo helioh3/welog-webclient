@@ -1,7 +1,7 @@
 <template>
+
     <div class="wrapper">
         <h2 class="wrapper__title" style="text-align: center">Despesa #0001</h2>
-        
         <form @submit.prevent="onSubmit">
             <div class="box-form-left">
                 <div class="field-file">
@@ -14,13 +14,6 @@
                         <label class="field-file__label">Anexar documentos</label>
                         <input type="file" class="field-file__input--file" @change="onFileChange" />
                     </div>
-
-                    
-                   
-                    
-                    <!-- <svg class="icon-image">
-                        <use xlink:href="@/assets/svg/feather-sprite.svg#file-text"></use>
-                    </svg> -->
                 </div>
             </div>
             
@@ -46,9 +39,7 @@
                     <label class="field__label">Categoria</label>
                     <div :class="['field__select', {'has-error': errors.category_id}]">
                         <select v-model="expense.category_id"  >
-                            <!-- <option value=""></option> -->
                             <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.nome }}</option>
-
                         </select>
                     </div>
                 </div>
@@ -94,8 +85,8 @@
 
                         <tbody>
                             <tr
-                            v-for="(item, index) in expense.installments"
-                            :key="index"
+                                v-for="(item, index) in expense.installments"
+                                :key="index"
                             >
                                 <td>{{ index + 1 }}/{{ expense.installments.length }}</td>
 
@@ -144,8 +135,8 @@
             </div>
                  
         </form>
-       
     </div>
+
 </template>
 <script>
     import { objectToFormData} from '../../../../../helpers/will'

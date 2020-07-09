@@ -1,3 +1,4 @@
+
 .paginate {
     display: flex;
     align-content: center;
@@ -6,23 +7,32 @@
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-
+    
+    .active a {
+        background-color: var(--color-green-dark);
+      }
+    
     li {
+        margin: .1rem;
         
         a {
+            transition: all 0.2s ease-out;
+            border-radius: .5rem;
             padding: 0.5rem 1rem;
+            background-color: var(--color-green);
+            position: relative;
+            color: white;
             
             &:link,
             &:visited {
                 text-decoration: none;
             }
+
             &:hover,
             &:active{
-                background-color: yellow;
-                color: var(--color-gray);
+                background-color: var(--color-green-dark);
+                color: white;
             }
-            
-
         }
     }
 }

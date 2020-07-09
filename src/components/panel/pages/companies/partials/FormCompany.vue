@@ -7,7 +7,7 @@
                 <div class="box-field">
                     <div class="field">
                         <label class="field__label">logo</label>
-                        <input class="field__input" type="file"> 
+                        <input type="file" class="field__input" > 
                     </div>
             
                     <div class="field">
@@ -89,11 +89,10 @@ export default {
                     this.$snotify.success('Salvo com sucesso');
                     this.$router.push({name: 'painel.empresas'})
                 })
-                .catch( ()=> {
+                .catch( () => {
                     this.$snotify.error('Não foi possivel salvar', 'Erro')
                 })
         },
-        
     },
 
     watch: {

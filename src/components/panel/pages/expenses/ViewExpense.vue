@@ -1,7 +1,6 @@
 <template>  
     <div class="box">
         <!-- <pre>{{ expense }} </pre> -->
-
         <nav class="breadcrumb">
             <li><a href="#">inicio</a></li>
             <li><a href="#">despesa</a></li>
@@ -51,78 +50,66 @@
     
         </div>
 
-        <div class="box-form view-form">
+        <div class="box-form view-form-view">
             <h2 class="box-form__title">Dados da despesa</h2>
             <div class="box-field">
+                <div class="field">
+                    <label class="field__label">Imprimir anexo</label>
+                    <svg class="feather" style="text-align: center">
+                        <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
+                    </svg>
+                </div>
+
                  <div class="field">
-                    <label class="field__label">numero</label>
-                    <input class="field__input" type="text" placeholder="" v-model="expense.id" disabled /> 
+                    <label class="field__label">Codigo</label>
+                    <p class="field__text">{{ expense.id }}</p>
                 </div>
 
                 <div class="field">
                     <label class="field__label">N. Nota Fiscal</label>
-                    <input class="field__input" type="text" placeholder="" v-model="expense.numero" disabled /> 
+                    <p class="field__text">{{ expense.numero }}</p> 
                 </div>
         
                 <div class="field">
                     <label class="field__label">Fornecedor</label>
-                    <div class="field__select">
-                        <select disabled>
-                            <!-- <option selected="selected"> mudar</option> -->
-                            <option value="">Selecione</option>
-                            <option value="">Selecione</option>
-                            <option value="">Selecione</option>
-                        </select> 
-                    </div>
+                    <p class="field__text">SAO SEBASTIÃO ENERGIA</p>
                 </div>
-        
+
+                
+            </div>
+
+            <div class="box-field ">
+
                 <div class="field">
                     <label class="field__label">Categoria</label>
-                    <div class="field__select">
+                    <p class="field__text">COMBUSTIVEL</p>
+                    <!-- <div class="field__select">
                         <select v-model="expense.category_id" disabled>
-                            <!-- <option value=""></option> -->
                             <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.nome }}</option>
 
                         </select>
-                    </div>
+                    </div> -->
                 </div>
-            </div>
-
-            <div class="box-field">
+               
                 <div class="field">
                     <label class="field__label">Empresa de Origem</label>
-                    <div class="field__select">
-                        <select disabled>
-                            <option value="">Selecione</option>
-                            <option value="">testestestestestestestestest</option>
-                            <option value="">Selecione</option>
-                        </select>
-                    </div>
+                    <p class="field__text">HELIO BRITO</p>
                 </div>
                
                 <div class="field">
                     <label class="field__label">Data de cadastro</label>
-                    <input class="field__input w-mini-small" type="text" disabled>
+                    <p class="field__text">99/99/9999</p>
                 </div>
 
                 <div class="field">
                     <label class="field__label">Conta Bancária</label>
-                    <div class="field__select">
-                        <select disabled>
-                            <option value="">Selecione</option>
-                            <option value="">Banco do Brasil</option>
-                            <option value="">Sicredi</option>
-                        </select>
-                    </div>
+                    <p class="field__text">BANCO DO BRASIL</p>
                 </div>
-                 <div class="field">
-                    <label class="field__label">Valor (R$)</label>
-                    <money class="field__input w-mini-small" type="text" v-model="expense.valor" disabled />
-                </div>
+                
             </div>     
         </div> 
     
-        <div class="box-form view-form">
+        <div class="box-form view-form-view">
             <h2 class="box-form__title">Dados de pagamento</h2>
 
             <div class="box-table">
@@ -132,8 +119,8 @@
                             <th>Parcela</th>
                             <th>Vencimento</th>
                             <th>Data / Pagamento</th>
-                            <th>Comprovante</th>
-                            <th>Valor(R$)</th>
+                            <th>Comprovantes</th>
+                            <th>Valor (R$)</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -165,7 +152,7 @@
                             </td>
 
                             <td>
-                                but de pagto
+                                {{ item.valor}}
                             </td>
                             <td></td>
                         
@@ -176,7 +163,7 @@
 
         </div> 
 
-        <div class="box-form view-form">
+        <div class="box-form view-form-view">
             <h2 class="box-form__title">Informções extra</h2>
             <div class="box-field">
                 <div class="field">
@@ -214,8 +201,8 @@
             return {
                 expense: {
                     id: '',
-                    numero: '',
-                    valor: '',
+                    numero: ''
+                   
                 
                 },
 
@@ -223,7 +210,8 @@
                     {
                         data_vencimento: '',
                         data_pagamento: '',
-                        valor: 0
+                        valor: ''
+                       
                     }
                 ]
               
