@@ -6,12 +6,10 @@
         </nav>  
 
         <nav class="tabs">
-            <button class="tabs__item tabs__item">Categorias</button>
             <button class="tabs__item tabs__item--active">Usuários</button>
         </nav>
 
         <div class="tabs-container">
-
             <div class="box-but">
                 <div class="box-but-left">
                     <button class="but printer ma-r-small">
@@ -34,7 +32,7 @@
                             <div class="user__date--day">Nov</div>
                         </div>
 
-                        <img src="images/natan.jpg" class="user__photo" alt="">
+                        <img src="@/assets/images/natan.jpg" class="user__photo" alt="">
 
                         <span class="user__name">Natanael <br> Gomes</span>
                         <span class="user__perfil">Gerente Administrativo</span>
@@ -53,8 +51,6 @@
                             </svg>
                         </button>
                     </div>
-
-                    
                 </li>
 
                 <li class="user">
@@ -64,7 +60,7 @@
                             <div class="user__date--day">Mai</div>
                         </div>
 
-                        <img src="images/helio.jpg" class="user__photo" alt="">
+                        <img src="@/assets/images/helio.jpg" class="user__photo" alt="">
 
                         <span class="user__name">Helio <br> Brito</span>
                         <span class="user__perfil">Tecnico em Informática</span>
@@ -83,12 +79,9 @@
                             </svg>
                         </button>
                     </div>
-
-                    
                 </li>
+                
             </div>
-
-            
         </div>
 
     </div>

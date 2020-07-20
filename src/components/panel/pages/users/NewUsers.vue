@@ -4,7 +4,6 @@
             <li><a href="index.html">inicio</a></li>
             <li><a href="users.html" >usuarios</a></li>
             <li><a href="index.html" class="active">novo</a></li>
-
         </nav>  
 
         <nav class="tabs">

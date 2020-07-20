@@ -25,13 +25,15 @@
 
                         <td>
                             <div class="field">
-                                <input type="text" name="name" class="field__input"  v-model="item.data_vencimento" disabled>
+                                <p class="field__text">{{ item.data_vencimento }}</p>
                             </div>
+                            
                         </td>
                         
                         <td>
                             <div class="field">
-                                <money type="text" name="name" class="field__input" v-model="item.valor" disabled />
+                                <!-- <money type="text" name="name" class="field__input" v-model="item.valor" disabled /> -->
+                                <p class="field__text">R$ {{ item.valor }} </p>
                             </div>
                         </td>
 

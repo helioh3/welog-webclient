@@ -7,7 +7,7 @@
 
         <nav class="tabs">
             <button class="tabs__item tabs__item--active">Despesas</button>
-            <button class="tabs__item">Produtos</button>
+            <!-- <button class="tabs__item">Produtos</button> -->
         </nav>
 
         <div class="tabs-container">
@@ -20,13 +20,15 @@
                 <div class="box-but-right">
 
                     <div class="but-group ma-r-small">
-                        <button class="but prev">
+                        <button class="but prev" @click.prevent="prevMonth">
                             <svg class="feather white">
                                 <use xlink:href="@/assets/svg/feather-sprite.svg#arrow-left"></use>
                             </svg>                
                         </button>
-                        <button class="but tertiary">Janeiro - 2020</button>
-                        <button class="but next">
+                        
+                        <button class="but tertiary">{{ month | monthString }} - {{ year }}</button>
+                        
+                        <button class="but next" @click.prevent="nextMonth">
                             <svg class="feather white">
                                 <use xlink:href="@/assets/svg/feather-sprite.svg#arrow-right"></use>
                             </svg>
@@ -110,7 +112,29 @@
             return {
                 search: '',
                 selected: [],
-                focused: ''
+                focused: '',
+                year: 2020,
+                month: 1,
+            }
+        },
+
+        filters: {
+            monthString (value) {
+                const months = {
+                    1: 'Janeiro',
+                    2: 'Fevereiro',
+                    3: 'Março',
+                    4: 'Abril',
+                    5: 'Maio',
+                    6: 'Junho',
+                    7: 'Julho',
+                    8: 'Agosto',
+                    9: 'Setembro',
+                    10: 'Outubro',
+                    11: 'Novembro',
+                    12: 'Dezembro'
+                }
+                return months[value]
             }
         },
         
@@ -129,7 +153,10 @@
 
         methods: {
             loadExpenses(page){
-                this.$store.dispatch('loadExpenses', {...this.params, page})
+                const ano = this.year
+                const mes = this.month
+
+                this.$store.dispatch('loadExpenses', {...this.params, page, ano, mes})
             },
             
             searchForm (filter) {
@@ -166,7 +193,6 @@
                      
                      return 
                 }
-
                 this.selected = []
             },
 
@@ -199,21 +225,39 @@
                     
                     return
                 }
-
                 this.focused = this.expenses.data[index].id
-            }
-        
+            },
+
+            prevMonth(){
+                let month = this.month-1
+
+                if(month <= 0){
+                    month = 12
+                    this.year = this.year -1
+                }
+                this.month = month
+                this.loadExpenses(1)
+            },
+
+             nextMonth(){
+                let month = this.month+1
+
+                if(month >= 13){
+                    month = 1
+                    this.year = this.year +1
+                }
+                this.month = month
+                this.loadExpenses(1)
+            },
         },
 
         components: {
            paginate: PaginationGeneral, 
            search: SearchPanel
-          
         },
 
         mounted() {
             document.addEventListener("keyup", this.onPress)
-
         },
 
         destroyed() {

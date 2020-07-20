@@ -1,5 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '../vuex/store'
+
+import IndexHome from '../components/site/IndexHome'
+import Teste from '../components/site/Home'
+
+import LoginClient from '../components/site/pages/login/LoginClient'
 
 import ListUsers from '../components/panel/pages/users/ListUsers'
 
@@ -30,16 +36,30 @@ Vue.use(VueRouter)
 
 //My Routes of App
 const routes = [
+  
+  // LANDING PAGE DA APLICAÇÃO
+  {
+    path: '/', 
+    component: IndexHome,
+    
+    children: [
+      {path: 'login', component: LoginClient, name: 'login'},
+      {path: 'teste', component: Teste, name: 'teste'}
+    ]
+  },
+
+  // PAINEL TOTAL DA APLICAÇÃO
   {
     path: '/painel', 
     component: IndexPanel,
+    meta: {auth: true},
 
     children: [
       { path: '', component: HomeDashboard, name: 'painel.dashboard' },
 
       {path: 'usuarios', component: ListUsers, name: 'painel.usuarios'},
 
-      { path: 'empresas', component: ListCompanies, name: 'painel.empresas' },
+      { path: 'empresas', component: ListCompanies, name: 'painel.empresas'},
       { path: 'empresas/:id/visualizar', component: ViewCompany, name: 'painel.empresas.visualizar', props: true },
       { path: 'empresas/adicionar', component: NewCompany, name: 'painel.empresas.adicionar' },
       { path: 'empresas/:id/editar', component: EditCompany, name: 'painel.empresas.editar', props: true },
@@ -59,7 +79,6 @@ const routes = [
       { path: 'despesas/:id/editar', component: EditExpense, name: 'painel.despesas.editar', props: true },
       { path: 'despesas/:id/pagar', component: PayExpense, name: 'painel.despesas.pagar', props: true },
 
-
     ]
   },
 ]
@@ -67,5 +86,16 @@ const routes = [
 const router = new VueRouter({
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  if(to.matched.some(record => record.meta.auth) && !store.state.auth.authenticated){
+    return router.push({name: 'login'})
+    // console.log(record.meta.auth)
+  }
+
+  next()
+
+})
+
 
 export default router
