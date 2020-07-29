@@ -12,6 +12,7 @@
                     <h3 class="info__item--value">R$ 2.500,00</h3>
                     <h3 class="info__item--months">Anual</h3>
                 </li>
+                
                 <li class="info__item">
                     <div class="info__item--title">
                         Despesas

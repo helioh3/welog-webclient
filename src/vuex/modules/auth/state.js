@@ -1,5 +1,5 @@
 export default {
     me: {},
-    authenticated: false
-  
+    authenticated: false,
+    urlBack: 'teste',
 }

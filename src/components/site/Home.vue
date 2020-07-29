@@ -1,3 +1,3 @@
 <template>
-    <h1>teste</h1>
+    <router-link :to="{name: 'login'}">login</router-link>
 </template>

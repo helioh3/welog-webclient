@@ -6,14 +6,15 @@
                 <a href=""><img src="@/assets/images/logo-oficial.png" class="logo" alt="" width="178" height="70"></a>
             </div>
         </header>
+        
         <!-- CONTEUDO DO SISTEMA -->
         <main class="login-main">
             <div class="box-login">
                 <form @submit.prevent="onLogin">
-                    <h1 class="title">Login-se <strong>CONTA - SENHA</strong> </h1>
+                    <h1 class="title">Bem-vindo <p>Logar</p></h1>
                     
                     <div class="field">
-                        <input type="text" class="field__input"  placeholder="Usuário ID" v-model="formData.email"> 
+                        <input type="text" class="field__input"  placeholder="Use e-mail" v-model="formData.email"> 
                         <input type="password" class="field__input"  placeholder="Senha" v-model="formData.password"> 
                         <p>Obter ID Account</p>
                     </div>
@@ -49,7 +50,7 @@ export default {
                     this.$router.push({name: 'painel.dashboard'})
                 })
                 .catch( error => {
-                    console.log(error)
+                    this.$snotify.error('dados invalidos', 'Falhou')
                 })
         }
     }

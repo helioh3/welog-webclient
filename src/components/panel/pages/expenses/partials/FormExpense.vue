@@ -173,7 +173,7 @@
            return {
                errors: {},
                expense: {},
-               uploadExpense: null,
+            //    uploadExpense: null,
                imagePreview: null
            }
         },
@@ -198,9 +198,7 @@
                         this.$router.push({name: 'painel.despesas'})
                     })
                     .catch(error => {
-                        this.$snotify.error('Não foi possível salvar', 'Erro')
-
-                        console.log(error.response.data.errors)
+                        this.$snotify.error('Não foi possível salvar', 'Erro')                        
                         this.errors = error.response.data.errors
                     })
             },

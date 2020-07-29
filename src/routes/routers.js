@@ -8,6 +8,9 @@ import Teste from '../components/site/Home'
 import LoginClient from '../components/site/pages/login/LoginClient'
 
 import ListUsers from '../components/panel/pages/users/ListUsers'
+import NewUser from '../components/panel/pages/users/NewUser'
+import ViewUser from '../components/panel/pages/users/ViewUser'
+import EditUser from '../components/panel/pages/users/EditUser'
 
 import ListCompanies from '../components/panel/pages/companies/ListCompanies'
 import ViewCompany from '../components/panel/pages/companies/ViewCompany'
@@ -43,8 +46,8 @@ const routes = [
     component: IndexHome,
     
     children: [
-      {path: 'login', component: LoginClient, name: 'login'},
-      {path: 'teste', component: Teste, name: 'teste'}
+      {path: 'login', component: LoginClient, name: 'login', meta: {auth: false} },
+      {path: '', component: Teste, name: 'teste'}
     ]
   },
 
@@ -57,11 +60,14 @@ const routes = [
     children: [
       { path: '', component: HomeDashboard, name: 'painel.dashboard' },
 
-      {path: 'usuarios', component: ListUsers, name: 'painel.usuarios'},
+      { path: 'usuarios', component: ListUsers, name: 'painel.usuarios'},
+      { path: 'usuarios/adicionar', component: NewUser, name: 'painel.usuarios.adicionar' },
+      { path: 'usuarios/:id/visualizar', component: ViewUser, name: 'painel.usuarios.visualizar'},
+      { path: 'usuarios/:id/editar', component: EditUser , name: 'painel.usuarios.editar', props: true },
 
       { path: 'empresas', component: ListCompanies, name: 'painel.empresas'},
-      { path: 'empresas/:id/visualizar', component: ViewCompany, name: 'painel.empresas.visualizar', props: true },
       { path: 'empresas/adicionar', component: NewCompany, name: 'painel.empresas.adicionar' },
+      { path: 'empresas/:id/visualizar', component: ViewCompany, name: 'painel.empresas.visualizar', props: true },
       { path: 'empresas/:id/editar', component: EditCompany, name: 'painel.empresas.editar', props: true },
 
       { path: 'fornecedores', component: ListProviders, name: 'painel.fornecedores' },
@@ -74,8 +80,8 @@ const routes = [
       { path: 'categorias/:id/editar', component: EditCategory, name: 'painel.categorias.editar', props: true },
 
       { path: 'despesas', component: ListExpenses, name: 'painel.despesas'},
-      { path: 'despesas/:id/visualizar', component: ViewExpense, name: 'painel.despesas.visualizar', props: true },
       { path: 'despesas/adicionar', component: NewExpense, name: 'painel.despesas.adicionar' },
+      { path: 'despesas/:id/visualizar', component: ViewExpense, name: 'painel.despesas.visualizar', props: true },
       { path: 'despesas/:id/editar', component: EditExpense, name: 'painel.despesas.editar', props: true },
       { path: 'despesas/:id/pagar', component: PayExpense, name: 'painel.despesas.pagar', props: true },
 
@@ -88,12 +94,22 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if(to.matched.some(record => record.meta.auth) && !store.state.auth.authenticated){
-    return router.push({name: 'login'})
-    // console.log(record.meta.auth)
-  }
+    if(to.meta.auth && !store.state.auth.authenticated){
+      store.commit('CHANGE_URL_DEFAULT', to.name)
+      return router.push({name: 'login'})
+    }
+    
+    if(to.matched.some(record => record.meta.auth) && !store.state.auth.authenticated){
+      store.commit('CHANGE_URL_DEFAULT', to.name)
+      return router.push({name: 'login'})
+      // console.log(record.meta.auth)
+    }
 
-  next()
+    if(to.meta.hasOwnProperty('auth') && !to.meta.auth && store.state.auth.authenticated){
+      return router.push({name: 'painel.dashboard'})
+    }
+
+    next()
 
 })
 

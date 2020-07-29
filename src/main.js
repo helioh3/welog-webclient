@@ -35,16 +35,17 @@ const app = new Vue({
     render: h => h(App),
   });
 
-// store.dispatch('getCategories')
+store.dispatch('getCategories')
 
-//VERIFICA RECEBE O TOKEN E MANTEM LOGADO COM BASE
+//VERIFICA RECEBE O TOKEN E MANTEM LOGADO COM BASE NO TOKEN
 const token = localStorage.getItem(NAME_TOKEN)
 if(token)
-  http.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  http.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
+// VERIFICA SE O
 store.dispatch('checkLogin')
-  .then(() => router.push({name: 'painel.dashboard'}))
-  .catch()
+  .then( () => router.push({name: store.state.auth.urlBack}) )
+  
 
 
 
