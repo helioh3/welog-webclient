@@ -15,6 +15,7 @@ jobs:
       - run: git checkout master
       - run: git config --global user.email "ci@getwelog.com"
       - run: git config --global user.name "CI"
+      - run: echo "${{ secrets.MASTER_DEPLOY_ENV }}" | tr -d '\r' > .env
 
       # build quasar app
       - name: Use Node.js ${{ matrix.node-version }}
@@ -31,7 +32,6 @@ jobs:
         run: |
           rm -rf .git
           cd dist
-          echo "${{ secrets.MASTER_DEPLOY_ENV }}" | tr -d '\r' > .env
           git init
           git add .
           git add -f .env
