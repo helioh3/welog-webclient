@@ -116,9 +116,8 @@ export default {
             
             item.comprovante = files[0];
                 
-            }
+        }
     },
-
 
     watch: {
         value: {

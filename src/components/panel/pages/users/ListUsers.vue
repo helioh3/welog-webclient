@@ -132,6 +132,8 @@ export default {
                 .then( () => {
                     this.$snotify.success(`Usuário deletado com sucesso`)
                     this.$router.push({name: 'painel.usuarios'})
+
+                    this.loadUsers()
                 })
                 .catch(error => {
                     console.log(error)

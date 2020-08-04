@@ -165,76 +165,73 @@
 <script>
     import ButtonBack from './share/ButtonBack'
 
+    export default {
+        props: {
+            id: {
+                require: true
+            }
+        },
 
-export default {
-    props: {
-        id: {
-            require: true
-        }
-    },
+        created(){
+            this.$store.dispatch('loadProvider', this.id)
+                .then(response => {
+                    this.provider = response
+                })
+        },
 
-    created(){
-        this.$store.dispatch('loadProvider', this.id)
-            .then(response => {
-                this.provider = response
-            })
-    },
+        data(){
+            return {
+                provider: {
+                    id: '',
+                    nome: '',
+                    cpf: '',
+                },
+            }
+        },
 
-    data(){
-        return {
-            provider: {
-                id: '',
-                nome: '',
-                cpf: '',
-            
+        methods: {
+            edit(id){
+                this.$store.dispatch('loadProvider', id)
+                    .then(response => {
+                        console.log(response)
+                        this.$router.push({name: 'painel.fornecedores.editar', params:{id: id}})
+                    })
+                    .catch(error => {
+                        this.$snotify.error('Houve um erro ao editar', 'Erro')
+                    })
             },
 
+            confirmDelete(provider){
+                this.$snotify.error(`Deseja deletar o fornecedor nome: ${provider.nome}`, 'Confirme', {
+                    position: "centerCenter",
+                    timeout: 10000,
+                    showProgressBar: true,
+                    closeOnClick: true, 
+                    buttons:[
+                        {text: 'Não', action: null },
+                        {text: 'Sim', action: (value)=>  {this.delProvider(provider.id), this.$snotify.remove(value.id)} }
+                    ] 
+                })
+            },
+
+            delProvider (id){
+                this.$store.dispatch('delProvider', id)
+                    .then( () => {
+                        this.$snotify.success(`Fornecedor deletado com sucessu`)
+                        this.$router.push({name: 'painel.fornecedores'})
+                    })
+                    .catch(error => {
+                        console.log(error)
+
+                        this.$snotify.error('Erro ao deletar fornecedor', 'Erro')
+                    })
+            },
+
+        },
+
+        components: {
+            ButtonBack
         }
-    },
-
-    methods: {
-        edit(id){
-            this.$store.dispatch('loadProvider', id)
-                .then(response => {
-                    console.log(response)
-                    this.$router.push({name: 'painel.fornecedores.editar', params:{id: id}})
-                })
-                .catch(error => {
-                    
-                    this.$snotify.error('Houve um erro ao editar', 'Erro')
-                })
-        },
-
-        confirmDelete(provider){
-            this.$snotify.error(`Deseja deletar o fornecedor nome: ${provider.nome}`, 'Confirme', {
-                position: "centerCenter",
-                timeout: 10000,
-                showProgressBar: true,
-                closeOnClick: true, 
-                buttons:[
-                    {text: 'Não', action: null },
-                    {text: 'Sim', action: (value)=>  {this.delProvider(provider.id), this.$snotify.remove(value.id)} }
-                ] 
-            })
-        },
-
-        delProvider (id){
-            this.$store.dispatch('delProvider', id)
-                .then( () => {
-                    this.$snotify.success(`Fornecedor deletado com sucessu`)
-                    this.$router.push({name: 'painel.fornecedores'})
-                })
-                .catch(error => {
-                    console.log(error)
-
-                    this.$snotify.error('Erro ao deletar fornecedor', 'Erro')
-                })
-        },
-
-    },
-    components: {
-        ButtonBack
+        
     }
-    
-}
 </script>
