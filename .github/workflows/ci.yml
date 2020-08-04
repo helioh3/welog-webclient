@@ -31,8 +31,10 @@ jobs:
         run: |
           rm -rf .git
           cd dist
+          echo "${{ secrets.MASTER_DEPLOY_ENV }}" | tr -d '\r' > .env
           git init
           git add .
+          git add -f .env
           git commit --quiet -m "[deploy] $(date)"
 
       # configure ssh
