@@ -34,7 +34,6 @@ jobs:
           cd dist
           git init
           git add .
-          git add -f .env
           git commit --quiet -m "[deploy] $(date)"
 
       # configure ssh
