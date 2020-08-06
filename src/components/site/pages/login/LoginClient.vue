@@ -11,7 +11,7 @@
         <main class="login-main">
             <div class="box-login">
                 <form @submit.prevent="onLogin">
-                    <h1 class="title">Bem-vindo <p>Logar-se com sua conta</p></h1>
+                    <h1 class="title">Bem-vindo <p>Insira os dado de sua conta</p></h1>
                     
                     <div class="field">
                         <input type="text" class="field__input"  placeholder="Use e-mail" v-model="formData.email"> 

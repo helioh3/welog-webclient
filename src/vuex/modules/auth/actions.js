@@ -20,19 +20,22 @@ export default {
     },
 
     checkLogin(context) {
-        context.commit('PRELOADER', true)
         return new Promise((resolve, reject) => {
             const token = localStorage.getItem(NAME_TOKEN)
             if(!token){
                 return reject()
             }
+
+            context.commit('PRELOADER', true)
             http.get('api/v1/me')
                 .then(response => {
                     context.commit('AUTH_USER_OK', response.data.user)
 
                     resolve()
                 })
-                .catch( () => reject() )
+                .catch( () => {
+                    localStorage.removeItem(NAME_TOKEN)
+                })
                 .finally(() => context.commit('PRELOADER', false))
         })
     },
