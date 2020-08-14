@@ -114,7 +114,7 @@
                 selected: [],
                 focused: '',
                 year: 2020,
-                month: 1,
+                month: 8,
             }
         },
 
