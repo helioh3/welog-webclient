@@ -16,7 +16,7 @@ export default {
 
     actions: {
         getCategories (context){
-            // context.commit('PRELOADER', true)
+            context.commit('PRELOADER', true)
             http.get('/api/v1/categorias')
                 .then(response => {
                     context.commit('LOAD_CATEGORIES', response)
@@ -24,7 +24,7 @@ export default {
                 .catch(error => {
                     // console.log(errors)
                 })
-                // .finally( () => context.commit('PRELOADER', false))
+                .finally( () => context.commit('PRELOADER', false))
         },
 
         getCategory (context, id){
@@ -68,7 +68,7 @@ export default {
                 http.delete(`api/v1/categorias/${id}`)
                     .then(response => resolve())
                     .catch(error => reject(error))
-                    // .finally(() => context.commit('PRELOADER', false))
+                    .finally(() => context.commit('PRELOADER', false))
             })
         }
     },
