@@ -250,7 +250,7 @@
             },
 
             confirmDelete(expense){
-                this.$snotify.error(`Deseja deletar as despesa numero: ${expense.id}`, 'Confirme', {
+                this.$snotify.error(`Deseja deletar a despesa numero: ${expense.id}`, 'Confirme', {
                     position: "centerCenter",
                     timeout: 10000,
                     showProgressBar: true,
