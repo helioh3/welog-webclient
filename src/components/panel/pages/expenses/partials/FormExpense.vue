@@ -1,7 +1,7 @@
 <template>
 
     <div class="wrapper">
-        <h2 class="wrapper__title" style="text-align: center">Despesa #0001</h2>
+        <h2 class="wrapper__title" style="text-align: center">Despesa #</h2>
         <form @submit.prevent="onSubmit">
             <div class="box-form-left">
                 <div class="field-file">
@@ -101,12 +101,14 @@
 
                                 <td>
                                     <!-- <button type="button" class="but" @click="removeItem(index)">- </button> -->
-                                    <svg class="feather" @click="removeItem(index)" >
-                                        <use xlink:href="@/assets/svg/feather-sprite.svg#trash"></use>
+                                    <svg class="feather"  >
+                                        <a href="#" @click.prevent="removeItem(index)">
+                                            <use xlink:href="@/assets/svg/feather-sprite.svg#trash"></use>
+                                        </a>
                                     </svg>
                                 </td>
                             </tr>
-                            
+                        
                             <tr>
                                <td>
                                    <a href="" @click.prevent="addItem">Adicionar</a>
