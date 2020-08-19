@@ -36,15 +36,8 @@ import HomeDashboard from '../components/panel/pages/dashboard/HomeDashboard'
 const routes = [
   
     // LANDING PAGE DA APLICAÇÃO
-    {
-      path: '/', 
-      component: IndexHome,
-      
-      children: [
-        {path: 'login', component: LoginClient, name: 'login', meta: {auth: false} },
-        {path: '', component: Teste, name: 'teste'}
-      ]
-    },
+   
+    {path: '/', component: LoginClient, name: 'login', meta: {auth: false} },
   
     // PAINEL TOTAL DA APLICAÇÃO
     {
