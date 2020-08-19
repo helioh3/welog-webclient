@@ -35,7 +35,7 @@ const app = new Vue({
     render: h => h(App),
   });
 
-store.dispatch('getCategories')
+// store.dispatch('getCategories')
 
 //VERIFICA RECEBE O TOKEN E MANTEM LOGADO COM BASE NO TOKEN
 const token = localStorage.getItem(NAME_TOKEN)

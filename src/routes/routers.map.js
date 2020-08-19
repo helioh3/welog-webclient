@@ -34,11 +34,9 @@ import HomeDashboard from '../components/panel/pages/dashboard/HomeDashboard'
 //My Routes of App
 const routes = [
   
-    // LANDING PAGE DA APLICAÇÃO
-   
+    // LOGIN PAGE DA APLICAÇÃO
     { 
       path: '', component: LoginClient, name: 'login', meta: {auth: false} 
-    
     },
   
     // PAINEL TOTAL DA APLICAÇÃO
@@ -50,7 +48,7 @@ const routes = [
       children: [
         { path: '', component: HomeDashboard, name: 'painel.dashboard' },
   
-        { path: 'usuarios', component: ListUsers, name: 'painel.usuarios'},
+        { path: 'usuarios', component: ListUsers, name: 'painel.usuarios' },
         { path: 'usuarios/adicionar', component: NewUser, name: 'painel.usuarios.adicionar' },
         { path: 'usuarios/:id/visualizar', component: ViewUser, name: 'painel.usuarios.visualizar'},
         { path: 'usuarios/:id/editar', component: EditUser , name: 'painel.usuarios.editar', props: true },
