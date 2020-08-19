@@ -1,6 +1,5 @@
 
 import IndexHome from '../components/site/IndexHome'
-import Teste from '../components/site/Home'
 
 import LoginClient from '../components/site/pages/login/LoginClient'
 
@@ -37,7 +36,10 @@ const routes = [
   
     // LANDING PAGE DA APLICAÇÃO
    
-    {path: '/', component: LoginClient, name: 'login', meta: {auth: false} },
+    { 
+      path: '', component: LoginClient, name: 'login', meta: {auth: false} 
+    
+    },
   
     // PAINEL TOTAL DA APLICAÇÃO
     {
