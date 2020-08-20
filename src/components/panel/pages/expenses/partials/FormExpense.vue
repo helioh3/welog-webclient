@@ -142,9 +142,7 @@
 </template>
 <script>
     import { objectToFormData} from '../../../../../helpers/will'
-
     export default {
-
         props: {
             value: {
                 require: false,
@@ -163,14 +161,12 @@
                     }
                 }
             },
-
             update: {
                 require: false,
                 type: Boolean,
                 default: false
             },
         },
-
         data () {
            return {
                errors: {},
@@ -179,13 +175,11 @@
                imagePreview: null
            }
         },
-
         computed: {
             categories() {
                 return this.$store.state.categories.items.data
             }
         },
-
         methods: {
             onSubmit () {
                 let action = this.update ? 'updateExpense' : 'storeExpenses'
@@ -204,7 +198,6 @@
                         this.errors = error.response.data.errors
                     })
             },
-
             addItem () {
                 this.expense.installments.push({
                     data_vencimento: '',
@@ -215,17 +208,14 @@
             removeItem (index) {
                 this.expense.installments.splice(index, 1)
             },
-
             onFileChange (e){
                 let files = e.target.files ||  e.dataTransfer.files
                 if(!files.length)
                     return
                 
                 this.expense.anexo = files[0];
-
                 this.previewImage(files[0]);
             },
-
             previewImage(file){
                 let reader = new FileReader()
                 reader.onload = (e) =>{
@@ -233,12 +223,10 @@
                 }
                 reader.readAsDataURL(file)
             },
-
             buttonBack(){
                 this.$router.push({name: 'painel.despesas'})
             },
         },
-
         watch: {
             value: {
                 immediate: true,

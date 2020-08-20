@@ -12,6 +12,10 @@ import store from './vuex/store'
 
 import App from './App.vue'
 
+// DEPENDENCIAS
+import vSelect from 'vue-select'
+Vue.component('v-select', vSelect)
+
 import VueTheMask from 'vue-the-mask'
 import money from 'v-money'
 
@@ -29,11 +33,11 @@ Vue.component('index-panel', () => import('./components/panel/IndexPanel'))
 Vue.component('preloader-panel', () => import('./components/share/PreloaderPanel'))
 
 const app = new Vue({
-    router,
-    store,
-    el: '#app',
-    render: h => h(App),
-  });
+  router,
+  store,
+  el: '#app',
+  render: h => h(App),
+});
 
 // store.dispatch('getCategories')
 
