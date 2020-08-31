@@ -44,80 +44,82 @@
 
                 </div>
             </div>
-    
+
+            <div class="box-form view-form">
+                <h2 class="box-form__title">Dados da despesa</h2>
+                <div class="box-field">
+                    <div class="field">
+                        <label class="field__label">Codigo</label>
+                        <p class="field__text">{{ expense.id }}</p>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label">N. Nota Fiscal</label>
+                        <p class="field__text">{{ expense.numero }}</p> 
+                    </div>
+            
+                    <div class="field">
+                        <label class="field__label">Fornecedor</label>
+                        <p class="field__text">SAO SEBASTIÃO ENERGIA</p>
+                    </div>
+                    
+                    <div class="field">
+                        <label class="field__label">Empresa de Origem</label>
+                        <p class="field__text">HELIO BRITO</p>
+                    </div>
+
+                
+                    
+                </div>
+
+                <div class="box-field ">
+
+                    <div class="field">
+                        <label class="field__label">Categoria</label>
+                        <p class="field__text">COMBUSTIVEL</p>
+                        <!-- <div class="field__select">
+                            <select v-model="expense.category_id" disabled>
+                                <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.nome }}</option>
+
+                            </select>
+                        </div> -->
+                    </div>
+                
+                
+                
+                    <div class="field">
+                        <label class="field__label">Data de cadastro</label>
+                        <p class="field__text">99/99/9999</p>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label">Conta Bancária</label>
+                        <p class="field__text">BANCO DO BRASIL</p>
+                    </div>
+
+                    <div class="field">
+                    
+                    </div>
+                    
+                </div>     
+            </div> 
+
+            <form-pay :value="expense"></form-pay>
+
+            <div class="box-form view-form">
+                <h2 class="box-form__title">Informções extra</h2>
+                <div class="box-field">
+                    <div class="field">
+                        <label>Observação</label>
+                            <textarea cols="30" rows="3" disabled></textarea>
+                    </div>
+                    
+                </div>
+            </div>    
+
+
         </div>
-
-        <div class="box-form view-form">
-            <h2 class="box-form__title">Dados da despesa</h2>
-            <div class="box-field">
-                 <div class="field">
-                    <label class="field__label">Codigo</label>
-                    <p class="field__text">{{ expense.id }}</p>
-                </div>
-
-                <div class="field">
-                    <label class="field__label">N. Nota Fiscal</label>
-                    <p class="field__text">{{ expense.numero }}</p> 
-                </div>
         
-                <div class="field">
-                    <label class="field__label">Fornecedor</label>
-                    <p class="field__text">SAO SEBASTIÃO ENERGIA</p>
-                </div>
-                
-                 <div class="field">
-                    <label class="field__label">Empresa de Origem</label>
-                    <p class="field__text">HELIO BRITO</p>
-                </div>
-
-               
-                
-            </div>
-
-            <div class="box-field ">
-
-                <div class="field">
-                    <label class="field__label">Categoria</label>
-                    <p class="field__text">COMBUSTIVEL</p>
-                    <!-- <div class="field__select">
-                        <select v-model="expense.category_id" disabled>
-                            <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.nome }}</option>
-
-                        </select>
-                    </div> -->
-                </div>
-               
-               
-               
-                <div class="field">
-                    <label class="field__label">Data de cadastro</label>
-                    <p class="field__text">99/99/9999</p>
-                </div>
-
-                <div class="field">
-                    <label class="field__label">Conta Bancária</label>
-                    <p class="field__text">BANCO DO BRASIL</p>
-                </div>
-
-                 <div class="field">
-                   
-                </div>
-                
-            </div>     
-        </div> 
-
-        <form-pay :value="expense"></form-pay>
-
-        <div class="box-form view-form">
-            <h2 class="box-form__title">Informções extra</h2>
-            <div class="box-field">
-                <div class="field">
-                    <label>Observação</label>
-                        <textarea cols="30" rows="3" disabled></textarea>
-                </div>
-                
-            </div>
-        </div>
     </div>
 
 </template>
