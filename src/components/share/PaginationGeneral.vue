@@ -30,7 +30,7 @@
         },
         offset: {
           type: Number,
-          default: 4
+          default: 6
         }
     },
     computed: {

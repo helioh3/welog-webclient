@@ -55,7 +55,7 @@
             <div class="box-field">
                 <div class="field" @click.prevent="download(expense.anexo)">
                     <label class="field__label">Imprimir anexo</label>
-                    <svg class="feather" style="text-align: center">
+                    <svg class="feather but-link" style="text-align: center">
                         <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
                     </svg>
                 </div>
@@ -121,7 +121,8 @@
                             <th>Data / Pagamento</th>
                             <th>Comprovantes</th>
                             <th>Valor (R$)</th>
-                            <th></th>
+                            <th>Status</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -145,7 +146,7 @@
 
                             <td>
                                 <div class="field">
-                                    <svg class="feather" style="text-align: center">
+                                    <svg class="feather but-link" style="text-align: center">
                                         <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
                                     </svg>
                                 </div>
@@ -154,7 +155,13 @@
                             <td>
                                 {{ item.valor}}
                             </td>
-                            <td></td>
+                            <td>
+                                <div class="field">
+                                    <svg class="feather" style="text-align: center">
+                                        <use xlink:href="@/assets/svg/feather-sprite.svg#check"></use>
+                                    </svg>
+                                </div>
+                            </td>
                         
                         </tr>
                     </tbody>

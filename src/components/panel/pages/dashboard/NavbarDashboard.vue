@@ -37,38 +37,37 @@
       <li class="menu-user__item log" @click.prevent="isOpen = !isOpen">
         <!-- <span class="menu-user__name">{{ me.nome }}</span> -->
         <img src="@/assets/images/natan.jpg" class="menu-user__photo" alt />
-          
-          <div class="menu-user__dropdawn" v-if="isOpen" >
-            <ul>
-              <li><a href="#" @click.prevent="edit(user.id)">Perfil</a></li>
-              <li>
-                <router-link :to="{ name: 'painel.usuarios'}" class="menu-nav__item">Configurações</router-link>
-              </li>
-              <li><a href="" @click.prevent="logout">Sair</a></li>
-            </ul>
 
-          </div>       
-
+        <div class="menu-user__dropdawn" v-if="isOpen">
+          <ul>
+            <li>
+              <a href="#" @click.prevent="edit(user.id)">Perfil</a>
+            </li>
+            <li>
+              <router-link :to="{ name: 'painel.usuarios'}" class="menu-nav__item">Configurações</router-link>
+            </li>
+            <li>
+              <a href @click.prevent="logout">Sair</a>
+            </li>
+          </ul>
+        </div>
       </li>
 
       <!-- (<a @click.prevent="logout">sair</a>) -->
-
     </div>
   </nav>
 </template>
 
 <script>
-
 export default {
-
-  created () {
-    this.loadUsers()
+  created() {
+    this.loadUsers();
   },
 
-  data(){
+  data() {
     return {
-      isOpen: false
-    }
+      isOpen: false,
+    };
   },
 
   computed: {
@@ -84,10 +83,8 @@ export default {
     },
 
     loadUsers() {
-        this.$store.dispatch('loadUsers')
+      this.$store.dispatch("loadUsers");
     },
-
-
   },
 };
 </script>
