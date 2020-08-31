@@ -47,10 +47,7 @@
                     </button>
                 </div>
             </div>
-    
-        </div>
-
-        <div class="box-form view-form-view">
+            <div class="box-form view-form-view">
             <h2 class="box-form__title">Dados da despesa</h2>
             <div class="box-field">
                 <div class="field" @click.prevent="download(expense.anexo)">
@@ -180,6 +177,10 @@
                 
             </div>
         </div>
+    
+        </div>
+
+        
     </div>
 
 
