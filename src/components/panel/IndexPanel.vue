@@ -11,11 +11,11 @@
             </main>
 
         <footer class="admin-footer">
-            <div class="menu-footer">      
+            <!-- <div class="menu-footer">      
                 <img src="images/logo-footer.png" class="menu-footer__logo-footer" alt="">
                 <li><a href="#" class="menu-footer__item">sobre</a></li>
                 <li><a href="#" class="menu-footer__item">ajuda</a></li>
-            </div>
+            </div> -->
         </footer>
 
         </div>

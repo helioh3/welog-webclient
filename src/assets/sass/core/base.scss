@@ -9,11 +9,10 @@ body{
     color: var(--color-grey-dark);
 }
 
-
 .container {
    display: grid;
    grid-template-columns: 1fr;
-   grid-template-rows: 5rem 1fr 6vh;
+   grid-template-rows: 5rem 2fr 6vh;
 
    grid-template-areas: "admin-header"
                         "admin-main"
@@ -35,6 +34,8 @@ body{
 .admin-main{
     grid-area: admin-main;
     flex: 1;
+    
+
 }
 
 .box{

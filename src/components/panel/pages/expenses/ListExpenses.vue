@@ -88,13 +88,15 @@
                 </tbody>
             </table>
 
-            <paginate
+            
+        </div>
+
+        <paginate
                 :pagination="expenses"
                 :offset="6"
                 @paginate="loadExpenses"
             >
             </paginate>
-        </div>
 
     </div>
 </template>
