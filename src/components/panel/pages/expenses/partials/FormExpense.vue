@@ -38,9 +38,13 @@
                 <div class="field">
                     <label class="field__label">Categoria</label>
                     <div :class="['field__select', {'has-error': errors.category_id}]">
-                        <select v-model="expense.category_id"  >
+                        <!-- <select v-model="expense.category_id"  >
                             <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.nome }}</option>
-                        </select>
+                        </select> -->
+
+                        <v-select :options="categories" label="nome" v-model="expense.category_id" :reduce="category => category.id"></v-select>
+
+
                     </div>
                 </div>
 

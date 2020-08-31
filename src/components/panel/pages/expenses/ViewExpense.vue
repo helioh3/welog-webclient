@@ -27,7 +27,7 @@
                         
                     </button>
 
-                    <button class="but printer ma-r-small">
+                    <button class="but printer ma-r-small" >
                         <svg class="feather">
                             <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
                         </svg>
@@ -53,7 +53,7 @@
         <div class="box-form view-form-view">
             <h2 class="box-form__title">Dados da despesa</h2>
             <div class="box-field">
-                <div class="field">
+                <div class="field" @click.prevent="download(expense.anexo)">
                     <label class="field__label">Imprimir anexo</label>
                     <svg class="feather" style="text-align: center">
                         <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
@@ -180,6 +180,7 @@
 <script>
     // import FormViewExpense from './partials/FormViewExpense'
     import ButtonBack from '../../share/ButtonBack'
+    import { getBaseURL } from '../../../../services/http'
 
     export default {
         name: 'ViewExpense',
@@ -261,6 +262,7 @@
                     ] 
                 })
             },
+
             
             delExpense (id){
                 this.$store.dispatch('delExpense', id)
@@ -274,6 +276,12 @@
                         this.$snotify.error('Erro ao deletar categoria', 'Erro')
                     })
             },
+
+            download(anexo) {
+                window.open(`${getBaseURL()}/download${anexo}`)
+                // window.open("http://cvv.test/download" + anexo)
+                // console.log(window.location.origin + "/download/" + anexo)
+            }
 
         },
         components: {

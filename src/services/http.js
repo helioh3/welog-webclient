@@ -5,6 +5,10 @@ const TENANT = window.location.host.replace(process.env.VUE_APP_BASE_FRONT_DOMAI
 const BACKEND = process.env.VUE_APP_BACKEND_DOMAIN.replace('X-TENANT', TENANT)
 
 
+export function getBaseURL () {
+    return BACKEND
+}
+
 const client = axios.create({
     baseURL: BACKEND,
     

@@ -1,0 +1,17 @@
+.vs__search,
+.vs__search:focus {
+  appearance: none;
+  line-height: $line-height;
+  font-size: $font-size;
+  border: 1px solid transparent;
+  border-left: none;
+  outline: none;
+  margin: 4px 0 0 0;
+  padding: 0 7px;
+  background: black !important;
+  box-shadow: none;
+  width: 0;
+  max-width: 100%;
+  flex-grow: 1;
+  z-index: 1;
+}

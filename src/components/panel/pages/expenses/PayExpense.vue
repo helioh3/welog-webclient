@@ -50,13 +50,6 @@
         <div class="box-form view-form">
             <h2 class="box-form__title">Dados da despesa</h2>
             <div class="box-field">
-                <div class="field">
-                    <label class="field__label">Imprimir anexo</label>
-                    <svg class="feather" style="text-align: center">
-                        <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
-                    </svg>
-                </div>
-
                  <div class="field">
                     <label class="field__label">Codigo</label>
                     <p class="field__text">{{ expense.id }}</p>
@@ -71,7 +64,13 @@
                     <label class="field__label">Fornecedor</label>
                     <p class="field__text">SAO SEBASTIÃO ENERGIA</p>
                 </div>
+                
+                 <div class="field">
+                    <label class="field__label">Empresa de Origem</label>
+                    <p class="field__text">HELIO BRITO</p>
+                </div>
 
+               
                 
             </div>
 
@@ -88,10 +87,7 @@
                     </div> -->
                 </div>
                
-                <div class="field">
-                    <label class="field__label">Empresa de Origem</label>
-                    <p class="field__text">HELIO BRITO</p>
-                </div>
+               
                
                 <div class="field">
                     <label class="field__label">Data de cadastro</label>
@@ -101,6 +97,10 @@
                 <div class="field">
                     <label class="field__label">Conta Bancária</label>
                     <p class="field__text">BANCO DO BRASIL</p>
+                </div>
+
+                 <div class="field">
+                   
                 </div>
                 
             </div>     

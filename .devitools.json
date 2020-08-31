@@ -1,0 +1,18 @@
+{
+  "lang": [
+    "en-us"
+  ],
+  "front": {
+    "framework": "quasar",
+    "root": "/quasar",
+    "domains": "/source/domains",
+    "views": "/resources/views/dashboard"
+  },
+  "back": {
+    "framework": "laravel",
+    "root": "/laravel",
+    "domains": "/app/Domains",
+    "controller": "/app/Http/Controllers",
+    "migration": "/database/migrations"
+  }
+}

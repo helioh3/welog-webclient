@@ -10,6 +10,7 @@
                         <th>Parcela</th>
                         <th>Vencimento</th>
                         <th>Valor (R$)</th>
+                        <th>Conta Bancária</th>
                         <th>Anexar comprovante</th>
                         <th>Data de pagamento</th>
                         <th></th>
@@ -39,9 +40,23 @@
 
                         <td>
                             <div class="field">
+                               
+                                <div>
+                                    <select class="field__input">
+                                        <option value=""></option>
+                                        <option value="">Banco do Brasil</option>
+                                        <option value="">Sicredi</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="field">
                                 <input type="file" name="comprovate" class="field__input" @change="onFileInstallment($event, item)">
                             </div>
                         </td>
+
                         <td>
                             <div class="field">
                                 <input type="text" name="name" class="field__input" v-model="item.data_pagamento">

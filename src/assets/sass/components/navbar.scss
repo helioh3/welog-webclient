@@ -92,7 +92,38 @@
             font-size: inherit;
             margin-right: .9rem;
         }
-    
+        
+        &__dropdawn {
+            // display: none;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            position: absolute;
+            top: 5.2rem;
+            right:0;
+            background-color: #fff;
+            z-index: 66;
+            box-shadow: 1px 1px 10px 2px #ccc;
+            
+            ul li a{
+                list-style: none;
+                text-decoration: none;
+                color: var(--color-grey-dark);
+                padding: 0.8rem;
+                display: block;
+                
+            }
+
+            &::before{
+                content: "";
+                position: absolute;
+                top: -17px;
+                left: 83%;
+                transform: translateX(-50%);
+                border: 10px solid;
+                border-color: transparent transparent #fff transparent;
+            }
+
+        }
     }
     
 }
