@@ -95,8 +95,10 @@
         
         &__dropdawn {
             // display: none;
+            font-size: 1.5rem;
+            font-weight: normal;
             border-radius: 0.5rem;
-            padding: 1.5rem;
+            padding: 1rem;
             position: absolute;
             top: 5.2rem;
             right:0;
@@ -108,7 +110,7 @@
                 list-style: none;
                 text-decoration: none;
                 color: var(--color-grey-dark);
-                padding: 0.8rem;
+                padding: 0.5rem;
                 display: block;
                 
             }
