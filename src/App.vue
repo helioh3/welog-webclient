@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="bg-gray-200">
+	  
       <vue-snotify></vue-snotify>
       <preloader-panel></preloader-panel>
       <router-view></router-view>
@@ -12,6 +13,7 @@
 export default {
   
 }
+
 </script>
 
 <style lang="scss">

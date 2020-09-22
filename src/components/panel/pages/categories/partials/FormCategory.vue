@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="onSubmit">
+    <!-- <form @submit.prevent="onSubmit">
         <div class="box-form-user">
             <h2 class="box-form__title">Dados da categoria</h2>
             
@@ -15,13 +15,31 @@
         </div>
         
         <div class="box-button">
-            <!-- <button class="but secundary">X</button> -->
+
 
             <router-link class="but secundary" :to="{name: 'painel.categorias'}">X</router-link>
               
             <button type="submit" class="but primary">Salvar</button>
         </div>
-    </form>
+    </form> -->
+
+<!-- component -->
+	<div class="bg-white border rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+		<div class="-mx-3 md:flex mb-6">
+			<div class="md:w-1/3 px-3 mb-6 md:mb-0">
+				<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+					Nome da categoria
+				</label>
+				<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Nome da categoria">
+				<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
+			</div>
+		</div>
+
+		<div class="mt-4">
+			<button class="mr-4 px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Salvar</button>
+			<button class="px-5 py-2 border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">Cancelar</button>
+		</div>
+	</div>
 </template>
 
 <script>

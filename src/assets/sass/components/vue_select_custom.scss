@@ -1,17 +1,17 @@
-.vs__search,
-.vs__search:focus {
+.vs__dropdown-toggle {
   appearance: none;
-  line-height: $line-height;
-  font-size: $font-size;
-  border: 1px solid transparent;
-  border-left: none;
-  outline: none;
-  margin: 4px 0 0 0;
-  padding: 0 7px;
-  background: black !important;
-  box-shadow: none;
-  width: 0;
-  max-width: 100%;
-  flex-grow: 1;
-  z-index: 1;
+  display: flex;
+  // padding: 1rem !important;
+  background: none;
+  // border: $border-width $border-style $border-color;
+  // border-radius: $border-radius;
+  // white-space: normal;
+
+  padding: 0.6rem !important;
+  outline: none !important;
+  border-radius: .5rem !important;
+
+  border: 2px solid var(--color-grey-light-small-3) !important;
+  background-color: var(--color-grey-light-small-3) !important;
 }
+

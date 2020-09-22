@@ -1,5 +1,5 @@
 <template>
-    <div class="box">
+    <!-- <div class="box">
         <nav class="breadcrumb">
             <li><a href="#">inicio</a></li>
             <li><a href="#" class="active">despesas</a></li>
@@ -7,7 +7,6 @@
 
         <nav class="tabs">
             <button class="tabs__item tabs__item--active">Despesas</button>
-            <!-- <button class="tabs__item">Produtos</button> -->
         </nav>
 
         <div class="tabs-container">
@@ -16,7 +15,7 @@
                 <div class="box-but-left">
                     <router-link class="but primary" :to="{name: 'painel.despesas.adicionar'}">Adicionar</router-link> 
                 </div>
-
+                               
                 <div class="box-but-right">
 
                     <div class="but-group ma-r-small">
@@ -35,7 +34,6 @@
                         </button>
                     </div>
 
-                    <!-- COMPONENT DE PESQUISA -->
                     <search 
                         @search="searchForm"
                     >
@@ -98,7 +96,137 @@
             >
             </paginate>
 
-    </div>
+    </div> -->
+<div class="mx-auto px-8 py-2">
+
+	<!-- bredcrumb -->
+	<nav class="text-black font-bold my-1" aria-label="Breadcrumb">
+		<ol class="list-none p-0 inline-flex">
+			<li class="flex items-center">
+				<a href="#">Home</a>
+				<svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+					<path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/>
+				</svg>
+			</li>
+			
+			<li>
+				<a href="#" class="text-gray-500" aria-current="page">Despesas</a>
+			</li>
+		</ol>
+	</nav>
+
+	<div class="">
+		<div class="flex justify-between">
+			<!-- pesquisa -->	
+			<search 
+				@search="searchForm"
+			>
+			</search>	
+
+			<!-- botao -->
+			<div class="mt-3">
+				<button class=" bg-pink-600 text-pink-100 rounded transition duration-300 hover:bg-pink-500 hover:text-white focus:outline-none">
+					 <router-link class="inline-block px-4 py-2" :to="{name: 'painel.despesas.adicionar'}">Adicionar</router-link>
+				</button>
+
+			</div>
+		</div>
+			
+		<div class="flex flex-col mt-6">
+			<div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+				<div class="align-middle inline-block min-w-full overflow-hidden sm:rounded border border-gray-400">
+					
+					<table class="min-w-full">
+						<thead>
+							<tr>
+								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100"></th>
+								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">#Numero</th>
+								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Fornecedor</th>
+								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Descrição</th>
+								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Data</th>
+								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Vencimento</th>
+								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">status</th>
+								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 ffont-semi-bold text-gray-700 uppercase tracking-wider">Valor</th>
+							</tr>
+						</thead>
+
+						<tbody class="bg-white">
+							<tr
+								class="dotted cursor-pointer hover:bg-orange-200" :class="{focused: focused === expense.id }" 
+								v-for="expense in expenses.data" :key="expense.id" 
+								@click.stop="focus(expense.id)" 
+								@dblclick="edit(expense.id)"
+							>
+								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+									<input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600"
+										 @click.stop="select(expense.id, $event.target.checked)" 
+										:checked="selected.includes(expense.id)"
+									>
+								</td>
+
+								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+									<div class="text-sm leading-5 text-gray-900">{{ expense.numero }}</div>
+								</td>
+
+								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+									<div class="flex items-center">
+										<div class="flex-shrink-0 h-10 w-10">
+											<img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+										</div>
+
+										<div class="ml-4">
+											<div class="text-sm leading-5 font-medium text-gray-900">John Auto Peças</div>
+											<!-- <div class="text-sm leading-5 text-gray-500">(63) 992099291</div> -->
+										</div>
+									</div>
+								</td>
+
+								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+									<div class="text-sm leading-5 text-gray-900">Descrição de teste para despesas</div>
+								</td>
+
+								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+									19/03/2020 
+								</td>
+
+								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+									19/03/2020
+								</td>
+
+								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+									<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+								</td>
+								
+								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+									<div class="text-sm leading-5 text-gray-900">R$</div>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+
+				</div>
+				
+
+			</div>
+			
+			<div class="flex justify-center">
+				<paginate
+					:pagination="expenses"
+					:offset="5"
+					@paginate="loadExpenses"
+				>
+				</paginate>
+			</div>
+
+		</div>
+
+		<img src="" alt="">
+			
+	</div>
+	
+</div>
+
 </template>
 
 <script>

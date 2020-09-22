@@ -2,6 +2,10 @@ import http from '@/services/http'
 
 import Vue from 'vue'
 
+import VueTailwind from 'vue-tailwind'
+import settings from './settings.js'
+Vue.use(VueTailwind, settings)
+
 //importa a config do token
 import {NAME_TOKEN} from './config/configs'
 
@@ -18,6 +22,8 @@ import vSelect from 'vue-select'
 
 import VueTheMask from 'vue-the-mask'
 import money from 'v-money'
+
+import './assets/tailwind.css'
 
 const feather = require('feather-icons')
 

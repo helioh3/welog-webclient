@@ -1,6 +1,7 @@
 <template>
-    <div>
-        <!-- //CADASTRO PESSOA FISICA -->
+
+<!-- <div>
+       
         <form  @submit.prevent="onSubmit">
             <div class="box-form">
                 <h2 class="box-form__title">Dados de Pessoa Fisica</h2>
@@ -36,7 +37,7 @@
                 </div>
             </div>
 
-            <!-- //CADASTRO PESSOA JURIDICA -->
+            
             <div class="box-form">
                 <h2 class="box-form__title">Dados Pessoa Jurídica</h2>
                 <div class="box-field">
@@ -64,7 +65,7 @@
                 </div>
             </div>
 
-            <!-- DADOS GERAIS -->
+          
             <div class="box-form">
                 <h2 class="box-form__title">Dados Gerais</h2>
                 <div class="box-field">
@@ -126,7 +127,150 @@
         </form>
         
         
-    </div>
+    </div> -->
+
+    <!-- component -->
+	<div class="bg-white border rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+		<form  @submit.prevent="onSubmit">
+			<div class="-mx-3 md:flex mb-6">
+				<div class="md:w-1/5 px-3 mb-6 md:mb-0">
+						<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+							Anexo
+						</label>
+						<input type="file"  class="py-3 pr-0 mb-3 appearance-none"  />
+						<p class="text-red text-xs italic">Please fill out this field.</p>
+					</div>
+
+				<div class="md:w-2/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						Nome Completo
+					</label>
+					<input type="text" v-model="provider.nome" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" placeholder="Nome Completo">
+					
+				</div>
+
+				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						CPF
+					</label>
+					<input v-model="provider.cpf" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="CPF">
+					
+				</div>
+
+				<div class="md:w-1/4 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						RG
+					</label>
+					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					
+				</div>
+
+				<div class="md:w-1/3 px-3">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						SEXO
+					</label>
+					<div class="relative">
+						<select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
+							<option>Masculino</option>
+							<option>Feminino</option>
+						</select>
+						<div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+							<svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+
+			<div class="-mx-3 md:flex mb-10">
+				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						Fantasia
+					</label>
+					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					
+				</div>
+				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						CNPJ
+					</label>
+					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					
+				</div>
+				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						Insc. Estadual
+					</label>
+					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					
+				</div>
+				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						Atuação
+					</label>
+					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					
+				</div>
+			</div>
+
+			<div class="-mx-3 md:flex mb-10">
+				<div class="md:w-1/5 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						CEP
+					</label>
+					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					
+				</div>
+				<div class="md:w-1/6 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						ESTADO
+					</label>
+					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					
+				</div>
+				<div class="md:w-1/5 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						CIDADE
+					</label>
+					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					
+				</div>
+				<div class="md:w-2/5 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						Endereço
+					</label>
+					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					
+				</div>
+				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						E-email
+					</label>
+					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" type="text" placeholder="Codigo">
+					
+				</div>
+			</div>
+			
+
+			<div class="-mx-3 md:flex mb-6">
+				<div class="md:w-full px-3">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						Observação
+					</label>
+					<textarea class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="text" placeholder="Anotar uma observação"></textarea>
+				</div> 
+			</div>
+			
+		
+		<div class="mt-4">
+			<button class="mr-4 px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Salvar</button>
+			<button class=" border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
+				<router-link class="inline-block  px-5 py-2" :to="{name: 'painel.fornecedores'}">Cancelar</router-link>
+			</button>
+		</div>
+
+		</form>
+	</div>
 </template>
 <script>
     export default {

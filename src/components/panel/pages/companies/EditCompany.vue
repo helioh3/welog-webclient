@@ -1,5 +1,5 @@
 <template>
-    <div class="box">
+    <!-- <div class="box">
         <nav class="breadcrumb">
             <li><a href="index.html">inicio</a></li>
             <li><a href="companies.html">empresa</a></li>
@@ -8,7 +8,7 @@
 
         <nav class="tabs">
             <button class="tabs__item tabs__item--active">Editar</button>
-            <!-- <button class="tabs__item">Produtos</button> -->
+           
         </nav>
 
         <div class="tabs-container">
@@ -20,10 +20,69 @@
             
         </div>
 
-    </div>
+    </div> -->
+
+<div>
+
+	<div class="mx-auto px-8 py-2">
+		<nav class="text-black font-bold my-1" aria-label="Breadcrumb">
+			<ol class="list-none p-0 inline-flex">
+				<li class="flex items-center">
+					<a href="#">Home</a>
+					<svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+						<path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/>
+					</svg>
+				</li>
+				<li class="flex items-center">
+					<a href="#">Empresas</a>
+					<svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+						<path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/>
+					</svg>
+				</li>
+				
+				<li>
+					<a href="#" class="text-gray-500" aria-current="page">Editar</a>
+				</li>
+			</ol>
+		</nav>
+	</div>
+
+	<div class="mx-auto px-8 py-1">
+		<div class="flex justify-between">
+			<div class="mt-3 flex flex-col sm:flex-row">
+				 <button-back></button-back>
+	
+			</div>
+			<!-- botao -->
+			<div class="mt-3">
+				<button @click.prevent="view(expense.id)" class="mr-1 px-4 py-2 bg-white border-gray-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+					<svg class="feather">
+						<use xlink:href="@/assets/svg/feather-sprite.svg#eye"></use>
+					</svg>
+				</button>
+				<button class="mr-1 px-4 py-2 bg-white border-gray-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+					<svg class="feather">
+						<use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
+					</svg>
+				</button>
+			</div>
+			
+		</div>
+
+		<form-company
+			:value="company"
+			:update="true"
+		>
+		</form-company>
+	</div>
+
+</div>
+
+
 </template>
 <script>
-    import FormCompany from './partials/FormCompany'
+	import FormCompany from './partials/FormCompany'
+	import ButtonBack from './share/ButtonBack'
 
     export default {
 
@@ -53,10 +112,11 @@
                     cnpj: ''
                 }
             }
-        },
+		},
+		
             
         components: {
-            FormCompany
+            FormCompany, ButtonBack
         }
     }
 </script>

@@ -13,16 +13,16 @@
 @import 'helpers/utilities';
 
 
-@import 'core/minireset';
-@import 'core/base';
+// @import 'core/minireset';
+// @import 'core/base';
 @import 'core/typography';
 
 // loader spinner
 @import "spinner/gauge";
 
-@import 'components/navbar';
+// @import 'components/navbar';
 @import 'components/buttons';
-@import 'components/forms';
+// @import 'components/forms';
 @import 'components/breadcrumb';
 @import 'components/tabs';
 @import 'components/tables';
@@ -34,7 +34,7 @@
 
 @import 'pages/back/dashboard';
 @import 'pages/back/expenses-view';
-@import 'pages/back/footer';
+// @import 'pages/back/footer';
 @import 'pages/back/login';
 
 
