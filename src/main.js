@@ -32,7 +32,7 @@ Vue.config.productionTip = false
 Vue.component('v-select', vSelect)
 
 Vue.use(Snotify, {toast: {showProgressBar: false}})
-// this.$snotify
+this.$snotify
 
 Vue.use(VueTheMask)
 Vue.use(money, {precision: 2, prefix: 'R$ ', decimal: ',', thousands: '.', masked: false})
