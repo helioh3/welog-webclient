@@ -16,7 +16,7 @@
 						</svg>
 					</li> -->
 					<li>
-						<a href="#" class="text-gray-500" aria-current="page">Fornecedores</a>
+						<a href="#" class="text-gray-500" aria-current="page">Despesas</a>
 					</li>
 				</ol>
 			</nav>
