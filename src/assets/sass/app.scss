@@ -5,7 +5,7 @@
 // Variables
 // @import "variables";
 
-@import '~vue-snotify/styles/material';
+// @import '~vue-snotify/styles/material';
 
 @import 'helpers/mixins';
 @import 'helpers/functions';
@@ -21,7 +21,7 @@
 @import "spinner/gauge";
 
 // @import 'components/navbar';
-@import 'components/buttons';
+// @import 'components/buttons';
 // @import 'components/forms';
 @import 'components/breadcrumb';
 @import 'components/tabs';
@@ -35,10 +35,10 @@
 @import 'pages/back/dashboard';
 @import 'pages/back/expenses-view';
 // @import 'pages/back/footer';
-@import 'pages/back/login';
+// @import 'pages/back/login';
 
 
-@import 'pages/front/home';
+// @import 'pages/front/home';
 
 // vue-select:
 @import '../../../node_modules/vue-select/src/scss/vue-select.scss';

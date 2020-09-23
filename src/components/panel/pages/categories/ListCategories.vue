@@ -1,5 +1,5 @@
 <template>
-    <!-- <div class="box">
+<!-- <div class="box">
         <nav class="breadcrumb">
             <li><a href="index.html">inicio</a></li>
             <li><a href="#" class="active">categorias</a></li>
@@ -58,7 +58,6 @@
     </div> -->
 
 <div>
-	<!-- BRANDCRUBS -->
 	<div class="mx-auto px-8 py-2">
 		<nav class="text-black font-bold my-1" aria-label="Breadcrumb">
 			<ol class="list-none p-0 inline-flex">
@@ -70,6 +69,7 @@
 				</li>
 				
 				<li>
+					
 					<a href="#" class="text-gray-500" aria-current="page">Categorias</a>
 				</li>
 			</ol>
@@ -128,42 +128,43 @@
 			</div>
 			<!-- botao -->
 			<div class="mt-4">
-				<button class="px-4 py-2  border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
-					Adicionar
+				<button class=" bg-pink-600 text-pink-100 rounded transition duration-300 hover:bg-pink-500 hover:text-white focus:outline-none">
+					 <router-link class="inline-block px-4 py-2" :to="{name: 'painel.categorias.adicionar'}">Adicionar</router-link>
 				</button>
+
 			</div>
 			
 		</div>
 			
-		<div class="flex flex-col mt-3">
+		<div class="flex flex-col mt-3 ">
 			<div class="-my-2 py-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-				<div class=" list-none w-1/5 flex-row">
-					<div class="flex w-800 mx-auto">
-						<li class="mr-4 flex items-center bg-indigo-500 rounded-md p-3 text-white cursor-pointer transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
+				<div class=" list-none w-auto flex-row ">
+					<div  class="flex flex-row flex-wrap">
+						<li v-for="(category, index) in categories.data" :key="index" class="mr-4 mb-6 flex items-center bg-indigo-500 rounded-md p-3 text-white cursor-pointer transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600">
 							<div>
 								<svg fill="currentColor" class="w-10 h-10" style="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
 									<path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z"></path>
 								</svg>
 							</div>
 							<div class="px-3 mr-auto">
-								<h4 class="font-bold">Categoria</h4>
+								<h4 class="font-bold ">{{ category.nome }}</h4>
 							</div>
 							<div class="relative">
-								<a href="#">
+								<a href="#" @click.prevent="isOpen = !isOpen">
 									<svg fill="currentColor" class="w-5 h-5" style="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
 										<path d="M10 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"></path>
 									</svg>
 								</a>
 
-								<div class="options absolute bg-white text-gray-600 origin-top-right right-0 mt-2 w-40 rounded-md shadow-lg ">
-									<a href="#" class="flex py-3 px-2 text-sm font-bold hover:bg-gray-200 ">
+								<div v-if="isOpen" class="options absolute bg-white text-gray-600 origin-top-right right-0 mt-2 w-40 rounded-md shadow-lg ">
+									<a href="#" @click.prevent="edit(category.id)" class="flex py-3 px-2 text-sm font-bold hover:bg-gray-200 ">
 										<span class="mr-auto">Editar</span>
 										<svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" style="">
 											<path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
 										</svg>
 									</a>
 									
-									<a href="#" class="flex py-3 px-2 text-sm font-bold  hover:bg-gray-200 ">
+									<a href="#" @click.prevent="ConfirmDelCategory(category)" class="flex py-3 px-2 text-sm font-bold  hover:bg-gray-200 ">
 										<span class="mr-auto">Deletar</span>
 										<svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" style="">
 											<path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
@@ -174,6 +175,7 @@
 							</div>
 							
 						</li>
+											
 
 					</div>
 
@@ -193,7 +195,13 @@
     export default {
         created (){
             this.loadCategories()
-        },
+		},
+
+		data() {
+			return {
+				isOpen: false,
+			};
+		},
 
         computed: {
             categories () {
@@ -204,6 +212,14 @@
         methods: {
             loadCategories(){
                 this.$store.dispatch('getCategories')
+			},
+			
+			edit(id) {
+                this.$store.dispatch('getCategory', id)
+                    .then(response => {
+                        this.$router.push({name: 'painel.categorias.editar', params: {id: id}})
+                    })
+                    .catch()
             },
 
             ConfirmDelCategory(category) {

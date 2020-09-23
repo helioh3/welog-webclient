@@ -4,6 +4,7 @@ import Vue from 'vue'
 
 import VueTailwind from 'vue-tailwind'
 import settings from './settings.js'
+
 Vue.use(VueTailwind, settings)
 
 //importa a config do token
@@ -13,6 +14,7 @@ import Snotify from 'vue-snotify'
 
 import router from './routes/routers'
 import store from './vuex/store'
+
 
 import App from './App.vue'
 
@@ -32,7 +34,7 @@ Vue.config.productionTip = false
 Vue.component('v-select', vSelect)
 
 Vue.use(Snotify, {toast: {showProgressBar: false}})
-this.$snotify
+// this.$snotify
 
 Vue.use(VueTheMask)
 Vue.use(money, {precision: 2, prefix: 'R$ ', decimal: ',', thousands: '.', masked: false})

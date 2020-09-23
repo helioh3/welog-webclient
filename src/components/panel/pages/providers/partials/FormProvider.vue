@@ -135,11 +135,11 @@
 			<div class="-mx-3 md:flex mb-6">
 				<div class="md:w-1/5 px-3 mb-6 md:mb-0">
 						<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-							Anexo
+							Foto/Logo
 						</label>
 						<input type="file"  class="py-3 pr-0 mb-3 appearance-none"  />
 						<p class="text-red text-xs italic">Please fill out this field.</p>
-					</div>
+				</div>
 
 				<div class="md:w-2/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">

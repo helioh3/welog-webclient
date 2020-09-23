@@ -136,11 +136,11 @@
 
 		
 			<div class="-mx-3 md:flex mb-6">
-				<div class="md:w-1/5 px-3 mb-6 md:mb-0">
+				<div class="md:w-1/4 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
 						Anexo
 					</label>
-					<input type="file" class="py-3 pr-0 mb-3 appearance-none" @change="onFileChange" />
+					<input type="file" class="py-3 pr-0 mb-3 appearance-none focus:outline-none" @change="onFileChange" />
 					<p class="text-red text-xs italic">Please fill out this field.</p>
 				</div>
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">

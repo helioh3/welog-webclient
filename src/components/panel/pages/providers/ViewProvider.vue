@@ -189,7 +189,9 @@
 	<div class="mx-auto px-8 py-1">
 		<div class="flex justify-between">
 			<div class="mt-3 flex flex-col sm:flex-row">
-				<!-- <button-back></button-back> -->
+				<button class=" border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+					<router-link class="inline-block px-4 py-2" :to="{name: 'painel.fornecedores'}">Voltar</router-link>
+				</button>
 			</div>
 			
 			<!-- botao -->

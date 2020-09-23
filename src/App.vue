@@ -20,4 +20,5 @@ export default {
   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
   @import "assets/sass/app.scss";
   @import "vue-select/src/scss/vue-select.scss";
+  @import '~vue-snotify/styles/material';
 </style>
