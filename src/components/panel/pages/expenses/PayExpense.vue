@@ -138,7 +138,7 @@
 				</li>
 					
 					<li>
-						<a href="#" class="text-gray-500" aria-current="page">Pagar</a>
+						<a href="#" class="text-gray-500" aria-current="page">Visualizar</a>
 					</li>
 				</ol>
 			</nav>

@@ -10,7 +10,7 @@ Vue.use(VueTailwind, settings)
 //importa a config do token
 import {NAME_TOKEN} from './config/configs'
 
-import Snotify from 'vue-snotify'
+import Snotify from 'vue-snotify'; // 1. Import Snotify
 
 import router from './routes/routers'
 import store from './vuex/store'
@@ -35,6 +35,7 @@ Vue.component('v-select', vSelect)
 
 Vue.use(Snotify, {toast: {showProgressBar: false}})
 // this.$snotify
+Vue.use(Snotify)
 
 Vue.use(VueTheMask)
 Vue.use(money, {precision: 2, prefix: 'R$ ', decimal: ',', thousands: '.', masked: false})
