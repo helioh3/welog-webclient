@@ -44,8 +44,10 @@
                     </div>
                 </div>
             </div>
+			
         </div>
     </div>
+	<p class="text-center bottom-0 absolute">versão: beta-1.0.1</p>
     </div>
 </template>
 

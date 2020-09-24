@@ -132,23 +132,22 @@
 
 	<!-- component -->
 	<div class="bg-white border rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
-		<form action="" @submit.prevent="onSubmit">
-
 		
+		<form action="" @submit.prevent="onSubmit">
 			<div class="-mx-3 md:flex mb-6">
 				<div class="md:w-1/4 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
 						Anexo
 					</label>
 					<input type="file" class="py-3 pr-0 mb-3 appearance-none focus:outline-none" @change="onFileChange" />
-					<p class="text-red text-xs italic">Please fill out this field.</p>
+					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
 				</div>
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
 						Numero
 					</label>
 					<input v-model="expense.numero" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Codigo">
-					<p class="text-red text-xs italic">Please fill out this field.</p>
+					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
 				</div>
 
 				<div class="md:w-1/2 px-3">
@@ -182,9 +181,6 @@
 						</div>
 					</div>
 				</div>
-
-				
-
 			</div>
 
 			<div class="-mx-3 md:flex mb-10">
@@ -193,10 +189,9 @@
 						Categoria
 					</label>
 					<div class="relative">
-						<select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
-							<option>New Mexico</option>
-							<option>Missouri</option>
-							<option>Texas</option>
+						<select v-model="expense.category_id" class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
+							<option v-for="category in categories" :key="category.id" :value="category.id">{{ category.nome }}</option>
+							
 						</select>
 						<div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
 							<svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
