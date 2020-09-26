@@ -40,8 +40,7 @@ const feather = require('feather-icons')
 Vue.config.productionTip = false
 
 
-
-Vue.use('v-select', vSelect)
+Vue.component('v-select', VueSelect.VueSelect)
 
 Vue.use(Snotify, {toast: {showProgressBar: false}})
 // this.$snotify
