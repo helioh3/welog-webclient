@@ -18,9 +18,10 @@ import store from './vuex/store'
 
 import App from './App.vue'
 
+
 // DEPENDENCIAS
 import vSelect from 'vue-select'
-
+import 'vue-select/dist/vue-select.css';
 
 import VueTheMask from 'vue-the-mask'
 import money from 'v-money'
