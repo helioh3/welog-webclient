@@ -18,10 +18,9 @@ import store from './vuex/store'
 
 import App from './App.vue'
 
-
 // DEPENDENCIAS
-
-import 'vue-select/dist/vue-select.css';
+import vSelect from 'vue-select'
+Vue.component('v-select', vSelect)
 
 import VueTheMask from 'vue-the-mask'
 import money from 'v-money'
@@ -40,8 +39,7 @@ const feather = require('feather-icons')
 Vue.config.productionTip = false
 
 
-import vSelect from 'vue-select'
-Vue.use('v-select', vSelect)
+
 
 Vue.use(Snotify, {toast: {showProgressBar: false}})
 // this.$snotify
