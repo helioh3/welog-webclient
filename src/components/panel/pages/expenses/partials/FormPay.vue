@@ -111,6 +111,7 @@
 							<input type="file" name="comprovate" class="field__input text-center" @change="onFileInstallment($event, item)">
 						</div>
 					</td>
+					
 
 					<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
 						<!-- <input class="appearance-none block w-2/3 bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-2 px-4" id="grid-city" type="text" placeholder="data"> -->

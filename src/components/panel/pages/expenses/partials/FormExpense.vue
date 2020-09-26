@@ -259,8 +259,6 @@
 							<td class="md:w-1/5 px-6 py-5 whitespace-no-wrap border-b text-right text-blue-900 border-gray-500 text-sm leading-5">
 								<div class="text-sm font-semibold leading-5 text-blue-600">R$ 0,0</div>
 							</td>
-							
-							
 						</tr>
 											
 					</tbody>
