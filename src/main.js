@@ -41,7 +41,7 @@ Vue.config.productionTip = false
 
 
 
-Vue.component('v-select', vSelect)
+Vue.use('v-select', vSelect)
 
 Vue.use(Snotify, {toast: {showProgressBar: false}})
 // this.$snotify
