@@ -275,7 +275,11 @@
 						<tr>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Categoria</div>
-								<div class="text-sm leading-5 text-gray-500">Web dev</div>
+								<div class="text-sm leading-5 text-gray-500" >
+									<select class="block appearance-none w-full bg-grey-lighter text-sm leading-5 text-gray-500" disabled>
+										<option v-for="category in categories" :key="category.id" :value="category.id">{{ category.nome }}</option>
+									</select>
+								</div>
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Data</div>
@@ -379,7 +383,7 @@
         created(){
             this.$store.dispatch('loadExpense', this.id)
                 .then(response => {
-                    this.expense = response
+					this.expense = response
                 })
         },
 
@@ -389,7 +393,7 @@
                     id: '',
                     numero: ''
                    
-                
+
                 },
 
                 installments: [
@@ -426,7 +430,6 @@
             pay(id){
                 this.$store.dispatch('loadExpense', id)
                     .then(response => {
-                        console.log(response)
                         this.$router.push({name: 'painel.despesas.pagar', params:{id: id}})
                     })
                     .catch(error => {

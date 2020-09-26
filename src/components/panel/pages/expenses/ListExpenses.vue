@@ -151,8 +151,8 @@
 						</thead>
 
 						<tbody class="bg-white">
-							<tr
-								class="dotted cursor-pointer hover:bg-orange-200" :class="{focused: focused === expense.id }" 
+							<tr class="dotted cursor-pointer hover:bg-orange-200" 
+								:class="{focused: focused === expense.id }" 
 								v-for="expense in expenses.data" :key="expense.id" 
 								@click.stop="focus(expense.id)" 
 								@dblclick="edit(expense.id)"
@@ -286,7 +286,7 @@
                 const ano = this.year
                 const mes = this.month
 
-                this.$store.dispatch('loadExpenses', {...this.params, page, ano, mes})
+                this.$store.dispatch('loadExpenses', {...this.params, page})
             },
             
             searchForm (filter) {

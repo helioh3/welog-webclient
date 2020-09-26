@@ -135,7 +135,7 @@
 		
 		<form action="" @submit.prevent="onSubmit">
 			<div class="-mx-3 md:flex mb-6">
-				<div class="md:w-1/4 px-3 mb-6 md:mb-0">
+				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
 						Anexo
 					</label>
@@ -144,7 +144,7 @@
 				</div>
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-						Numero
+						Numero (NFe / Boleto)
 					</label>
 					<input v-model="expense.numero" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Codigo">
 					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
@@ -166,6 +166,10 @@
 					</div>
 				</div>
 				
+				
+			</div>
+
+			<div class="-mx-3 md:flex mb-10">
 				<div class="md:w-2/3 px-3">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
 						Fornecedor
@@ -181,52 +185,29 @@
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="-mx-3 md:flex mb-10">
 				<div class="md:w-1/3 px-3">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
 						Categoria
 					</label>
 					<div class="relative">
-						<select v-model="expense.category_id" class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
+						<!-- <select v-model="expense.category_id" class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
 							<option v-for="category in categories" :key="category.id" :value="category.id">{{ category.nome }}</option>
-							
-						</select>
-						<div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
-							<svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-						</div>
+						</select> -->
+
+						<v-select class="style-chooser" :options="categories" label="nome" v-model="expense.category_id" :reduce="category => category.id"  />
+						
 					</div>
 				</div>
 
 				<div class="md:w-1/4 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
-						Data
+						Data / Cadastro
 					</label>
-					<input type="text" v-mask="'##/##/####'" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-city" placeholder="dd/mm/YYYY">
-				</div>
-				<div class="md:w-1/2 px-3">
-					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
-						Conta Bancaria
-					</label>
-				<div class="relative">
-					<select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
-						<option>New Mexico</option>
-						<option>Missouri</option>
-						<option>Texas</option>
-					</select>
-					<div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
-						<svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-					</div>
-				</div>
+					<!-- <input type="text" v-mask="'##/##/####'" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-city" placeholder="dd/mm/YYYY"> -->
+					<v-date-picker v-model="data_cadastro" locale="pt-PT" :input-props='{ placeholder: "dd/mm/AAAA", class: "appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"}'/>
 				</div>
 				
-				<div class="md:w-1/2 px-3">
-					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
-						Zip
-					</label>
-					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-zip" type="text" placeholder="90210">
-				</div>
 			</div>
 
 			<div class="-mx-3 md:flex mb-12">
@@ -237,7 +218,6 @@
 								<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Parcela</th>
 								<th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Vencimento</th>
 								<th class="px-6 py-3 border-b-2 border-gray-300 text-right text-sm leading-4 text-blue-500 tracking-wider">Valor(R$)</th>
-
 								<th class="px-6 py-3 border-b-2 border-gray-300 text-right text-sm leading-4 text-blue-500 tracking-wider">Ações</th>
 							</tr>
 						</thead>
@@ -255,7 +235,9 @@
 							</td>
 							<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
 								<div class="md:w-1/2">
-									<input type="text" v-model="item.data_vencimento" v-mask="'##/##/####'" class="text-left appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4" placeholder="dd-mm-YYYY">
+									<!-- <input type="text" v-model="item.data_vencimento" v-mask="'##/##/####'" class="text-left appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4" placeholder="dd-mm-YYYY"> -->
+									<v-date-picker v-model="item.data_vencimento" locale="pt" :input-props='{ placeholder: "dd/mm/AAAA", class: "appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"}'/>
+								
 								</div>
 								
 							</td>
@@ -323,7 +305,9 @@
                     return {
                         id: '',
                         category_id: '',
-                        numero: '',                    
+						numero: '',
+						data_cadastro: new Date(),
+
                         installments: [
                             {
                                 data_vencimento: '',
@@ -413,5 +397,8 @@
 <style scoped>
     .has-error{
         border: 2px solid red;
-    }
+	}
+	.vc-custon{
+		
+	}
 </style>

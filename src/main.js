@@ -21,9 +21,15 @@ import App from './App.vue'
 // DEPENDENCIAS
 import vSelect from 'vue-select'
 
-
 import VueTheMask from 'vue-the-mask'
 import money from 'v-money'
+
+
+import VCalendar from 'v-calendar';
+
+// Use v-calendar & v-date-picker components
+Vue.use(VCalendar);
+
 
 import './assets/tailwind.css'
 
@@ -42,6 +48,7 @@ Vue.use(money, {precision: 2, prefix: 'R$ ', decimal: ',', thousands: '.', maske
 
 Vue.component('index-panel', () => import('./components/panel/IndexPanel'))
 Vue.component('preloader-panel', () => import('./components/share/PreloaderPanel'))
+
 
 const app = new Vue({
   router,
