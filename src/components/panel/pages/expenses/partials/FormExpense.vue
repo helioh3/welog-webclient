@@ -207,7 +207,6 @@
 					<!-- <input type="text" v-mask="'##/##/####'" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-city" placeholder="dd/mm/YYYY"> -->
 					<v-date-picker v-model="data_cadastro" locale="pt-PT" :input-props='{ placeholder: "dd/mm/AAAA", class: "appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"}'/>
 				</div>
-				
 			</div>
 
 			<div class="-mx-3 md:flex mb-12">
