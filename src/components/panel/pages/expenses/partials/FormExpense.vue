@@ -395,7 +395,4 @@
     .has-error{
         border: 2px solid red;
 	}
-	.vc-custon{
-		
-	}
 </style>
