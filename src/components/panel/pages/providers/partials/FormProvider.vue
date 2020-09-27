@@ -143,7 +143,7 @@
 
 				<div class="md:w-2/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-						Nome Completo
+						Nome Completo *
 					</label>
 					<input type="text" v-model="provider.nome" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" placeholder="Nome Completo">
 					
@@ -151,9 +151,9 @@
 
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-						CPF
+						CPF *
 					</label>
-					<input v-model="provider.cpf" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="CPF">
+					<input v-model="provider.cpf" v-mask="'###.###.###-##'" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="CPF">
 					
 				</div>
 
@@ -161,7 +161,7 @@
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
 						RG
 					</label>
-					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					<input v-model="provider.rg" v-mask="'###.###-##'" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="RG">
 					
 				</div>
 
@@ -183,32 +183,32 @@
 			</div>
 
 			<div class="-mx-3 md:flex mb-10">
-				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
+				<div class="md:w-1/6 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-						Fantasia
+						ESTADO *
 					</label>
-					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					<input v-model="provider.estado" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
 					
 				</div>
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
 						CNPJ
 					</label>
-					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					<input v-model="provider.cnpj" v-mask="'##.###.###/####-##'" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="CNPJ">
 					
 				</div>
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
 						Insc. Estadual
 					</label>
-					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					<input v-model="provider.inscricao_estadual" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Inscrição Estadual">
 					
 				</div>
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
 						Atuação
 					</label>
-					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					<input  v-model="provider.atuacao" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Atuação">
 					
 				</div>
 			</div>
@@ -216,37 +216,38 @@
 			<div class="-mx-3 md:flex mb-10">
 				<div class="md:w-1/5 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-						CEP
+						CEP *
 					</label>
-					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					<input v-model="provider.cep" v-mask="'##.###.###'" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="CEP">
 					
 				</div>
-				<div class="md:w-1/6 px-3 mb-6 md:mb-0">
-					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-						ESTADO
-					</label>
-					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
-					
-				</div>
+				
 				<div class="md:w-1/5 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-						CIDADE
+						CIDADE *
 					</label>
-					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					<input v-model="provider.cidade" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Cidade">
 					
 				</div>
 				<div class="md:w-2/5 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-						Endereço
+						Endereço *
 					</label>
-					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					<input v-model="provider.endereco" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Endereço">
 					
 				</div>
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
 						E-email
 					</label>
-					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" type="text" placeholder="Codigo">
+					<input v-model="provider.email" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" type="text" placeholder="E-mail">
+					
+				</div>
+				<div class="md:w-1/4 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						TELEFONE *
+					</label>
+					<input v-model="provider.telefone" v-mask="'(##) #####-####'" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Telefone">
 					
 				</div>
 			</div>
@@ -257,7 +258,7 @@
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
 						Observação
 					</label>
-					<textarea class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="text" placeholder="Anotar uma observação"></textarea>
+					<textarea v-model="provider.observacao" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="text" placeholder="Anotar uma observação"></textarea>
 				</div> 
 			</div>
 			
@@ -284,7 +285,17 @@
                     return {
                         id: '',
                         nome: '',
-                        cpf: ''
+						rg: '',
+						//sexo: '',
+						estado: '',
+						cnpj: '',
+						inscricao_estadual: '',
+						atuacao: '',
+						cep: '',
+						endereco: '',
+						email: '',
+						telefone: '',
+						observacao: '',
                     }
                 }
             },

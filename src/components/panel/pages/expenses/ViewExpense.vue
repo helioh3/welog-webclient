@@ -247,7 +247,7 @@
 					<tbody class="bg-white">
 						<tr>
 							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="text-sm leading-5 text-gray-900">NFe/Boleto</div>
+								<div class="text-sm lea	ding-5 text-gray-900">NFe/Boleto</div>
 								<div class="text-sm leading-5 text-gray-500">
 									<svg class="feather cursor-pointer" @click.prevent="download(expense.anexo)">
 										<use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
@@ -283,7 +283,7 @@
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Data</div>
-								<div class="text-sm leading-5 text-gray-500">Web dev</div>
+								<div class="text-sm leading-5 text-gray-500">{{ expense.data }}</div>
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Conta Bancária</div>
@@ -353,7 +353,7 @@
 							<tr>
 								<td class="px-6 py-4 whitespace-no-wrap">
 									<div class="text-sm leading-5 text-gray-900">Observação</div>
-									<div class="text-sm leading-5 text-gray-500">T adicionado para teste de observacao em despesa</div>
+									<div class="text-sm leading-5 text-gray-500">{{ expense.observacao }}</div>
 								</td>
 							</tr>
 						</tbody>

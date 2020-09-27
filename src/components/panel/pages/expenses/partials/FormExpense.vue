@@ -205,7 +205,7 @@
 						Data / Cadastro
 					</label>
 					<!-- <input type="text" v-mask="'##/##/####'" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-city" placeholder="dd/mm/YYYY"> -->
-					<v-date-picker v-model="data_cadastro" locale="pt-PT" :input-props='{ placeholder: "dd/mm/AAAA", class: "appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"}'/>
+					<v-date-picker v-model="expense.data" locale="pt-PT" :input-props='{ placeholder: "dd/mm/AAAA", class: "appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"}'/>
 				</div>
 			</div>
 
@@ -273,7 +273,7 @@
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
 						Observação
 					</label>
-					<textarea class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-zip" type="text" placeholder="Anotar uma observação"></textarea>
+					<textarea v-model="expense.observacao" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-zip" type="text" placeholder="Anotar uma observação"></textarea>
 				</div> 
 			</div>
 			
@@ -303,11 +303,12 @@
                         id: '',
                         category_id: '',
 						numero: '',
-						data_cadastro: new Date(),
+						data: new Date(),
+						observacao: '',
 
                         installments: [
                             {
-                                data_vencimento: '',
+                                data_vencimento: new Date(),
                                 valor: 0
                             }
                         ]
@@ -353,7 +354,7 @@
             },
             addItem () {
                 this.expense.installments.push({
-                    data_vencimento: '',
+                    data_vencimento: new Date(),
                     valor: 0
                 })
             },
