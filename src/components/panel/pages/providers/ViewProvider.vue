@@ -230,7 +230,7 @@
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">RG</div>
-								<div class="text-sm leading-5 text-gray-500">711-000</div>
+								<div class="text-sm leading-5 text-gray-500">{{ provider.rg }}</div>
 							</td>
 							
 							<td class="px-6 py-4 whitespace-no-wrap">
@@ -241,21 +241,21 @@
 						
 						<tr>
 							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="text-sm leading-5 text-gray-900">Fantasia</div>
-								<div class="text-sm leading-5 text-gray-500">Web dev</div>
+								<div class="text-sm leading-5 text-gray-900">Estado</div>
+								<div class="text-sm leading-5 text-gray-500">{{ provider.estado }}</div>
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">CNPJ</div>
-								<div class="text-sm leading-5 text-gray-500">Web dev</div>
+								<div class="text-sm leading-5 text-gray-500">{{ provider.cnpj }}</div>
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Insc. Estadual</div>
-								<div class="text-sm leading-5 text-gray-500">Caixa Economica Federal</div>
+								<div class="text-sm leading-5 text-gray-500">{{ provider.inscricao_estadual }}</div>
 							</td>
 
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Atuação</div>
-								<div class="text-sm leading-5 text-gray-500">Caixa Economica Federal</div>
+								<div class="text-sm leading-5 text-gray-500">{{ provider.atuacao }}</div>
 							</td>	
 		
 						</tr> 
@@ -263,25 +263,26 @@
 						<tr>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">CEP</div>
-								<div class="text-sm leading-5 text-gray-500">Web dev</div>
+								<div class="text-sm leading-5 text-gray-500">{{ provider.cep }}</div>
 							</td>
-							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="text-sm leading-5 text-gray-900">ESTADO</div>
-								<div class="text-sm leading-5 text-gray-500">Web dev</div>
-							</td>
+							
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">CIDADE</div>
-								<div class="text-sm leading-5 text-gray-500">Caixa Economica Federal</div>
+								<div class="text-sm leading-5 text-gray-500">{{ provider.cidade }}</div>
 							</td>
 
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Endereço</div>
-								<div class="text-sm leading-5 text-gray-500">Caixa Economica Federal</div>
+								<div class="text-sm leading-5 text-gray-500">{{ provider.endereco }}</div>
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">E-email</div>
-								<div class="text-sm leading-5 text-gray-500">Caixa Economica Federal</div>
-							</td>	
+								<div class="text-sm leading-5 text-gray-500">{{ provider.email }}</div>
+							</td>
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Telefone</div>
+								<div class="text-sm leading-5 text-gray-500">{{ provider.telefone }}</div>
+							</td>
 		
 						</tr> 
 					</tbody>
@@ -295,7 +296,7 @@
 						<tr>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Observação</div>
-								<div class="text-sm leading-5 text-gray-500">T adicionado para teste de observacao em despesa</div>
+								<div class="text-sm leading-5 text-gray-500">{{ provider.observacao }}</div>
 							</td>
 						</tr>
 					</tbody>

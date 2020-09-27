@@ -166,7 +166,7 @@
 
 										<div class="ml-4">
 											<div class="text-sm leading-5 font-medium text-gray-900">{{ provider.nome }}</div>
-											<div class="text-sm leading-5 text-gray-500">john@example.com</div>
+											<div class="text-sm leading-5 text-gray-500">{{ provider.email }}</div>
 										</div>
 									</div>
 								</td>
@@ -176,15 +176,15 @@
 								</td>
 
 								<td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
-									<div class="text-sm leading-5 text-gray-900">000-000</div>
+									<div class="text-sm leading-5 text-gray-900">{{ provider.rg }}</div>
 								</td>
 
 								<td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
-									<div class="text-sm leading-5 text-gray-900">Dianopolis-TO</div>
+									<div class="text-sm leading-5 text-gray-900">{{ provider.cidade }}</div>
 								</td>
 
 								<td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
-									<div class="text-sm leading-5 text-gray-900">Texto para observação</div>
+									<div class="text-sm leading-5 text-gray-900">{{ provider.observacao }}</div>
 								</td>
 								
 							</tr>

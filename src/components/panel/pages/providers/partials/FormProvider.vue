@@ -131,7 +131,7 @@
 
     <!-- component -->
 	<div class="bg-white border rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
-		<form  @submit.prevent="onSubmit">
+		<form action="" @submit.prevent="onSubmit">
 			<div class="-mx-3 md:flex mb-6">
 				<div class="md:w-1/5 px-3 mb-6 md:mb-0">
 						<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
@@ -286,7 +286,7 @@
                         id: '',
                         nome: '',
 						rg: '',
-						//sexo: '',
+						
 						estado: '',
 						cnpj: '',
 						inscricao_estadual: '',
@@ -295,7 +295,7 @@
 						endereco: '',
 						email: '',
 						telefone: '',
-						observacao: '',
+						observacao: ''
                     }
                 }
             },
@@ -321,7 +321,7 @@
                 
                 this.$store.dispatch(action, this.provider)
                     .then( () => {
-                        this.$snotify.success('Fornecedor salvo com sucesso');
+                        this.$snotify.success('Operaçao realizada com sucesso');
                         this.$router.push({name: 'painel.fornecedores'})
                     })
                     .catch( ()=> {
