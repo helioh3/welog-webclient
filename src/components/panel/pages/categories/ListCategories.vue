@@ -3,12 +3,12 @@
         <nav class="breadcrumb">
             <li><a href="index.html">inicio</a></li>
             <li><a href="#" class="active">categorias</a></li>
-        </nav>  
+        </nav>
 
        <nav class="tabs">
             <router-link class="tabs__item tabs__item" :to="{name: 'painel.fornecedores'}">Fornecedores</router-link>
             <router-link class="tabs__item tabs__item" :to="{name: 'painel.empresas'}">Empresas</router-link>
-            
+
             <router-link class="tabs__item tabs__item--active" :to="{name: 'painel.categorias'}">Categorias</router-link>
 
         </nav>
@@ -16,20 +16,20 @@
 
             <div class="box-but">
                 <div class="box-but-left">
- 
+
                     <router-link class="but printer ma-r-small" :to="{name: 'painel.categorias.adicionar'}" >
                         <svg class="feather">
                             <use xlink:href="@/assets/svg/feather-sprite.svg#plus-circle"></use>
                         </svg>
 
-                    </router-link> 
+                    </router-link>
 
                 </div>
 
                 <div class="box-but-right"></div>
             </div>
 
-            <div class="box-categories">  
+            <div class="box-categories">
                <ul v-for="(category, index) in categories.data" :key="index">
                     <li class="category">
                         <div class="category__title">{{ category.nome }}</div>
@@ -46,13 +46,13 @@
                                     <use xlink:href="@/assets/svg/feather-sprite.svg#trash"  @click.prevent="ConfirmDelCategory(category)"/>
                                 </svg>
                             </button>
-           
+
                         </div>
                     </li>
                  </ul>
             </div>
 
-            
+
         </div>
 
     </div> -->
@@ -67,15 +67,15 @@
 						<path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/>
 					</svg>
 				</li>
-				
+
 				<li>
-					
+
 					<a href="#" class="text-gray-500" aria-current="page">Categorias</a>
 				</li>
 			</ol>
 		</nav>
 	</div>
-	
+
 	<!-- TABS -->
 	<div class="py-1">
 		<ul class="list-reset flex border-b border-gray-400">
@@ -93,7 +93,7 @@
 			<li class="-mb-px mr-1">
 				<router-link class="bg-white inline-block border-gray-400 border-l border-t border-r rounded-t py-4 px-6 text-blue-dark" :to="{name: 'painel.fornecedores'}">Categorias</router-link>
 			</li>
-			
+
 		</ul>
 	</div>
 
@@ -133,9 +133,9 @@
 				</button>
 
 			</div>
-			
+
 		</div>
-			
+
 		<div class="flex flex-col mt-3 ">
 			<div class="-my-2 py-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
 				<div class=" list-none w-auto flex-row ">
@@ -150,20 +150,20 @@
 								<h4 class="font-bold ">{{ category.nome }}</h4>
 							</div>
 							<div class="relative">
-								<a href="#" @click.prevent="isOpen = !isOpen">
+								<a href="#" @click.prevent="toggleOpen(index)">
 									<svg fill="currentColor" class="w-5 h-5" style="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
 										<path d="M10 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"></path>
 									</svg>
 								</a>
 
-								<div v-if="isOpen" class="options absolute bg-white text-gray-600 origin-top-right right-0 mt-2 w-40 rounded-md shadow-lg ">
+								<div v-if="isOpen[index]" class="options absolute bg-white text-gray-600 origin-top-right right-0 mt-2 w-40 rounded-md shadow-lg ">
 									<a href="#" @click.prevent="edit(category.id)" class="flex py-3 px-2 text-sm font-bold hover:bg-gray-200 ">
 										<span class="mr-auto">Editar</span>
 										<svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" style="">
 											<path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
 										</svg>
 									</a>
-									
+
 									<a href="#" @click.prevent="ConfirmDelCategory(category)" class="flex py-3 px-2 text-sm font-bold  hover:bg-gray-200 ">
 										<span class="mr-auto">Deletar</span>
 										<svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" style="">
@@ -173,16 +173,16 @@
 								</div>
 
 							</div>
-							
+
 						</li>
-											
+
 
 					</div>
 
-					
+
 				</div>
-				
-				
+
+
 			</div>
 		</div>
 	</div>
@@ -199,7 +199,7 @@
 
 		data() {
 			return {
-				isOpen: false,
+				isOpen: {},
 			};
 		},
 
@@ -209,11 +209,21 @@
             }
         },
 
-        methods: {
-            loadCategories(){
-                this.$store.dispatch('getCategories')
-			},
-			
+      methods: {
+        loadCategories () {
+          this.$store.dispatch('getCategories')
+        },
+
+        toggleOpen (index) {
+          // fecha todos os menus
+          Object.keys(this.isOpen).forEach((key) => this.isOpen[key] = false)
+
+          // captura se estava aberto antes
+          const open = !!this.isOpen[index]
+          // inverte o valor de aberto
+          this.$set(this.isOpen, index, !open)
+        },
+
 			edit(id) {
                 this.$store.dispatch('getCategory', id)
                     .then(response => {
@@ -226,7 +236,7 @@
                 this.$snotify.error(`Deseja realmente deletar categoria: ${category.nome} ?`, 'Deletar ?', {
                     position: "centerCenter",
                     showProgressBar: true,
-                    closeOnClick: true,  
+                    closeOnClick: true,
                     buttons: [
                         {text: 'Não', action: null },
                         {text: 'Sim', action: (value)=>  {this.delCategory(category), this.$snotify.remove(value.id)} }
@@ -238,7 +248,7 @@
                 this.$store.dispatch('deleteCategory', category.id)
                     .then(() => {
                         this.$snotify.success(`Sucesso ao deletar: ${category.nome}`)
-                        
+
                         this.loadCategories()
                     })
                     .catch(error => {
@@ -248,10 +258,10 @@
                     })
             }
         }
-        
+
     }
 </script>
 
 <style lang="">
-    
+
 </style>

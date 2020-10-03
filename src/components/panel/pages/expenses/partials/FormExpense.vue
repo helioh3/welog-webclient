@@ -7,7 +7,7 @@
                 <div class="field-file">
                     <div v-if="imagePreview">
                         <img :src="imagePreview" alt="" class="image-preview">
-                        
+
                     </div>
                     <div v-else>
                         <label class="field-file__label">Anexar documentos</label>
@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="box-form-right">
                 <div class="field">
                     <label class="field__label">N. Nota Fiscal</label>
@@ -50,7 +50,7 @@
                         <v-select :options="empresas" ></v-select>
                     </div>
                 </div>
-               
+
                 <div class="field">
                     <label class="field__label">Data de cadastro</label>
                     <input  type="text" v-mask="'##/##/####'" class="field__input">
@@ -67,7 +67,7 @@
                     <table class="field-table">
                         <thead>
                             <tr>
-                                
+
                                 <th>Parcela</th>
                                 <th>Vencimento</th>
                                 <th>Valor (R$)</th>
@@ -99,7 +99,7 @@
                                     </svg>
                                 </td>
                             </tr>
-                        
+
                             <tr>
                                <td>
                                    <a href="" @click.prevent="addItem">Adicionar</a>
@@ -126,13 +126,13 @@
                 </div>
 
             </div>
-                 
+
         </form>
     </div> -->
 
 	<!-- component -->
 	<div class="bg-white border rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
-		
+
 		<form @submit.prevent="onSubmit">
 			<div class="-mx-3 md:flex mb-6">
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
@@ -158,7 +158,7 @@
 						<v-select class="style-chooser" :options="companies" label="empresa" v-model="expense.company_id" :reduce="company => company.id"  />
 					</div>
 				</div>
-				
+
 			</div>
 
 			<div class="-mx-3 md:flex mb-10">
@@ -181,7 +181,7 @@
 						</select> -->
 
 						<v-select class="style-chooser" :options="categories" label="nome" v-model="expense.category_id" :reduce="category => category.id"  />
-						
+
 					</div>
 				</div>
 
@@ -220,14 +220,14 @@
 								<div class="md:w-1/2">
 									<!-- <input type="text" v-model="item.data_vencimento" v-mask="'##/##/####'" class="text-left appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4" placeholder="dd-mm-YYYY"> -->
 									<v-date-picker v-model="item.data_vencimento" locale="pt" :input-props='{ placeholder: "dd/mm/AAAA", class: "appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"}'/>
-								
+
 								</div>
-								
+
 							</td>
 							<td class="md:w-1/5 px-6 py-3 whitespace-no-wrap border-b text-right text-blue-900 border-gray-500 text-sm leading-5">
 								<money type="text" v-model="item.valor" class="text-right appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4"  placeholder="Valor"/>
 							</td>
-							
+
 							<td class="px-6 py-3 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
 								<button @click.prevent="removeItem(index)" class="px-5 py-2  border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">X</button>
 							</td>
@@ -240,15 +240,17 @@
 								<div class="text-sm font-semibold leading-5 text-blue-900">Total</div>
 							</td>
 							<td class="md:w-1/5 px-6 py-5 whitespace-no-wrap border-b text-right text-blue-900 border-gray-500 text-sm leading-5">
-								<div class="text-sm font-semibold leading-5 text-blue-600">R$ 0,0</div>
+								<div class="text-sm font-semibold leading-5 text-blue-600">
+                  <money :value="total" disabled class="text-right appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4"></money>
+                </div>
 							</td>
 						</tr>
-											
+
 					</tbody>
 				</table>
-				
+
 				<button @click.prevent="addItem" class="my-3 px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">+</button>
-								
+
 				</div>
 			</div>
 
@@ -258,9 +260,9 @@
 						Observação
 					</label>
 					<textarea v-model="expense.observacao" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-zip" type="text" placeholder="Anotar uma observação"></textarea>
-				</div> 
+				</div>
 			</div>
-			
+
 			<div class="mt-4">
 				<button type="submit" class="mr-4 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none inline-block  px-5 py-2">
 					salvar
@@ -270,7 +272,7 @@
 				</button>
 			</div>
 		</form>
-		
+
 	</div>
 
 </template>
@@ -307,49 +309,54 @@
                 default: false
             },
 		},
-		created() {
-		   this.$store.dispatch('loadCompanies'),
-		   this.$store.dispatch('loadProviders')
-       	},
-        data () {
-           return {
-               errors: {},
-               expense: {},
-            //    uploadExpense: null,
-               imagePreview: null
-           }
+      created () {
+        this.$store.dispatch('loadCompanies'),
+          this.$store.dispatch('loadProviders')
+      },
+      data () {
+        return {
+          errors: {},
+          expense: {},
+          //    uploadExpense: null,
+          imagePreview: null
+        }
+      },
+      computed: {
+        companies () {
+          return this.$store.state.companies.items.data
         },
-        computed: {
-			companies() {
-				return this.$store.state.companies.items.data
-			},
 
-			providers() {
-				return this.$store.state.providers.items.data
-			},
-
-            categories() {
-                return this.$store.state.categories.items.data
-			},
-			
-			
-			
+        providers () {
+          return this.$store.state.providers.items.data
         },
+
+        categories () {
+          return this.$store.state.categories.items.data
+        },
+
+        total () {
+          if (!Array.isArray(this.expense?.installments)) {
+            return 0
+          }
+          return this.expense.installments.reduce((accumulator, installment) => accumulator + installment?.valor, 0)
+        }
+
+      },
         methods: {
             onSubmit () {
                 let action = this.update ? 'updateExpense' : 'storeExpenses'
-                
+
                 //upload de arquivos
                 const formData = objectToFormData(this.expense)
                 formData.id = this.expense.id
-                
+
                 this.$store.dispatch(action, formData)
                     .then( ()=> {
                         this.$snotify.success('Salvo com sucesso')
                         this.$router.push({name: 'painel.despesas'})
                     })
                     .catch(error => {
-                        this.$snotify.error('Não foi possível salvar', 'Erro')                        
+                        this.$snotify.error('Não foi possível salvar', 'Erro')
                         this.errors = error.response.data.errors
                     })
             },
@@ -359,7 +366,7 @@
                     valor: 0
                 })
             },
-            
+
             removeItem (index) {
                 this.expense.installments.splice(index, 1)
             },
@@ -367,7 +374,7 @@
                 let files = e.target.files ||  e.dataTransfer.files
                 if(!files.length)
                     return
-                
+
                 this.expense.anexo = files[0];
                 this.previewImage(files[0]);
             },
@@ -382,14 +389,17 @@
                 this.$router.push({name: 'painel.despesas'})
             },
         },
-        watch: {
-            value: {
-                immediate: true,
-                handler (value) {
-                    this.expense = { ...value }
-                }
-            }
+      watch: {
+        value: {
+          immediate: true,
+          handler (value) {
+            this.expense = { ...value }
+          }
+        },
+        total (total) {
+          this.expense.valor = total
         }
+      }
     }
 </script>
 

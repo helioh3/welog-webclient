@@ -16,7 +16,7 @@ export default {
             })
             // .catch(error => {console.log(response)})
             .finally( () => context.commit('PRELOADER', false))
-        
+
     },
 
     checkLogin(context) {
@@ -44,6 +44,6 @@ export default {
         localStorage.removeItem(NAME_TOKEN)
 
         context.commit('AUTH_USER_LOGOUT')
-        
+
     }
 }

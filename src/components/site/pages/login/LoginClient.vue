@@ -1,29 +1,29 @@
 <template>
-   
+
     <!-- <div class="container-login">
         <header class="login-header">
             <div class="brand-login">
                 <a href=""><img src="@/assets/images/logo-oficial.png" class="logo" alt="" width="178" height="70"></a>
             </div>
         </header>
-        
-        
+
+
         <main class="login-main">
             <div class="box-login">
                 <form @submit.prevent="onLogin">
                     <h1 class="title">Bem-vindo <p>Insira os dados</p></h1>
-                    
+
                     <div class="field">
-                        <input type="text" class="field__input"  placeholder="Use e-mail" v-model="formData.email"> 
-                        <input type="password" class="field__input"  placeholder="Senha" v-model="formData.password"> 
+                        <input type="text" class="field__input"  placeholder="Use e-mail" v-model="formData.email">
+                        <input type="password" class="field__input"  placeholder="Senha" v-model="formData.password">
                         <p>Obter ID Account</p>
                     </div>
-                   
+
                     <button type="submit" class="but but-login">Entrar ></button>
                 </form>
             </div>
         </main>
-       
+
     </div> -->
 
 <!-- component -->
@@ -54,8 +54,8 @@ export default {
     data(){
         return {
             formData: {
-                email: '',
-                password: ''
+                email: process.env.VUE_APP_DEFAULT_USERNAME || '',
+                password: process.env.VUE_APP_DEFAULT_PASSWORD || ''
             }
         }
     },
@@ -73,5 +73,5 @@ export default {
 }
 </script>
 <style lang="">
-    
+
 </style>
