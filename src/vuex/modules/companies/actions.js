@@ -9,7 +9,7 @@ export default {
     loadCompanies(context){
         context.commit('PRELOADER', true)
         http.get(`${RESOURCE}`)
-            .then(response => context.commit('LOAD_COMPANIES', response.data))
+            .then(response => context.commit('LOAD_COMPANIES', response))
             .catch(error => {
                 console.log()
             })

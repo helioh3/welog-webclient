@@ -151,16 +151,16 @@
 						</thead>
 
 						<tbody class="bg-white">
-							<tr class=" cursor-pointer" v-for="company in companies" :key="company.id" @dblclick.prevent="view(company.id)">
+							<tr class=" cursor-pointer" v-for="company in companies.data" :key="company.id" @dblclick.prevent="view(company.id)">
 								
 								<td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
 									<div class="flex items-center">
-										<div class="flex-shrink-0 h-10 w-10">
+										<!-- <div class="flex-shrink-0 h-10 w-10">
 											<img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-										</div>
+										</div> -->
 
 										<div class="ml-4">
-											<div class="text-sm leading-5 font-medium text-gray-900">{{ company.empresa }}</div>
+											<div class="text-sm leading-5 font-medium text-gray-900 uppercase">{{ company.empresa }}</div>
 										</div>
 									</div>
 								</td>
@@ -170,11 +170,11 @@
 								</td>
 
 								<td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
-									<div class="text-sm leading-5 text-gray-900">000-000</div>
+									<div class="text-sm leading-5 text-gray-900">{{ company.cidade }}</div>
 								</td>
 
 								<td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
-									<div class="text-sm leading-5 text-gray-900">Dianopolis-TO</div>
+									<div class="text-sm leading-5 text-gray-900">helio@gmail.com</div>
 								</td>
 
 								<td class="px-4 py-2 whitespace-no-wrap border-b border-gray-200">
@@ -245,7 +245,7 @@
             },
 
             confirmDelete(company){
-                this.$snotify.error(`Deseja deletar as empresa numero: ${company.id}`, 'Confirme', {
+                this.$snotify.error(`Deseja deletar a empresa: ${company.empresa}`, 'Confirme', {
                     position: "centerCenter",
                     timeout: 10000,
                     showProgressBar: true,

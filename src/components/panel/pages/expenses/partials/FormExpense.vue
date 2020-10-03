@@ -133,7 +133,7 @@
 	<!-- component -->
 	<div class="bg-white border rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
 		
-		<form action="" @submit.prevent="onSubmit">
+		<form @submit.prevent="onSubmit">
 			<div class="-mx-3 md:flex mb-6">
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
@@ -155,34 +155,19 @@
 						Empresa
 					</label>
 					<div class="relative">
-						<select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
-							<option>New Mexico</option>
-							<option>Missouri</option>
-							<option>Texas</option>
-						</select>
-						<div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
-							<svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-						</div>
+						<v-select class="style-chooser" :options="companies" label="empresa" v-model="expense.company_id" :reduce="company => company.id"  />
 					</div>
 				</div>
-				
 				
 			</div>
 
 			<div class="-mx-3 md:flex mb-10">
-				<div class="md:w-2/3 px-3">
+				<div class="md:w-1/2 px-3">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
 						Fornecedor
 					</label>
 					<div class="relative">
-						<select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
-							<option>New Mexico</option>
-							<option>Missouri</option>
-							<option>Texas</option>
-						</select>
-						<div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
-							<svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-						</div>
+						<v-select class="style-chooser" :options="providers" label="nome" v-model="expense.provider_id" :reduce="provider => provider.id"  />
 					</div>
 				</div>
 
@@ -204,7 +189,6 @@
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
 						Data / Cadastro
 					</label>
-					<!-- <input type="text" v-mask="'##/##/####'" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-city" placeholder="dd/mm/YYYY"> -->
 					<v-date-picker v-model="expense.data" locale="pt-PT" :input-props='{ placeholder: "dd/mm/AAAA", class: "appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"}'/>
 				</div>
 			</div>
@@ -300,10 +284,12 @@
                 type: Object,
                 default: () => {
                     return {
-                        id: '',
-                        category_id: '',
+						id: '',
+						company_id: '',
+						provider_id: '',
+						category_id: '',
 						numero: '',
-						data: new Date(),
+						data: '',
 						observacao: '',
 
                         installments: [
@@ -320,7 +306,11 @@
                 type: Boolean,
                 default: false
             },
-        },
+		},
+		created() {
+		   this.$store.dispatch('loadCompanies'),
+		   this.$store.dispatch('loadProviders')
+       	},
         data () {
            return {
                errors: {},
@@ -330,9 +320,20 @@
            }
         },
         computed: {
+			companies() {
+				return this.$store.state.companies.items.data
+			},
+
+			providers() {
+				return this.$store.state.providers.items.data
+			},
+
             categories() {
                 return this.$store.state.categories.items.data
-            }
+			},
+			
+			
+			
         },
         methods: {
             onSubmit () {

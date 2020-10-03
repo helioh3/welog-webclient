@@ -53,44 +53,85 @@
 		<form action="" @submit.prevent="onSubmit">
 			<div class="-mx-3 md:flex mb-6">
 				<div class="md:w-1/5 px-3 mb-6 md:mb-0">
-					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
 						Logo
 					</label>
-					<input type="file"  class="py-3 pr-0 mb-3 appearance-none"  />
-					<p class="text-red text-xs italic">Please fill out this field.</p>
+					<input type="file" class="py-3 pr-0 mb-3 appearance-none focus:outline-none" />
+					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
 				</div>
-
 				<div class="md:w-2/3 px-3 mb-6 md:mb-0">
-					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" >
-						Empresa
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						Nome / Empresa *
 					</label>
-					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Nome da empresa">
-					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
+					<input type="text" v-model="company.empresa" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" placeholder="Nome Completo">
+					
 				</div>
 
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
-					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" >
-						CNPJ
-					</label>
-					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="CNPJ">
-					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
-				</div>
-
-				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
-					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" >
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
 						Cidade
 					</label>
-					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Cidade">
+					<input v-model="company.cidade" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" type="text" placeholder="Cidade">
+					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
+				</div>
+
+				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+						Presidente
+					</label>
+					<input v-model="company.presidente" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Presidente">
+					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
+				</div>
+
+				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+						CNPJ
+					</label>
+					<input v-model="company.cnpj" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="CNPJ">
 					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
 				</div>
 				
-				<div class="md:w-1/2 px-3 mb-6 md:mb-0">
-					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" >
-						EMAIL
+			</div>
+
+			<div class="-mx-3 md:flex mb-6">
+				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+						Dada de Registro
 					</label>
-					<input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="e-mail">
+					<input v-model="company.registro" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Dada de Registro">
+					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
 				</div>
-				
+
+				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+						Inscrição Estadual
+					</label>
+					<input v-model="company.inscricao_estadual" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Inscrição Estadual">
+					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
+				</div>
+				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+						Socio
+					</label>
+					<input v-model="company.socio" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Sócio">
+					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
+				</div>
+
+				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+						CPF
+					</label>
+					<input v-model="company.cpf" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="CPF">
+					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
+				</div>
+
+				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+						RG
+					</label>
+					<input v-model="company.rg" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="RG">
+					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
+				</div>
 			</div>
 
 			<div class="mt-4">
@@ -115,8 +156,13 @@ export default {
             default: () => {
                 return {
                     id: '',
-                    empresa: '',
-                    cnpj: '',
+					empresa: '',
+					presidente: '',
+					registro: '',
+					inscricao_estadual: '',
+					socio: '',
+					cpf: '',
+                    rg: ''
                    
                 }
             }

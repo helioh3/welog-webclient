@@ -256,38 +256,46 @@
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Codigo</div>
-								<div class="text-sm leading-5 text-gray-500">{{ expense.id }}</div>
+								<div class="text-lg leading-5 text-gray-600">{{ expense.id }}</div>
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Numero NFe</div>
-								<div class="text-sm leading-5 text-gray-500">{{ expense.numero }}</div>
+								<div class="text-lg leading-5 text-gray-600">{{ expense.numero }}</div>
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Empresa</div>
-								<div class="text-sm leading-5 text-gray-500">Sao Sebastião Energia Ltda</div>
+								<div class="text-lg leading-5 text-gray-600" >
+									<select class="block appearance-none w-full bg-grey-lighter text-lg leading-5 text-gray-600" disabled>
+										<option v-for="company in companies" :key="company.id" :value="company.id">{{ company.empresa }}</option>
+									</select>
+								</div>
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Fornecedor</div>
-								<div class="text-sm leading-5 text-gray-500">Web dev</div>
+								<div class="text-lg leading-5 text-gray-600" >
+									<select class="block appearance-none w-full bg-grey-lighter text-lg leading-5 text-gray-600" disabled>
+										<option v-for="provider in providers" :key="provider.id" :value="provider.id">{{ provider.nome }}</option>
+									</select>
+								</div>
 							</td>		
 						</tr>
 						
 						<tr>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Categoria</div>
-								<div class="text-sm leading-5 text-gray-500" >
-									<select class="block appearance-none w-full bg-grey-lighter text-sm leading-5 text-gray-500" disabled>
+								<div class="text-lg leading-5 text-gray-600" >
+									<select class="block appearance-none w-full bg-grey-lighter text-lg leading-5 text-gray-600" disabled>
 										<option v-for="category in categories" :key="category.id" :value="category.id">{{ category.nome }}</option>
 									</select>
 								</div>
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Data</div>
-								<div class="text-sm leading-5 text-gray-500">{{ expense.data }}</div>
+								<div class="text-lg leading-5 text-gray-600">{{ expense.data }}</div>
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Conta Bancária</div>
-								<div class="text-sm leading-5 text-gray-500">Caixa Economica Federal</div>
+								<div class="text-lg leading-5 text-gray-600">Caixa Economica Federal</div>
 							</td>			
 						</tr> 
 
@@ -409,9 +417,17 @@
         },
 
         computed: {
-            categories(){
+            companies() {
+				return this.$store.state.companies.items.data
+			},
+
+			providers() {
+				return this.$store.state.providers.items.data
+			},
+
+            categories() {
                 return this.$store.state.categories.items.data
-            }
+			},
         },
 
         methods: {

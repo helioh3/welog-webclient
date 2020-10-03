@@ -1,8 +1,6 @@
 <template>
     <div>
         <preloader-panel></preloader-panel>
-      
-
             <navbar-dashboard></navbar-dashboard>
             
             <main class="flex-1 bg-white">

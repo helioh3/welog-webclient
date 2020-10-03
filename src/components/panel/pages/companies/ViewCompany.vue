@@ -167,30 +167,47 @@
 						<tr>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Empresa</div>
-								<div class="text-sm leading-5 text-gray-500">FAZENDA 7CAMPOS</div>
+								<div class="text-sm leading-5 text-gray-500">{{ company.empresa }}</div>
 							</td>
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Cidade</div>
+								<div class="text-sm leading-5 text-gray-500">{{ company.cidade }}</div>
+							</td>
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Presidente</div>
+								<div class="text-sm leading-5 text-gray-500">{{ company.presidente }}</div>
+							</td>
+
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">CNPJ</div>
-								<div class="text-sm leading-5 text-gray-500">000.000.000-80</div>
+								<div class="text-sm leading-5 text-gray-500">{{ company.cnpj }}</div>
 							</td>
+
+						</tr>
+
+						<tr>
 							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="text-sm leading-5 text-gray-900">INSCRIÇÃO ESTADUAL</div>
-								<div class="text-sm leading-5 text-gray-500">711-000</div>
+								<div class="text-sm leading-5 text-gray-900">Data de Redistro</div>
+								<div class="text-sm leading-5 text-gray-500">{{ company.registro }}</div>
 							</td>
 
 							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="text-sm leading-5 text-gray-900">CEP</div>
-								<div class="text-sm leading-5 text-gray-500">711-000</div>
+								<div class="text-sm leading-5 text-gray-900">Inscricão Estadual</div>
+								<div class="text-sm leading-5 text-gray-500">{{ company.inscricao_estadual }}</div>
+							</td>
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Sócio</div>
+								<div class="text-sm leading-5 text-gray-500">{{ company.socio }}</div>
 							</td>
 
 							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="text-sm leading-5 text-gray-900">ESTADO</div>
-								<div class="text-sm leading-5 text-gray-500">TOCANTINS</div>
+								<div class="text-sm leading-5 text-gray-900">CPF</div>
+								<div class="text-sm leading-5 text-gray-500">{{ company.cpf }}</div>
 							</td>
 
 							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="text-sm leading-5 text-gray-900">CIDADE</div>
-								<div class="text-sm leading-5 text-gray-500">MATEIROS-TO</div>
+								<div class="text-sm leading-5 text-gray-900">RG</div>
+								<div class="text-sm leading-5 text-gray-500">{{ company.rg }}</div>
 							</td>
 						</tr>
 						

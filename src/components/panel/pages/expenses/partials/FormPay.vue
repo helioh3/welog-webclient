@@ -108,18 +108,18 @@
 
 					<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
 						<div class="text-sm text-center leading-5 text-blue-900 w-12">
-							<input type="file" name="comprovate" class="field__input text-center" @change="onFileInstallment($event, item)">
+							<input type="file" name="comprovate" class="w-1/5 field__input text-center appearance-none focus:outline-none" @change="onFileInstallment($event, item)">
 						</div>
 					</td>
 					
 
 					<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
 						<!-- <input class="appearance-none block w-2/3 bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-2 px-4" id="grid-city" type="text" placeholder="data"> -->
-						<v-date-picker v-model="data_cadastro" locale="pt-PT" :input-props='{ placeholder: "dd/mm/AAAA", class: "appearance-none block w-2/3 bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-2 px-4"}'/>
+						<v-date-picker v-model="item.data_pagamento" locale="pt" :input-props='{ placeholder: "dd/mm/AAAA", class: "appearance-none block w-2/3 bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-2 px-4"}'/>
 					</td>
 				
 					<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
-						<button class="mr-1 px-4 py-2  border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+						<button @click.prevent="save(item)" class="mr-1 px-4 py-2  border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
 							<svg class="feather">
 								<use xlink:href="@/assets/svg/feather-sprite.svg#check-square"></use>
 							</svg>
@@ -148,7 +148,7 @@ export default {
                     installments: [
                         {
                             data_vencimento: '',
-                            data_pagamento: '',
+                            data_pagamento: new Date(),
                             valor: 0
                         }
                     ]
