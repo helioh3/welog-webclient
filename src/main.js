@@ -17,6 +17,8 @@ import store from './vuex/store'
 
 
 import App from './App.vue'
+import AppDate from '@/components/share/Form/AppDate'
+Vue.component('AppDate', AppDate)
 
 // DEPENDENCIAS
 import vSelect from 'vue-select'

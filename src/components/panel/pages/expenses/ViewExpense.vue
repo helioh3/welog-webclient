@@ -1,6 +1,6 @@
-<template>  
+<template>
     <!-- <div class="box">
-        
+
         <nav class="breadcrumb">
             <li><a href="#">inicio</a></li>
             <li><a href="#">despesa</a></li>
@@ -9,12 +9,12 @@
 
         <nav class="tabs">
             <button class="tabs__item tabs__item--active">Despesas</button>
-            
+
         </nav>
 
         <div class="tabs-container">
             <div class="box-but">
-                
+
                 <div class="box-but-left">
                    <button-back></button-back>
                 </div>
@@ -24,14 +24,14 @@
                         <svg class="feather">
                             <use xlink:href="@/assets/svg/feather-sprite.svg#dollar-sign"></use>
                         </svg>
-                        
+
                     </button>
 
                     <button class="but printer ma-r-small" >
                         <svg class="feather">
                             <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
                         </svg>
-                        
+
                     </button>
 
                     <button class="but printer ma-r-small" @click.prevent="edit(expense.id)">
@@ -64,15 +64,15 @@
 
                 <div class="field">
                     <label class="field__label">N. Nota Fiscal</label>
-                    <p class="field__text">{{ expense.numero }}</p> 
+                    <p class="field__text">{{ expense.numero }}</p>
                 </div>
-        
+
                 <div class="field">
                     <label class="field__label">Fornecedor</label>
                     <p class="field__text">SAO SEBASTIÃO ENERGIA</p>
                 </div>
 
-                
+
             </div>
 
             <div class="box-field ">
@@ -80,14 +80,14 @@
                 <div class="field">
                     <label class="field__label">Categoria</label>
                     <p class="field__text">COMBUSTIVEL</p>
-                    
+
                 </div>
-               
+
                 <div class="field">
                     <label class="field__label">Empresa de Origem</label>
                     <p class="field__text">HELIO BRITO</p>
                 </div>
-               
+
                 <div class="field">
                     <label class="field__label">Data de cadastro</label>
                     <p class="field__text">99/99/9999</p>
@@ -97,10 +97,10 @@
                     <label class="field__label">Conta Bancária</label>
                     <p class="field__text">BANCO DO BRASIL</p>
                 </div>
-                
-            </div>     
-        </div> 
-    
+
+            </div>
+        </div>
+
         <div class="box-form view-form-view">
             <h2 class="box-form__title">Dados de pagamento</h2>
 
@@ -129,7 +129,7 @@
                                     {{item.data_vencimento }}
                                 </div>
                             </td>
-                            
+
                             <td>
                                 <div class="field">
                                    {{item.data_pagamento }}
@@ -154,13 +154,13 @@
                                     </svg>
                                 </div>
                             </td>
-                        
+
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-        </div> 
+        </div>
 
         <div class="box-form view-form-view">
             <h2 class="box-form__title">Informções extra</h2>
@@ -169,13 +169,13 @@
                     <label>Observação</label>
                         <textarea cols="30" rows="3" disabled></textarea>
                 </div>
-                
+
             </div>
         </div>
-    
+
         </div>
 
-        
+
     </div> -->
 
 	<div>
@@ -197,7 +197,7 @@
 						<path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/>
 					</svg>
 				</li>
-					
+
 					<li>
 						<a href="#" class="text-gray-500" aria-current="page">Visualizar</a>
 					</li>
@@ -212,7 +212,7 @@
 				<button class=" border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
 					<router-link class="inline-block px-4 py-2" :to="{name: 'painel.despesas'}">Voltar</router-link>
 				</button>
-	
+
 			</div>
 			<!-- botao -->
 			<div class="mt-3">
@@ -238,7 +238,7 @@
 				</button>
 
 			</div>
-			
+
 		</div>
 
 		<div class="bg-white border rounded mt-2 px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
@@ -277,9 +277,9 @@
 										<option v-for="provider in providers" :key="provider.id" :value="provider.id">{{ provider.nome }}</option>
 									</select>
 								</div>
-							</td>		
+							</td>
 						</tr>
-						
+
 						<tr>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Categoria</div>
@@ -296,14 +296,14 @@
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Conta Bancária</div>
 								<div class="text-lg leading-5 text-gray-600">Caixa Economica Federal</div>
-							</td>			
-						</tr> 
+							</td>
+						</tr>
 
 					</tbody>
 				</table>
-				
+
 			</div>
-			
+
 			<div class="-mx-3 md:flex mb-12">
 				<div class="md:w-full px-3">
 					<table class="md:w-full">
@@ -314,7 +314,7 @@
 								<th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-gray-700 tracking-wider">Pagamento</th>
 								<th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-gray-700 tracking-wider">Comprovante</th>
 								<th class="px-6 py-3 border-b-2 border-gray-300 text-right text-sm leading-4 text-gray-700 tracking-wider">Valor (R$)</th>
-								<th class="px-6 py-3 border-b-2 border-gray-300 text-right text-sm leading-4 text-gray-700 tracking-wider">Status</th>								
+								<th class="px-6 py-3 border-b-2 border-gray-300 text-right text-sm leading-4 text-gray-700 tracking-wider">Status</th>
 							</tr>
 						</thead>
 					<tbody class="bg-white">
@@ -332,7 +332,10 @@
 								</div>
 							</td>
 							<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
-								<div class="text-sm leading-5 text-blue-900">{{ item.data_vencimento }}</div>
+								<AppDate
+                  :value="item.data_vencimento"
+                  readonly
+                />
 							</td>
 							<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
 								<div class="text-sm leading-5 text-blue-900">{{ item.data_pagamento }}</div>
@@ -346,12 +349,12 @@
 							<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
 								<div class="text-sm text-right leading-5 text-blue-900">Pago</div>
 							</td>
-							
+
 						</tr>
-											
+
 					</tbody>
 				</table>
-				
+
 				</div>
 			</div>
 
@@ -367,15 +370,15 @@
 						</tbody>
 					</table>
 				</div>
-			
+
 			</div>
-			
+
 		</div>
 	</div>
-	
+
 </template>
 <script>
-    
+
     import ButtonBack from '../../share/ButtonBack'
     import { getBaseURL } from '../../../../services/http'
 
@@ -400,7 +403,7 @@
                 expense: {
                     id: '',
                     numero: ''
-                   
+
 
                 },
 
@@ -409,10 +412,10 @@
                         data_vencimento: '',
                         data_pagamento: '',
                         valor: ''
-                       
+
                     }
                 ]
-              
+
             }
         },
 
@@ -438,7 +441,7 @@
                         this.$router.push({name: 'painel.despesas.editar', params:{id: id}})
                     })
                     .catch(error => {
-                        
+
                         this.$snotify.error('Houve um erro ao editar', 'Erro')
                     })
             },
@@ -449,7 +452,7 @@
                         this.$router.push({name: 'painel.despesas.pagar', params:{id: id}})
                     })
                     .catch(error => {
-                        
+
                         this.$snotify.error('Houve um erro ao pagar', 'Erro')
                     })
             },
@@ -459,15 +462,15 @@
                     position: "centerCenter",
                     timeout: 10000,
                     showProgressBar: true,
-                    closeOnClick: true, 
+                    closeOnClick: true,
                     buttons:[
                         {text: 'Não', action: null },
                         {text: 'Sim', action: (value)=>  {this.delExpense(expense.id), this.$snotify.remove(value.id)} }
-                    ] 
+                    ]
                 })
             },
 
-            
+
             delExpense (id){
                 this.$store.dispatch('delExpense', id)
                     .then(() => {
