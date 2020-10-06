@@ -20,6 +20,7 @@ import App from './App.vue'
 
 // DEPENDENCIAS
 import vSelect from 'vue-select'
+
 Vue.component('v-select', vSelect)
 
 import VueTheMask from 'vue-the-mask'
@@ -69,7 +70,7 @@ if(token)
 // VERIFICA SE O
 store.dispatch('checkLogin')
   .then( () => router.push({name: store.state.auth.urlBack}) )
-  
+
 
 
 
