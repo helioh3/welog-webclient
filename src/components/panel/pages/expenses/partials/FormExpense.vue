@@ -241,8 +241,8 @@
 							</td>
 							<td class="md:w-1/5 px-6 py-5 whitespace-no-wrap border-b text-right text-blue-900 border-gray-500 text-sm leading-5">
 								<div class="text-sm font-semibold leading-5 text-blue-600">
-                  <money :value="total" disabled class="text-right appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4"></money>
-                </div>
+								<money :value="total" disabled class="text-sm font-semibold leading-5 text-blue-600 bg-white"></money>
+								</div>
 							</td>
 						</tr>
 
@@ -291,7 +291,7 @@
 						provider_id: '',
 						category_id: '',
 						numero: '',
-						data: '',
+						data: {},
 						observacao: '',
 
                         installments: [
@@ -312,7 +312,8 @@
       created () {
         this.$store.dispatch('loadCompanies'),
           this.$store.dispatch('loadProviders')
-      },
+	  },
+	  
       data () {
         return {
           errors: {},
