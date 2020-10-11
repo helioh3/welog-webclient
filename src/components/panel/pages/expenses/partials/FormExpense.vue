@@ -275,7 +275,7 @@
                   </div>
                 </td>
                 <td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
-                  <div class="md:w-1/2">
+                  <div class="md:w-1/3">
                     <!-- <input type="text" v-model="item.data_vencimento" v-mask="'##/##/####'" class="text-left appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4" placeholder="dd-mm-YYYY"> -->
                     <AppDate v-model="item.data_vencimento" />
                   </div>
