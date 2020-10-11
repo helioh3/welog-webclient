@@ -34,8 +34,26 @@
 
 @import 'pages/back/dashboard';
 @import 'pages/back/expenses-view';
+@import '~vue-snotify/styles/material';
 // @import 'pages/back/footer';
 // @import 'pages/back/login';
 
 
 // @import 'pages/front/home';
+
+.style-chooser .vs__dropdown-toggle,
+.style-chooser .vs__dropdown-menu {
+  /*background: #dfe5fb;*/
+  border: 1px solid #e5e5e5;
+  color: #394066;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  font-size: 1.2rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.6rem;
+  font-weight: 600;
+}
+
+.vs__dropdown-toggle {
+  padding: 1rem;
+}

@@ -410,9 +410,9 @@ export default {
     }
   },
   computed: {
-    companies () {
-      return this.$store.state.companies.items.data
-    },
+	companies () {
+		return this.$store.state.companies.items.data
+	},
 
     providers () {
       return this.$store.state.providers.items.data

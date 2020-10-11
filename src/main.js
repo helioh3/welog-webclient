@@ -12,6 +12,7 @@ import {NAME_TOKEN} from './config/configs'
 
 import Snotify from 'vue-snotify'; // 1. Import Snotify
 
+
 import router from './routes/routers'
 import store from './vuex/store'
 
