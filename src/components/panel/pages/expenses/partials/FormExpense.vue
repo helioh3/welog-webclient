@@ -232,11 +232,7 @@
           <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
             Data / Cadastro
           </label>
-          <v-date-picker
-            v-model="expense.data"
-            locale="pt-PT"
-            :input-props='{ placeholder: "dd/mm/AAAA", class: "appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"}'
-          />
+          <AppDate v-model="expense.data" />
         </div>
       </div>
 
@@ -282,12 +278,7 @@
 
                 </td>
                 <td class="md:w-1/5 px-6 py-3 whitespace-no-wrap border-b text-right text-blue-900 border-gray-500 text-sm leading-5">
-                  <money
-                    type="text"
-                    v-model="item.valor"
-                    class="text-right appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4"
-                    placeholder="Valor"
-                  />
+                  <AppMoney v-model="item.valor" />
                 </td>
 
                 <td class="px-6 py-3 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
@@ -307,11 +298,11 @@
                 </td>
                 <td class="md:w-1/5 px-6 py-5 whitespace-no-wrap border-b text-right text-blue-900 border-gray-500 text-sm leading-5">
                   <div class="text-sm font-semibold leading-5 text-blue-600">
-                    <money
-                      :value="total"
-                      disabled
-                      class="text-sm font-semibold leading-5 text-blue-600 bg-white"
-                    ></money>
+                    <AppMoney
+                      v-model="total"
+                      :class-names="['text-blue-600', 'font-semibold']"
+                      readonly
+                    />
                   </div>
                 </td>
               </tr>
@@ -379,7 +370,7 @@ export default {
           provider_id: '',
           category_id: '',
           numero: '',
-          data: {},
+          data: new Date(),
           observacao: '',
           installments: [
             {

@@ -3,7 +3,7 @@
         <nav class="breadcrumb">
             <li><a href="#">inicio</a></li>
             <li><a href="#" class="active">despesas</a></li>
-        </nav>  
+        </nav>
 
         <nav class="tabs">
             <button class="tabs__item tabs__item--active">Despesas</button>
@@ -13,20 +13,20 @@
             <div class="box-but">
 
                 <div class="box-but-left">
-                    <router-link class="but primary" :to="{name: 'painel.despesas.adicionar'}">Adicionar</router-link> 
+                    <router-link class="but primary" :to="{name: 'painel.despesas.adicionar'}">Adicionar</router-link>
                 </div>
-                               
+
                 <div class="box-but-right">
 
                     <div class="but-group ma-r-small">
                         <button class="but prev" @click.prevent="prevMonth">
                             <svg class="feather white">
                                 <use xlink:href="@/assets/svg/feather-sprite.svg#arrow-left"></use>
-                            </svg>                
+                            </svg>
                         </button>
-                        
+
                         <button class="but tertiary">{{ month | monthString }} - {{ year }}</button>
-                        
+
                         <button class="but next" @click.prevent="nextMonth">
                             <svg class="feather white">
                                 <use xlink:href="@/assets/svg/feather-sprite.svg#arrow-right"></use>
@@ -34,7 +34,7 @@
                         </button>
                     </div>
 
-                    <search 
+                    <search
                         @search="searchForm"
                     >
                     </search>
@@ -46,7 +46,7 @@
                     </button>
                 </div>
             </div>
-            
+
             <table class="table-list">
                 <thead>
                     <tr>
@@ -57,20 +57,20 @@
                         <th>Fornecedor</th>
                         <th>Vencimento</th>
                         <th>Status</th>
-                        <th>Valor</th>                        
+                        <th>Valor</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr class="dotted" :class="{focused: focused === expense.id }" 
-                        v-for="expense in expenses.data" :key="expense.id" 
-                        @click.stop="focus(expense.id)" 
+                    <tr class="dotted" :class="{focused: focused === expense.id }"
+                        v-for="expense in expenses.data" :key="expense.id"
+                        @click.stop="focus(expense.id)"
                         @dblclick="edit(expense.id)"
                     >
                         <td>
                              <label>
-                                <input type="checkbox" class="field__checkbox" 
-                                    @click.stop="select(expense.id, $event.target.checked)" 
+                                <input type="checkbox" class="field__checkbox"
+                                    @click.stop="select(expense.id, $event.target.checked)"
                                     :checked="selected.includes(expense.id)"
                                 >
                             </label>
@@ -86,7 +86,7 @@
                 </tbody>
             </table>
 
-            
+
         </div>
 
         <paginate
@@ -108,7 +108,7 @@
 						<path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/>
 					</svg>
 				</li>
-			
+
 			<li>
 				<a href="#" class="text-gray-500" aria-current="page">Despesas</a>
 			</li>
@@ -117,11 +117,11 @@
 
 	<div class="">
 		<div class="flex justify-between">
-			<!-- pesquisa -->	
-			<search 
+			<!-- pesquisa -->
+			<search
 				@search="searchForm"
 			>
-			</search>	
+			</search>
 
 			<!-- botao -->
 			<div class="mt-3">
@@ -131,11 +131,11 @@
 
 			</div>
 		</div>
-			
+
 		<div class="flex flex-col mt-6">
 			<div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
 				<div class="align-middle inline-block min-w-full overflow-hidden sm:rounded border border-gray-400">
-					
+
 					<table class="min-w-full">
 						<thead>
 							<tr>
@@ -146,20 +146,20 @@
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Data</th>
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Vencimento</th>
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">status</th>
-								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 ffont-semi-bold text-gray-700 uppercase tracking-wider">Valor</th>
+								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-right text-xs leading-4 ffont-semi-bold text-gray-700 uppercase tracking-wider">Valor</th>
 							</tr>
 						</thead>
 
 						<tbody class="bg-white">
-							<tr class="dotted cursor-pointer hover:bg-orange-200" 
-								:class="{focused: focused === expense.id }" 
-								v-for="expense in expenses.data" :key="expense.id" 
-								@click.stop="focus(expense.id)" 
+							<tr class="dotted cursor-pointer hover:bg-orange-200"
+								:class="{focused: focused === expense.id }"
+								v-for="expense in expenses.data" :key="expense.id"
+								@click.stop="focus(expense.id)"
 								@dblclick="edit(expense.id)"
 							>
 								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
 									<input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600"
-										 @click.stop="select(expense.id, $event.target.checked)" 
+										 @click.stop="select(expense.id, $event.target.checked)"
 										:checked="selected.includes(expense.id)"
 									>
 								</td>
@@ -186,30 +186,33 @@
 								</td>
 
 								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-									19/03/2020 
+									19/03/2020
 								</td>
 
 								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
 									19/03/2020
 								</td>
 
-								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-									<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
-								</td>
-								
-								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-									<div class="text-sm leading-5 text-gray-900">R$</div>
-								</td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                  <AppStatus :status="expense.status" />
+                </td>
+
+                <td class="px-6 py-4 text-right whitespace-no-wrap border-b border-gray-200">
+                  <AppMoney
+                    :value="expense.valor"
+                    readonly
+                  />
+                </td>
 							</tr>
 
 						</tbody>
 					</table>
 
 				</div>
-				
+
 
 			</div>
-			
+
 			<div class="flex justify-center">
 				<paginate
 					:pagination="expenses"
@@ -222,9 +225,9 @@
 		</div>
 
 		<img src="" alt="">
-			
+
 	</div>
-	
+
 </div>
 
 </template>
@@ -232,6 +235,8 @@
 <script>
     import PaginationGeneral from '../../../share/PaginationGeneral'
     import SearchPanel from '../../share/SearchPanel'
+    import AppStatus from '@/components/share/AppStatus'
+    import AppMoney from '@/components/share/Form/AppMoney'
 
     export default {
         created () {
@@ -267,7 +272,7 @@
                 return months[value]
             }
         },
-        
+
         computed: {
             expenses(){
                 return this.$store.state.expenses.items
@@ -288,7 +293,7 @@
 
                 this.$store.dispatch('loadExpenses', {...this.params, page})
             },
-            
+
             searchForm (filter) {
                 this.search = filter,
                 this.loadExpenses(1)
@@ -320,8 +325,8 @@
             selectAll($event) {
                 if ($event.target.checked){
                         this.selected = this.expenses.data.map( (expense) => expense.id)
-                     
-                     return 
+
+                     return
                 }
                 this.selected = []
             },
@@ -329,11 +334,11 @@
             focus (id){
                 this.focused = id
             },
-            
+
             onPress ($event){
                 // console.log($event.keyCode)
                 if(!this.focused){
-                    
+
                     return
                 }
 
@@ -344,7 +349,7 @@
                 }
 
                 let index = this.expenses.data.findIndex( (element) => this.focused === element.id)
-                
+
                 if ($event.keyCode === 38) {
                     index--
                 } else if ($event.keyCode === 40) {
@@ -352,7 +357,7 @@
                 }
 
                 if(!this.expenses.data[index]){
-                    
+
                     return
                 }
                 this.focused = this.expenses.data[index].id
@@ -382,7 +387,9 @@
         },
 
         components: {
-           paginate: PaginationGeneral, 
+          AppMoney,
+          AppStatus,
+           paginate: PaginationGeneral,
            search: SearchPanel
         },
 
@@ -393,6 +400,6 @@
         destroyed() {
             document.removeEventListener("keyup", this.onPress)
         }
-        
+
     }
 </script>

@@ -332,25 +332,35 @@
 								</div>
 							</td>
 							<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
-								<AppDate
+                <AppDate
                   :value="item.data_vencimento"
                   readonly
                 />
 							</td>
 							<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
-								<div class="text-sm leading-5 text-blue-900">{{ item.data_pagamento }}</div>
+								<div class="text-sm leading-5 text-blue-900">
+                  <AppDate
+                    :value="item.data_pagamento"
+                    readonly
+                  />
+                </div>
 							</td>
 							<td class="text-center px-6 py-3 whitespace-no-wrap border-b border-gray-500">
 								<svg class="feather cursor-pointer w-8" @click.prevent="download(expense.anexo)">
 									<use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
 								</svg>
 							</td>
-							<td class="px-6 py-3 whitespace-no-wrap border-b text-right text-blue-900 border-gray-500 text-sm leading-5">{{ item.valor}}</td>
-							<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
-								<div class="text-sm text-right leading-5 text-blue-900">Pago</div>
-							</td>
+              <td class="px-6 py-3 whitespace-no-wrap border-b text-right text-blue-900 border-gray-500 text-sm leading-5">
+                <AppMoney
+                  :value="item.valor"
+                  readonly
+                />
+              </td>
+              <td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
+                <AppStatus :status="item.status" />
+              </td>
 
-						</tr>
+            </tr>
 
 					</tbody>
 				</table>
@@ -381,6 +391,8 @@
 
     import ButtonBack from '../../share/ButtonBack'
     import { getBaseURL } from '../../../../services/http'
+    import AppStatus from '@/components/share/AppStatus'
+    import AppMoney from '@/components/share/Form/AppMoney'
 
     export default {
         name: 'ViewExpense',
@@ -492,6 +504,8 @@
 
         },
         components: {
+          AppMoney,
+          AppStatus,
             ButtonBack
         }
 

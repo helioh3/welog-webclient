@@ -55,20 +55,20 @@ export default {
 
                     reject(error.response)
                 })
-                
+
         })
     },
 
-    updateInstallment (context, formData){
-        context.commit('EXPENSE', true)
+    updateInstallment (context, formData) {
+        // context.commit('EXPENSE', true)
         return new Promise((resolve, reject) => {
             http.post(`${INSTALLMENT}`, formData, SETHEADERS)
-                .then(response => resolve())
-                .catch(error => {
-                    context.commit('PRELOADER', false)
+              .then(response => resolve())
+              .catch(error => {
+                  context.commit('PRELOADER', false)
 
-                    reject(error.response)
-                })
+                  reject(error.response)
+              })
         })
     },
 
