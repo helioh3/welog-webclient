@@ -31,7 +31,9 @@ Vue.use(VCalendar)
 import './assets/tailwind.css'
 
 import components from '@/boot/components'
+import polyfill from '@/boot/polyfill'
 components({ Vue })
+polyfill({ Vue })
 
 const feather = require('feather-icons')
 

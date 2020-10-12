@@ -388,8 +388,8 @@ export default {
     },
   },
   created () {
-    this.$store.dispatch('loadCompanies'),
-      this.$store.dispatch('loadProviders')
+    this.$store.dispatch('loadCompanies')
+    this.$store.dispatch('loadProviders')
   },
 
   data () {
@@ -401,25 +401,21 @@ export default {
     }
   },
   computed: {
-	companies () {
-		return this.$store.state.companies.items.data
-	},
-
+    companies () {
+      return this.$store.state.companies.items.data
+    },
     providers () {
       return this.$store.state.providers.items.data
     },
-
     categories () {
       return this.$store.state.categories.items.data
     },
-
     total () {
       if (!Array.isArray(this.expense?.installments)) {
         return 0
       }
       return this.expense.installments.reduce((accumulator, installment) => accumulator + installment?.valor, 0)
     }
-
   },
   methods: {
     onSubmit () {
@@ -440,8 +436,18 @@ export default {
         })
     },
     addItem () {
+      let dataVencimento = new Date()
+
+      if (this.expense.installments.length > 0) {
+        const tamanho = this.expense.installments.length
+        const ultimo = this.expense.installments[tamanho - 1]
+        const anterior = ultimo.data_vencimento
+        dataVencimento.setTime(anterior.getTime())
+        dataVencimento.addMonths(1, true)
+      }
+
       this.expense.installments.push({
-        data_vencimento: new Date(),
+        data_vencimento: dataVencimento,
         valor: 0
       })
     },
