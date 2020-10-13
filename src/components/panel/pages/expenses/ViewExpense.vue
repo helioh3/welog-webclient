@@ -332,18 +332,16 @@
 								</div>
 							</td>
 							<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
-                <AppDate
-                  :value="item.data_vencimento"
-                  readonly
-                />
+								<AppDate
+									:value="item.data_vencimento"
+									readonly
+								/>
 							</td>
 							<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
-								<div class="text-sm leading-5 text-blue-900">
-                  <AppDate
-                    :value="item.data_pagamento"
-                    readonly
-                  />
-                </div>
+								<AppDate
+									:value="item.data_pagamento"
+									readonly
+								/>
 							</td>
 							<td class="text-center px-6 py-3 whitespace-no-wrap border-b border-gray-500">
 								<svg class="feather cursor-pointer w-8" @click.prevent="download(expense.anexo)">
