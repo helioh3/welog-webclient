@@ -263,7 +263,7 @@
                 <td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
                   <div class="flex items-center">
                     <div>
-                      <div class="text-sm leading-5 text-gray-800">{{ index + 1 }} - {{
+                      <div class="text-sm leading-5 text-gray-800">{{ index + 1 }} / {{
                           expense.installments.length
                         }}
                       </div>

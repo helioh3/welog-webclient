@@ -326,7 +326,7 @@
 								<div class="flex items-center">
 									<div>
 										<div class="text-sm leading-5 text-gray-800">
-											{{ index + 1 }}/{{ expense.installments.length }}
+											{{ index + 1 }} / {{ expense.installments.length }}
 										</div>
 									</div>
 								</div>
