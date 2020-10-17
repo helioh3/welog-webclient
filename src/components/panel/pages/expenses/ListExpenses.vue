@@ -175,8 +175,14 @@
 										</div>
 
 										<div class="ml-4">
-											<div class="text-sm leading-5 font-medium text-gray-900">John Auto Peças</div>
+											<div class="text-sm leading-5 font-medium text-gray-900">{{ expense.nome }}</div>
 											<!-- <div class="text-sm leading-5 text-gray-500">(63) 992099291</div> -->
+
+											
+												<select class="block appearance-none text-sm leading-5 font-medium text-gray-900 bg-transparent cursor-pointer" disabled>
+													<option v-for="provider in providers" :key="provider.id" :value="provider.id">{{ provider.nome }}</option>
+												</select>
+											
 										</div>
 									</div>
 								</td>
@@ -193,16 +199,16 @@
 									19/03/2020
 								</td>
 
-                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                  <AppStatus :status="expense.status" />
-                </td>
+								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+									<AppStatus :status="expense.status" />
+								</td>
 
-                <td class="px-6 py-4 text-right whitespace-no-wrap border-b border-gray-200">
-                  <AppMoney
-                    :value="expense.valor"
-                    readonly
-                  />
-                </td>
+								<td class="px-6 py-4 text-right whitespace-no-wrap border-b border-gray-200">
+									<AppMoney
+										:value="expense.valor"
+										readonly
+									/>
+								</td>
 							</tr>
 
 						</tbody>
@@ -240,7 +246,8 @@
 
     export default {
         created () {
-            this.loadExpenses(1)
+			this.loadExpenses(1)
+			this.$store.dispatch('loadProviders')
         },
 
         data() {
@@ -283,7 +290,10 @@
                     page: this.expenses.current_page,
                     filter: this.search
                 }
-            }
+			},
+			providers() {
+				return this.$store.state.providers.items.data
+			},
         },
 
         methods: {
