@@ -46,13 +46,13 @@
 				<ul class="flex flex-col mt-4 -mx-4 pt-4 border-t md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:mr-4 lg:mr-8 md:border-0">
 					<li >
 						<!-- <a class="block px-4 py-1 md:p-2 lg:px-4 font-semibold" href="#" title="Inicio">Inicio</a> -->
-						<router-link class="block px-4 py-1 md:p-2 lg:px-4 text-gray-100" :to="{name: 'painel.dashboard'}">Inicio</router-link>
+						<router-link exact class="block px-4 py-1 md:p-2 lg:px-4 text-gray-100" :to="{name: 'painel.dashboard'}">Inicio</router-link>
 					</li>
 					<li>
-						<router-link class="block px-4 py-1 md:p-2 lg:px-4  text-gray-100" :to="{name: 'painel.despesas'}">Despesas</router-link>
+						<router-link exact class="block px-4 py-1 md:p-2 lg:px-4  text-gray-100" :to="{name: 'painel.despesas'}">Despesas</router-link>
 					</li>
 					<li>
-						<router-link class="block px-4 py-1 md:p-2 lg:px-4 text-gray-100" :to="{name: 'painel.fornecedores'}">Cadastros</router-link>
+						<router-link exact class="block px-4 py-1 md:p-2 lg:px-4 text-gray-100" :to="{name: 'painel.fornecedores'}">Cadastros</router-link>
 					</li>
 				</ul>
 			</nav>
@@ -135,5 +135,7 @@
 
 <style scoped>
 
-
+	.router-link-active{
+		color: #FE49A0;
+	}
 </style>

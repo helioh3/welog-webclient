@@ -103,11 +103,11 @@
 			</li>
 
 			<li class="-mb-px mr-1">
-				<router-link class="bg-white inline-block border-gray-400 border-l border-t border-r rounded-t py-4 px-6 text-blue-dark" :to="{name: 'painel.fornecedores'}">Lista de empresas</router-link>
+				<router-link exact class="bg-white inline-block border-gray-400 border-l border-t border-r rounded-t py-4 px-6 text-blue-dark" :to="{name: 'painel.fornecedores'}">Lista de empresas</router-link>
 			</li>
 			
 			<li class="mr-1">
-				<router-link class="bg-gray-200 inline-block py-4 px-6 text-blue hover:text-blue-darker" :to="{name: 'painel.categorias'}">Categorias</router-link>
+				<router-link exact class="bg-gray-200 inline-block py-4 px-6 text-blue hover:text-blue-darker" :to="{name: 'painel.categorias'}">Categorias</router-link>
 			</li>
 			
 		</ul>
