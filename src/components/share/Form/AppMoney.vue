@@ -8,6 +8,7 @@
   />
   <money
     v-else
+    ref="input"
     type="text"
     class="text-right appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4"
     :value="receivedValue"
@@ -57,7 +58,14 @@ export default {
      */
     emitValue ($event) {
       this.$emit('input', $event)
-    }
+    },
+    /**
+     */
+    focus () {
+      if (typeof this.$refs.input.$el.focus === 'function') {
+        this.$refs.input.$el.focus()
+      }
+    },
   }
 }
 </script>

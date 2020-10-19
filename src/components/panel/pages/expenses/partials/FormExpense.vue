@@ -37,18 +37,17 @@
         </div>
 
         <div class="md:w-1/2 px-3">
-          <label
-            class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-            for="grid-state"
-          >
+          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
             Empresa
           </label>
           <div class="relative">
             <v-select
+              ref="empresa"
               class="style-chooser"
               :options="companies"
               label="empresa"
               v-model="expense.company_id"
+              @input="focusTo('fornecedor', $event)"
               :reduce="company => company.id"
             />
           </div>
@@ -58,28 +57,24 @@
 
       <div class="-mx-3 md:flex mb-10">
         <div class="md:w-1/2 px-3">
-          <label
-            class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-            for="grid-state"
-          >
+          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
             Fornecedor
           </label>
           <div class="relative">
             <v-select
+              ref="fornecedor"
               class="style-chooser"
               :options="providers"
               label="nome"
               v-model="expense.provider_id"
+              @input="focusTo('categoria', $event)"
               :reduce="provider => provider.id"
             />
           </div>
         </div>
 
         <div class="md:w-1/3 px-3">
-          <label
-            class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-            for="grid-state"
-          >
+          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
             Categoria
           </label>
           <div class="relative">
@@ -88,10 +83,12 @@
             </select> -->
 
             <v-select
+              ref="categoria"
               class="style-chooser"
               :options="categories"
               label="nome"
               v-model="expense.category_id"
+              @input="focusTo('data', $event)"
               :reduce="category => category.id"
             />
 
@@ -102,7 +99,10 @@
           <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
             Data / Cadastro
           </label>
-          <AppDate v-model="expense.data" />
+          <AppDate
+            ref="data"
+            v-model="expense.data"
+          />
         </div>
       </div>
 
@@ -133,22 +133,29 @@
                 <td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
                   <div class="flex items-center">
                     <div>
-                      <div class="text-sm leading-5 text-gray-800">{{ index + 1 }} / {{
-                          expense.installments.length
-                        }}
+                      <div class="text-sm leading-5 text-gray-800">
+                        {{ index + 1 }} / {{ expense.installments.length }}
                       </div>
                     </div>
                   </div>
                 </td>
                 <td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
                   <div class="md:w-1/3">
-                    <!-- <input type="text" v-model="item.data_vencimento" v-mask="'##/##/####'" class="text-left appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4" placeholder="dd-mm-YYYY"> -->
                     <AppDate v-model="item.data_vencimento" />
+                    <!--
+                    <AppDate
+                      v-model="item.data_vencimento"
+                      @input="focusTo(`valor-${index}`, $event)"
+                    />
+                    -->
                   </div>
 
                 </td>
                 <td class="md:w-1/5 px-6 py-3 whitespace-no-wrap border-b text-right text-blue-900 border-gray-500 text-sm leading-5">
-                  <AppMoney v-model="item.valor" />
+                  <AppMoney
+                    :ref="`valor-${index}`"
+                    v-model="item.valor"
+                  />
                 </td>
 
                 <td class="px-6 py-3 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
@@ -227,8 +234,10 @@
 
 <script>
 import { objectToFormData } from '../../../../../helpers/will'
+import MixinFocus from '@/components/share/Mixins/Focus'
 
 export default {
+  mixins: [MixinFocus],
   props: {
     value: {
       require: false,

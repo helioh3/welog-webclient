@@ -7,6 +7,7 @@
   </div>
   <v-date-picker
     v-else
+    ref="input"
     :value="receivedValue"
     @input="emitValue"
     locale="pt"
@@ -83,6 +84,14 @@ export default {
       }
 
       return formatDate(value)
+    },
+    /**
+     */
+    focus () {
+      const input = this.$refs.input.$el.querySelector('input')
+      if (input && typeof input.focus === 'function') {
+        input.focus()
+      }
     },
   },
 }
