@@ -311,7 +311,10 @@ export default {
       if (this.expense.installments.length > 0) {
         const tamanho = this.expense.installments.length
         const ultimo = this.expense.installments[tamanho - 1]
-        const anterior = ultimo.data_vencimento
+        let anterior = ultimo.data_vencimento
+        if (!(anterior instanceof Date)) {
+          anterior = new Date(anterior)
+        }
         dataVencimento.setTime(anterior.getTime())
         dataVencimento.addMonths(1, true)
       }

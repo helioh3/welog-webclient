@@ -33,46 +33,48 @@ import HomeDashboard from '../components/panel/pages/dashboard/HomeDashboard'
 
 //My Routes of App
 const routes = [
-  
+
     // LOGIN PAGE DA APLICAÇÃO
-    { 
-      path: '', component: LoginClient, name: 'login', meta: {auth: false} 
+    {
+      path: '', component: LoginClient, name: 'login', meta: {auth: false}
     },
-  
+
     // PAINEL TOTAL DA APLICAÇÃO
     {
-      path: '/painel', 
+      path: '/painel',
       component: IndexPanel,
       meta: {auth: true},
-  
+
       children: [
         { path: '', component: HomeDashboard, name: 'painel.dashboard' },
-  
+
         { path: 'usuarios', component: ListUsers, name: 'painel.usuarios' },
         { path: 'usuarios/adicionar', component: NewUser, name: 'painel.usuarios.adicionar' },
         { path: 'usuarios/:id/visualizar', component: ViewUser, name: 'painel.usuarios.visualizar'},
         { path: 'usuarios/:id/editar', component: EditUser , name: 'painel.usuarios.editar', props: true },
-  
-        { path: 'empresas', component: ListCompanies, name: 'painel.empresas'},
-        { path: 'empresas/adicionar', component: NewCompany, name: 'painel.empresas.adicionar' },
-        { path: 'empresas/:id/visualizar', component: ViewCompany, name: 'painel.empresas.visualizar', props: true },
-        { path: 'empresas/:id/editar', component: EditCompany, name: 'painel.empresas.editar', props: true },
-  
-        { path: 'fornecedores', component: ListProviders, name: 'painel.fornecedores' },
-        { path: 'fornecedores/adicionar', component: NewProvider, name: 'painel.fornecedores.adicionar' },
-        { path: 'fornecedores/:id/visualizar', component: ViewProvider, name: 'painel.fornecedores.visualizar', props: true },
-        { path: 'fornecedores/:id/editar', component: EditProvider, name: 'painel.fornecedores.editar', props: true },
-  
-        { path: 'categorias', component: ListCategories, name: 'painel.categorias' },
-        { path: 'categorias/adicionar', component: AddCategory, name: 'painel.categorias.adicionar' },
-        { path: 'categorias/:id/editar', component: EditCategory, name: 'painel.categorias.editar', props: true },
-  
+
+        { path: 'cadastros', redirect: 'cadastros/fornecedores', name: 'painel.cadastros' },
+
+        { path: 'cadastros/empresas', component: ListCompanies, name: 'painel.empresas'},
+        { path: 'cadastros/empresas/adicionar', component: NewCompany, name: 'painel.empresas.adicionar' },
+        { path: 'cadastros/empresas/:id/visualizar', component: ViewCompany, name: 'painel.empresas.visualizar', props: true },
+        { path: 'cadastros/empresas/:id/editar', component: EditCompany, name: 'painel.empresas.editar', props: true },
+
+        { path: 'cadastros/fornecedores', component: ListProviders, name: 'painel.fornecedores' },
+        { path: 'cadastros/fornecedores/adicionar', component: NewProvider, name: 'painel.fornecedores.adicionar' },
+        { path: 'cadastros/fornecedores/:id/visualizar', component: ViewProvider, name: 'painel.fornecedores.visualizar', props: true },
+        { path: 'cadastros/fornecedores/:id/editar', component: EditProvider, name: 'painel.fornecedores.editar', props: true },
+
+        { path: 'cadastros/categorias', component: ListCategories, name: 'painel.categorias' },
+        { path: 'cadastros/categorias/adicionar', component: AddCategory, name: 'painel.categorias.adicionar' },
+        { path: 'cadastros/categorias/:id/editar', component: EditCategory, name: 'painel.categorias.editar', props: true },
+
         { path: 'despesas', component: ListExpenses, name: 'painel.despesas'},
         { path: 'despesas/adicionar', component: NewExpense, name: 'painel.despesas.adicionar' },
         { path: 'despesas/:id/visualizar', component: ViewExpense, name: 'painel.despesas.visualizar', props: true },
         { path: 'despesas/:id/editar', component: EditExpense, name: 'painel.despesas.editar', props: true },
         { path: 'despesas/:id/pagar', component: PayExpense, name: 'painel.despesas.pagar', props: true },
-  
+
       ]
     },
   ]

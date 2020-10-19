@@ -10,7 +10,7 @@
 					stroke-width="2"
 					stroke-linecap="round"
 					stroke-linejoin="round"
-					
+
 					/>
 				</svg>
 			</button>
@@ -49,10 +49,10 @@
 						<router-link exact class="block px-4 py-1 md:p-2 lg:px-4 text-gray-100" :to="{name: 'painel.dashboard'}">Inicio</router-link>
 					</li>
 					<li>
-						<router-link exact class="block px-4 py-1 md:p-2 lg:px-4  text-gray-100" :to="{name: 'painel.despesas'}">Despesas</router-link>
+						<router-link class="block px-4 py-1 md:p-2 lg:px-4  text-gray-100" :to="{name: 'painel.despesas'}">Despesas</router-link>
 					</li>
 					<li>
-						<router-link exact class="block px-4 py-1 md:p-2 lg:px-4 text-gray-100" :to="{name: 'painel.fornecedores'}">Cadastros</router-link>
+						<router-link class="block px-4 py-1 md:p-2 lg:px-4 text-gray-100" :to="{name: 'painel.cadastros'}">Cadastros</router-link>
 					</li>
 				</ul>
 			</nav>
@@ -89,16 +89,16 @@
             class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white"
             >Products</a
           >
-          
+
         </div> -->
       </div>
     </div>
-  </header> 
+  </header>
 </template>
 
 <script>
 	export default {
-	
+
 	created() {
 		this.loadUsers();
 	},
