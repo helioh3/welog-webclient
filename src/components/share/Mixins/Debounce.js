@@ -14,7 +14,7 @@ export default {
      * @param {function} executor
      * @param {number} delay
      */
-    this.$debounce = (executor, delay = 1000) => {
+    this.$debounce = (executor, delay = 800) => {
       // caveat: only 1 timeout at a time because of the debounceTimerId
       // that's why we leave this inside the component scope
       // and not as a global utility

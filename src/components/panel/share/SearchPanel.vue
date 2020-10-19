@@ -13,7 +13,7 @@
   <div class="mt-3 flex flex-col sm:flex-row">
     <div class="flex">
       <div class="relative">
-        <select class="appearance-none h-full rounded-l border block appearance-none w-full bg-gray-100 border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        <select class="appearance-none h-full rounded-l border block w-full bg-gray-100 border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
           <option>5</option>
           <option>10</option>
           <option>20</option>
@@ -31,7 +31,7 @@
       </div>
 
       <div class="relative">
-        <select class="appearance-none h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block appearance-none w-full bg-gray-100 border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
+        <select class="appearance-none h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block w-full bg-gray-100 border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
           <option>Todos</option>
           <option>Pagos</option>
           <option>Pendentes</option>
@@ -92,7 +92,7 @@ export default {
   methods: {
     search () {
       const filter = String(this.filter)
-      if (filter.length < 3) {
+      if (filter.length < 0) {
         return
       }
       this.$debounce(() => this.$emit('search', filter))
