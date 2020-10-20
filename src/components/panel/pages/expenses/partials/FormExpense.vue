@@ -6,10 +6,7 @@
     <form @submit.prevent="onSubmit">
       <div class="-mx-3 md:flex mb-6">
         <div class="md:w-1/3 px-3 mb-6 md:mb-0">
-          <label
-            class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-            for="grid-first-name"
-          >
+          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
             Anexo
           </label>
           <input
@@ -245,7 +242,7 @@ export default {
           company_id: '',
           provider_id: '',
           category_id: '',
-          numero: '',
+          numero: '00000',
           data: new Date(),
           observacao: '',
           installments: [
