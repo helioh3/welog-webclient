@@ -1,107 +1,4 @@
 <template>  
-    <!-- <div class="box">
-
-        <nav class="breadcrumb">
-            <li><a href="#">inicio</a></li>
-            <li><a href="#">empresa</a></li>
-            <li><a href="#" class="active">visualizar</a></li>
-        </nav>
-
-        <nav class="tabs">
-            <button class="tabs__item tabs__item--active">Empresa</button>
-        </nav>
-
-        <div class="tabs-container">
-            <div class="box-but">
-                
-                <div class="box-but-left">
-                   <button-back></button-back>
-                </div>
-
-                <div class="box-but-right">
-                    <button class="but printer ma-r-small">
-                        <svg class="feather">
-                            <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
-                        </svg>
-                    </button>
-
-                    <button class="but printer ma-r-small" @click.prevent="edit(company.id)">
-                        <svg class="feather">
-                            <use xlink:href="@/assets/svg/feather-sprite.svg#edit-2"></use>
-                        </svg>
-                    </button>
-
-                    <button class="but printer"  @click.prevent="confirmDelete(company)">
-                        <svg class="feather">
-                            <use xlink:href="@/assets/svg/feather-sprite.svg#trash"></use>
-                        </svg>
-                    </button>
-
-                </div>
-            </div>
-    
-        </div>
-
-        <div class="box-form view-form">
-            <h2 class="box-form__title">Dados da empresa</h2>
-            <div class="box-field">
-                 <div class="field">
-                    <label class="field__label">empresa</label>
-                    <input class="field__input" type="text" placeholder="" v-model="company.empresa" disabled /> 
-                </div>
-
-                <div class="field">
-                    <label class="field__label">CNPJ</label>
-                    <input class="field__input" type="text" placeholder="" v-model="company.cnpj" disabled /> 
-                </div>
-
-                <div class="field">
-                    <label class="field__label">Inscrição Estadual</label>
-                    <input class="field__input" type="text" placeholder="" disabled /> 
-                </div>
-                
-            </div>
-
-            <div class="box-field">
-                <div class="field">
-                    <label class="field__label">CEP</label>
-                    <input class="field__input" type="text" placeholder="" disabled /> 
-                </div>
-
-                <div class="field">
-                    <label class="field__label">Eestado</label>
-                    <input class="field__input" type="text" placeholder="" disabled /> 
-                </div>
-
-                <div class="field">
-                    <label class="field__label">Cidade</label>
-                    <input class="field__input" type="text" placeholder="" disabled /> 
-                </div>
-
-                <div class="field">
-                    <label class="field__label">Endereço</label>
-                    <input class="field__input" type="text" placeholder="" disabled /> 
-                </div>
-
-                <div class="field">
-                    <label class="field__label">Email</label>
-                    <input class="field__input" type="text" placeholder="" disabled /> 
-                </div>
-
-            </div>     
-        </div> 
-         
-        <div class="box-form view-form">
-            <h2 class="box-form__title">Informções extra</h2>
-            <div class="box-field">
-                <div class="field">
-                    <label>Observação</label>
-                        <textarea cols="30" rows="3" disabled></textarea>
-                </div>
-                
-            </div>
-        </div>
-    </div> -->
 
 <div>
 	<div class="mx-auto px-8 py-2">
@@ -174,40 +71,188 @@
 								<div class="text-sm leading-5 text-gray-500">{{ company.cidade }}</div>
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="text-sm leading-5 text-gray-900">Presidente</div>
-								<div class="text-sm leading-5 text-gray-500">{{ company.presidente }}</div>
+								<div class="text-sm leading-5 text-gray-900">Data de Registro</div>
+								<div class="text-sm leading-5 text-gray-500">
+									<AppDate
+										:value="company.data_registro"
+										readonly
+									/>
+								</div>
+							</td>
+
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Inscricão Estadual</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.inscricao_estadual }}
+								</div>
 							</td>
 
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">CNPJ</div>
-								<div class="text-sm leading-5 text-gray-500">{{ company.cnpj }}</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.cnpj }}
+								</div>
 							</td>
 
 						</tr>
 
 						<tr>
 							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="text-sm leading-5 text-gray-900">Data de Redistro</div>
-								<div class="text-sm leading-5 text-gray-500">{{ company.registro }}</div>
+								<div class="text-sm leading-5 text-gray-900">Nome / Sócio 1</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_um_nome }}
+								</div>
 							</td>
 
 							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="text-sm leading-5 text-gray-900">Inscricão Estadual</div>
-								<div class="text-sm leading-5 text-gray-500">{{ company.inscricao_estadual }}</div>
-							</td>
-							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="text-sm leading-5 text-gray-900">Sócio</div>
-								<div class="text-sm leading-5 text-gray-500">{{ company.socio }}</div>
+								<div class="text-sm leading-5 text-gray-900">Data / Nascimento</div>
+								<div class="text-sm leading-5 text-gray-500">
+									<AppDate
+										:value="company.socio_um_nascimento"
+										readonly
+									/>
+								</div>
 							</td>
 
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">CPF</div>
-								<div class="text-sm leading-5 text-gray-500">{{ company.cpf }}</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_um_cpf }}
+								</div>
 							</td>
 
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">RG</div>
-								<div class="text-sm leading-5 text-gray-500">{{ company.rg }}</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_um_rg }}
+								</div>
+							</td>
+
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Cota / Participação</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_um_participacao }}
+								</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Nome / Sócio 2</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_tres_nome }}
+								</div>
+							</td>
+
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Data / Nascimento</div>
+								<div class="text-sm leading-5 text-gray-500">
+									<AppDate
+										:value="company.socio_tres_nascimento"
+										readonly
+									/>
+								</div>
+							</td>
+
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">CPF</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_tres_cpf }}
+								</div>
+							</td>
+
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">RG</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_um_rg }}
+								</div>
+							</td>
+
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Cota / Participação</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_tres_participacao }}
+								</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Nome / Sócio 3</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_tres_nome }}
+								</div>
+							</td>
+
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Data / Nascimento</div>
+								<div class="text-sm leading-5 text-gray-500">
+									<AppDate
+										:value="company.socio_tres_nascimento"
+										readonly
+									/>
+								</div>
+							</td>
+
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">CPF</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_tres_cpf }}
+								</div>
+							</td>
+
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">RG</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_tres_rg }}
+								</div>
+							</td>
+
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Cota / Participação</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_tres_participacao }}
+								</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Nome / Sócio 4</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_quatro_nome }}
+								</div>
+							</td>
+
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Data / Nascimento</div>
+								<div class="text-sm leading-5 text-gray-500">
+									<AppDate
+										:value="company.socio_quatro_nascimento"
+										readonly
+									/>
+								</div>
+							</td>
+
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">CPF</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_quatro_cpf }}
+								</div>
+							</td>
+
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">RG</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_quatro_rg }}
+								</div>
+							</td>
+
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Cota / Participação</div>
+								<div class="text-sm leading-5 text-gray-500">
+									{{ company.socio_quatro_participacao }}
+								</div>
 							</td>
 						</tr>
 						

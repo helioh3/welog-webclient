@@ -1,79 +1,5 @@
 <template>
-    <!-- <div class="box">
-        <nav class="breadcrumb">
-            <li><a href="index.html">inicio</a></li>
-            <li><a href="#" class="active">cadastros</a></li>
-        </nav>  
-
-        <nav class="tabs">
-            <router-link class="tabs__item tabs__item" :to="{name: 'painel.fornecedores'}">Fornecedores</router-link>
-            <router-link class="tabs__item tabs__item--active" :to="{name: 'painel.fornecedores'}">Empresas</router-link>
-            
-            <router-link class="tabs__item tabs__item" :to="{name: 'painel.categorias'}">Categorias</router-link>
-
-        </nav>
-
-        <div class="tabs-container">
-
-            <div class="box-but">
-                <div class="box-but-left">
-                    <router-link class="but primary" :to="{name: 'painel.empresas.adicionar'}">Adicionar</router-link> 
-                </div>
-                 <div class="box-but-right"></div>
-            </div>
-        
-            <table class="table-data">
-                <thead>
-                    <tr>
-                        <th>logo</th>
-                        <th>Empresa</th>
-                        <th>CNPJ</th>
-                        <th>Cidade</th>
-                        <th>E-mail</th>
-                        <th>Executar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    <tr v-for="company in companies" :key="company.id" @dblclick.prevent="view(company.id)">
-                        
-                        <td>
-                            <img src="" class="logo-companies" alt="">
-                            
-                        </td>
-                        <td>{{ company.empresa }}</td>
-                        <td>{{ company.cnpj }}</td>
-                        <td>Dianopolis</td>
-                        <td>saosebastiao@gmail.com</td>
-                        <td>
-                            <div class="box-but-right">
-                                 <button class="but printer ma-r-small">
-                                    <svg class="feather">
-                                        <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
-                                    </svg>
-                                </button>
-
-                                <button class="but printer ma-r-small" @click.prevent="edit(company.id)">
-                                    <svg class="feather">
-                                        <use xlink:href="@/assets/svg/feather-sprite.svg#edit-2"></use>
-                                    </svg>
-                                </button>
-                                
-                            </div>
-                        </td>
-
-
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </div>
-
-    </div> -->
-
 <div>
-	
 	<!-- BRANDCRUBS -->
 	<div class="mx-auto px-8 py-2">
 		<nav class="text-black font-bold my-1" aria-label="Breadcrumb">
@@ -88,6 +14,7 @@
 				<li>
 					<a href="#" class="text-gray-500" aria-current="page">Empresas</a>
 				</li>
+				
 			</ol>
 		</nav>
 	</div>
@@ -103,13 +30,12 @@
 			</li>
 
 			<li class="-mb-px mr-1">
-				<router-link exact class="bg-white inline-block border-gray-400 border-l border-t border-r rounded-t py-4 px-6 text-blue-dark" :to="{name: 'painel.fornecedores'}">Lista de empresas</router-link>
+				<router-link exact class="bg-white inline-block border-gray-400 border-l border-t border-r rounded-t py-4 px-6 text-blue-dark" :to="{name: 'painel.empresas'}">Lista de empresas</router-link>
 			</li>
 			
 			<li class="mr-1">
 				<router-link exact class="bg-gray-200 inline-block py-4 px-6 text-blue hover:text-blue-darker" :to="{name: 'painel.categorias'}">Categorias</router-link>
 			</li>
-			
 		</ul>
 	</div>
 

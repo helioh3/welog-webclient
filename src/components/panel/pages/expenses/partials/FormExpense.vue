@@ -243,7 +243,7 @@ export default {
           company_id: '',
           provider_id: '',
           category_id: '',
-          numero: '00000',
+          numero: '0000',
           data: new Date(),
           observacao: '',
           installments: [

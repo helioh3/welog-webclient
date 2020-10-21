@@ -79,7 +79,7 @@
 			</div>
 			
 			<div class="mt-3">
-				<button class="mr-1 px-4 py-2 bg-white border-gray-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+				<button @click.prevent="view(provider.id)" class="mr-1 px-4 py-2 bg-white border-gray-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
 					<svg class="feather">
 						<use xlink:href="@/assets/svg/feather-sprite.svg#eye"></use>
 					</svg>

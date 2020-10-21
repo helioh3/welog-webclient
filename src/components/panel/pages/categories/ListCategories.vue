@@ -1,62 +1,4 @@
 <template>
-<!-- <div class="box">
-        <nav class="breadcrumb">
-            <li><a href="index.html">inicio</a></li>
-            <li><a href="#" class="active">categorias</a></li>
-        </nav>
-
-       <nav class="tabs">
-            <router-link class="tabs__item tabs__item" :to="{name: 'painel.fornecedores'}">Fornecedores</router-link>
-            <router-link class="tabs__item tabs__item" :to="{name: 'painel.empresas'}">Empresas</router-link>
-
-            <router-link class="tabs__item tabs__item--active" :to="{name: 'painel.categorias'}">Categorias</router-link>
-
-        </nav>
-        <div class="tabs-container">
-
-            <div class="box-but">
-                <div class="box-but-left">
-
-                    <router-link class="but printer ma-r-small" :to="{name: 'painel.categorias.adicionar'}" >
-                        <svg class="feather">
-                            <use xlink:href="@/assets/svg/feather-sprite.svg#plus-circle"></use>
-                        </svg>
-
-                    </router-link>
-
-                </div>
-
-                <div class="box-but-right"></div>
-            </div>
-
-            <div class="box-categories">
-               <ul v-for="(category, index) in categories.data" :key="index">
-                    <li class="category">
-                        <div class="category__title">{{ category.nome }}</div>
-
-                        <div class="al-right">
-                            <router-link class="but but-icon" :to="{name: 'painel.categorias.editar', params:{id: category.id}}">
-                                <svg class="feather">
-                                    <use xlink:href="@/assets/svg/feather-sprite.svg#edit-2"/>
-                                </svg>
-                            </router-link>
-
-                            <button class="but but-icon">
-                                 <svg class="feather">
-                                    <use xlink:href="@/assets/svg/feather-sprite.svg#trash"  @click.prevent="ConfirmDelCategory(category)"/>
-                                </svg>
-                            </button>
-
-                        </div>
-                    </li>
-                 </ul>
-            </div>
-
-
-        </div>
-
-    </div> -->
-
 <div>
 	<div class="mx-auto px-8 py-2">
 		<nav class="text-black font-bold my-1" aria-label="Breadcrumb">
@@ -91,7 +33,7 @@
 			</li>
 
 			<li class="-mb-px mr-1">
-				<router-link class="bg-white inline-block border-gray-400 border-l border-t border-r rounded-t py-4 px-6 text-blue-dark" :to="{name: 'painel.fornecedores'}">Categorias</router-link>
+				<router-link class="bg-white inline-block border-gray-400 border-l border-t border-r rounded-t py-4 px-6 text-blue-dark" :to="{name: 'painel.categorias'}">Categorias</router-link>
 			</li>
 
 		</ul>

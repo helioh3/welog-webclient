@@ -134,11 +134,11 @@
 		<form action="" @submit.prevent="onSubmit">
 			<div class="-mx-3 md:flex mb-6">
 				<div class="md:w-1/5 px-3 mb-6 md:mb-0">
-						<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-							Foto/Logo
-						</label>
-						<input type="file"  class="py-3 pr-0 mb-3 appearance-none"  />
-						<p class="text-red text-xs italic">Please fill out this field.</p>
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						Foto/Logo
+					</label>
+					<input type="file"  class="py-3 pr-0 mb-3 appearance-none"  />
+					<p class="text-red text-xs italic">Please fill out this field.</p>
 				</div>
 
 				<div class="md:w-2/3 px-3 mb-6 md:mb-0">
@@ -146,7 +146,6 @@
 						Nome Completo *
 					</label>
 					<input type="text" v-model="provider.nome" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" placeholder="Nome Completo">
-					
 				</div>
 
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">

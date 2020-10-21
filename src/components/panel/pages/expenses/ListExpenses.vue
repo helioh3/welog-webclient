@@ -140,9 +140,9 @@
 						<thead>
 							<tr>
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100"></th>
-								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">#Numero</th>
+								<th class="px-4 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">#Código</th>
+								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Numero NFE / BOLETO</th>
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Fornecedor</th>
-								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Observação</th>
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Data</th>
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Vencimento</th>
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">status</th>
@@ -162,6 +162,10 @@
 										 @click.stop="select(expense.id, $event.target.checked)"
 										:checked="selected.includes(expense.id)"
 									>
+								</td>
+
+								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+									<div class="text-sm leading-5 text-gray-900">{{ expense.id }}</div>
 								</td>
 
 								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
@@ -185,10 +189,6 @@
 											
 										</div>
 									</div>
-								</td>
-
-								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-									<div class="text-sm leading-5 text-gray-900">{{ expense.observacao }}</div>
 								</td>
 
 								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
