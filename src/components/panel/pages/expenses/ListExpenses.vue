@@ -1,102 +1,5 @@
 <template>
-    <!-- <div class="box">
-        <nav class="breadcrumb">
-            <li><a href="#">inicio</a></li>
-            <li><a href="#" class="active">despesas</a></li>
-        </nav>
-
-        <nav class="tabs">
-            <button class="tabs__item tabs__item--active">Despesas</button>
-        </nav>
-
-        <div class="tabs-container">
-            <div class="box-but">
-
-                <div class="box-but-left">
-                    <router-link class="but primary" :to="{name: 'painel.despesas.adicionar'}">Adicionar</router-link>
-                </div>
-
-                <div class="box-but-right">
-
-                    <div class="but-group ma-r-small">
-                        <button class="but prev" @click.prevent="prevMonth">
-                            <svg class="feather white">
-                                <use xlink:href="@/assets/svg/feather-sprite.svg#arrow-left"></use>
-                            </svg>
-                        </button>
-
-                        <button class="but tertiary">{{ month | monthString }} - {{ year }}</button>
-
-                        <button class="but next" @click.prevent="nextMonth">
-                            <svg class="feather white">
-                                <use xlink:href="@/assets/svg/feather-sprite.svg#arrow-right"></use>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <search
-                        @search="searchForm"
-                    >
-                    </search>
-
-                    <button class="but printer">
-                        <svg class="feather">
-                            <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <table class="table-list">
-                <thead>
-                    <tr>
-                        <th>Marcar</th>
-                        <th>#numero</th>
-                        <th>Data</th>
-                        <th>Descrição</th>
-                        <th>Fornecedor</th>
-                        <th>Vencimento</th>
-                        <th>Status</th>
-                        <th>Valor</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr class="dotted" :class="{focused: focused === expense.id }"
-                        v-for="expense in expenses.data" :key="expense.id"
-                        @click.stop="focus(expense.id)"
-                        @dblclick="edit(expense.id)"
-                    >
-                        <td>
-                             <label>
-                                <input type="checkbox" class="field__checkbox"
-                                    @click.stop="select(expense.id, $event.target.checked)"
-                                    :checked="selected.includes(expense.id)"
-                                >
-                            </label>
-                        </td>
-                        <td>{{ expense.numero }}</td>
-                        <td>22/06/2019</td>
-                        <td>Serviços de reparo em caminhão Ford 2010 </td>
-                        <td>JR AUTO PEÇAS </td>
-                        <td> 30/06/2019   </td>
-                        <td>-----</td>
-                        <td>R$ {{ expense.valor }}</td>
-                    </tr>
-                </tbody>
-            </table>
-
-
-        </div>
-
-        <paginate
-                :pagination="expenses"
-                :offset="6"
-                @paginate="loadExpenses"
-            >
-            </paginate>
-
-    </div> -->
+    
 <div class="mx-auto px-8 py-2">
 
 	<!-- bredcrumb -->
@@ -141,7 +44,7 @@
 							<tr>
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100"></th>
 								<th class="px-4 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">#Código</th>
-								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Numero NFE / BOLETO</th>
+								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Numero</th>
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Fornecedor</th>
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Data</th>
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Vencimento</th>

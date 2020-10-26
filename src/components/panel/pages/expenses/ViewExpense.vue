@@ -1,183 +1,4 @@
 <template>
-    <!-- <div class="box">
-
-        <nav class="breadcrumb">
-            <li><a href="#">inicio</a></li>
-            <li><a href="#">despesa</a></li>
-            <li><a href="#" class="active">visualizar</a></li>
-        </nav>
-
-        <nav class="tabs">
-            <button class="tabs__item tabs__item--active">Despesas</button>
-
-        </nav>
-
-        <div class="tabs-container">
-            <div class="box-but">
-
-                <div class="box-but-left">
-                   <button-back></button-back>
-                </div>
-
-                <div class="box-but-right">
-                    <button class="but printer ma-r-small" @click.prevent="pay(expense.id)">
-                        <svg class="feather">
-                            <use xlink:href="@/assets/svg/feather-sprite.svg#dollar-sign"></use>
-                        </svg>
-
-                    </button>
-
-                    <button class="but printer ma-r-small" >
-                        <svg class="feather">
-                            <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
-                        </svg>
-
-                    </button>
-
-                    <button class="but printer ma-r-small" @click.prevent="edit(expense.id)">
-                        <svg class="feather">
-                            <use xlink:href="@/assets/svg/feather-sprite.svg#edit-2"></use>
-                        </svg>
-                    </button>
-
-                    <button class="but printer" @click.prevent="confirmDelete(expense)">
-                        <svg class="feather">
-                            <use xlink:href="@/assets/svg/feather-sprite.svg#trash-2"></use>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div class="box-form view-form-view">
-            <h2 class="box-form__title">Dados da despesa</h2>
-            <div class="box-field">
-                <div class="field" @click.prevent="download(expense.anexo)">
-                    <label class="field__label">Imprimir anexo</label>
-                    <svg class="feather but-link" style="text-align: center">
-                        <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
-                    </svg>
-                </div>
-
-                 <div class="field">
-                    <label class="field__label">Codigo</label>
-                    <p class="field__text">{{ expense.id }}</p>
-                </div>
-
-                <div class="field">
-                    <label class="field__label">N. Nota Fiscal</label>
-                    <p class="field__text">{{ expense.numero }}</p>
-                </div>
-
-                <div class="field">
-                    <label class="field__label">Fornecedor</label>
-                    <p class="field__text">SAO SEBASTIÃO ENERGIA</p>
-                </div>
-
-
-            </div>
-
-            <div class="box-field ">
-
-                <div class="field">
-                    <label class="field__label">Categoria</label>
-                    <p class="field__text">COMBUSTIVEL</p>
-
-                </div>
-
-                <div class="field">
-                    <label class="field__label">Empresa de Origem</label>
-                    <p class="field__text">HELIO BRITO</p>
-                </div>
-
-                <div class="field">
-                    <label class="field__label">Data de cadastro</label>
-                    <p class="field__text">99/99/9999</p>
-                </div>
-
-                <div class="field">
-                    <label class="field__label">Conta Bancária</label>
-                    <p class="field__text">BANCO DO BRASIL</p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="box-form view-form-view">
-            <h2 class="box-form__title">Dados de pagamento</h2>
-
-            <div class="box-table">
-                <table class="field-table">
-                    <thead>
-                        <tr>
-                            <th>Parcela</th>
-                            <th>Vencimento</th>
-                            <th>Data / Pagamento</th>
-                            <th>Comprovantes</th>
-                            <th>Valor (R$)</th>
-                            <th>Status</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr
-                            v-for="(item, index) in expense.installments"
-                            :key="index"
-                        >
-                            <td>{{ index + 1 }}/{{ expense.installments.length }}</td>
-
-                            <td>
-                                <div class="field">
-                                    {{item.data_vencimento }}
-                                </div>
-                            </td>
-
-                            <td>
-                                <div class="field">
-                                   {{item.data_pagamento }}
-                                </div>
-                            </td>
-
-                            <td>
-                                <div class="field">
-                                    <svg class="feather but-link" style="text-align: center">
-                                        <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
-                                    </svg>
-                                </div>
-                            </td>
-
-                            <td>
-                                {{ item.valor}}
-                            </td>
-                            <td>
-                                <div class="field">
-                                    <svg class="feather" style="text-align: center">
-                                        <use xlink:href="@/assets/svg/feather-sprite.svg#check"></use>
-                                    </svg>
-                                </div>
-                            </td>
-
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-        </div>
-
-        <div class="box-form view-form-view">
-            <h2 class="box-form__title">Informções extra</h2>
-            <div class="box-field">
-                <div class="field">
-                    <label>Observação</label>
-                        <textarea cols="30" rows="3" disabled></textarea>
-                </div>
-
-            </div>
-        </div>
-
-        </div>
-
-
-    </div> -->
-
 	<div>
 		<!-- BRANDCRUBS -->
 		<div class="mx-auto px-8 py-2">
@@ -292,12 +113,12 @@
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Data</div>
 								<div class="">
-                  <AppDate
-                    :value="expense.data"
-                    class-names="text-lg leading-5 text-gray-600"
-                    readonly
-                  />
-                </div>
+									<AppDate
+										:value="expense.data"
+										class-names="text-lg leading-5 text-gray-600"
+										readonly
+									/>
+								</div>
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Conta Bancária</div>
@@ -360,7 +181,7 @@
 									readonly
 								/>
 							</td>
-							<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
+							<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500 text-right">
 								<AppStatus :status="item.status" />
 							</td>
 
@@ -420,11 +241,11 @@
                     id: '',
                     numero: ''
 
-
                 },
-
+				
                 installments: [
                     {
+						
                         data_vencimento: '',
                         data_pagamento: '',
                         valor: ''
@@ -450,6 +271,7 @@
         },
 
         methods: {
+			
             edit(id){
                 this.$store.dispatch('loadExpense', id)
                     .then(response => {
@@ -457,7 +279,7 @@
                         this.$router.push({name: 'painel.despesas.editar', params:{id: id}})
                     })
                     .catch(error => {
-
+						
                         this.$snotify.error('Houve um erro ao editar', 'Erro')
                     })
             },
@@ -474,7 +296,7 @@
             },
 
             confirmDelete(expense){
-                this.$snotify.error(`Deseja deletar a despesa codigo: ${expense.id}`, 'Confirme', {
+                this.$snotify.error(`Deseja deletar a despesa de codigo: ${expense.id}`, 'Confirme', {
                     position: "centerCenter",
                     timeout: 10000,
                     showProgressBar: true,
@@ -508,9 +330,9 @@
 
         },
         components: {
-          AppMoney,
-          AppStatus,
-            ButtonBack
+			AppMoney,
+			AppStatus,
+			ButtonBack
         }
 
     }

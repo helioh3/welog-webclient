@@ -322,7 +322,7 @@ export default {
         dataVencimento.setTime(anterior.getTime())
         dataVencimento.addMonths(1, true)
       }
-
+		
       this.expense.installments.push({
         data_vencimento: dataVencimento,
         valor: 0
