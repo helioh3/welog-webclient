@@ -13,6 +13,8 @@ import Providers from './modules/providers/index'
 
 import Bankaccounts from './modules/bankaccounts/index'
 
+import Banks from './modules/banks/index'
+
 import Categories from './modules/categories/categories'
 
 import Expenses from './modules/expenses/index'
@@ -20,16 +22,17 @@ import Expenses from './modules/expenses/index'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-    modules: {
-      PreloaderPanel,
-      auth: Auth,
-      users: Users,
-      companies: Companies,
-      categories: Categories, 
-      expenses: Expenses,
-      providers: Providers,
-      bankaccounts: Bankaccounts
-    }
+  modules: {
+    PreloaderPanel,
+    auth: Auth,
+    users: Users,
+    companies: Companies,
+    categories: Categories,
+    expenses: Expenses,
+    providers: Providers,
+    bankaccounts: Bankaccounts,
+    banks: Banks
+  }
 })
 
 export default store

@@ -20,27 +20,7 @@
 
 	<!-- TABS -->
 	<div class="py-1">
-		<ul class="list-reset flex border-b border-gray-400">
-			<li class="mr-1">
-				<a class="inline-block px-3" href="#"></a>
-			</li>
-			<li class="mr-1">
-				<router-link class="bg-gray-200 inline-block py-4 px-6 text-blue hover:text-blue-darker" :to="{name: 'painel.fornecedores'}">Lista de fornecedores</router-link>
-			</li>
-
-			<li class="mr-1">
-				<router-link class="bg-gray-200 inline-block py-4 px-6 text-blue hover:text-blue-darker" :to="{name: 'painel.empresas'}">Lista de empresas</router-link>
-			</li>
-
-			<li class="-mb-px mr-1">
-				<router-link class="bg-white inline-block border-gray-400 border-l border-t border-r rounded-t py-4 px-6 text-blue-dark" :to="{name: 'painel.categorias'}">Categorias</router-link>
-			</li>
-
-			<li class="mr-1">
-				<router-link class="bg-gray-200 inline-block py-4 px-6 text-blue hover:text-blue-darker" :to="{name: 'painel.contasbancarias'}">Lista de contas bancárias</router-link>
-			</li>
-
-		</ul>
+		<TabsCadastro/>
 	</div>
 
 	<div class="mx-auto px-8 py-2">
@@ -138,8 +118,10 @@
 
 <script>
 
+    import TabsCadastro from '@/components/panel/share/TabsCadastro'
     export default {
-        created (){
+      components: { TabsCadastro },
+      created (){
             this.loadCategories()
 		},
 

@@ -33,7 +33,7 @@ export default {
       default: false
     },
     classNames: {
-      type: [Object, Array],
+      type: [Object, Array, String],
       default: undefined
     }
   },

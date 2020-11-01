@@ -10,43 +10,24 @@
 						<path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/>
 					</svg>
 				</li>
-				
+
 				<li>
 					<a href="#" class="text-gray-500" aria-current="page">Empresas</a>
 				</li>
-				
+
 			</ol>
 		</nav>
 	</div>
-	
+
 	<!-- TABS -->
 	<div class="py-1">
-		<ul class="list-reset flex border-b border-gray-400">
-			<li class="mr-1">
-				<a class="inline-block px-3" href="#"></a>
-			</li>
-			<li class="mr-1">
-				<router-link class="bg-gray-200 inline-block py-4 px-6 text-blue hover:text-blue-darker" :to="{name: 'painel.fornecedores'}">Lista de fornecedores</router-link>
-			</li>
-
-			<li class="-mb-px mr-1">
-				<router-link exact class="bg-white inline-block border-gray-400 border-l border-t border-r rounded-t py-4 px-6 text-blue-dark" :to="{name: 'painel.empresas'}">Lista de empresas</router-link>
-			</li>
-			
-			<li class="mr-1">
-				<router-link exact class="bg-gray-200 inline-block py-4 px-6 text-blue hover:text-blue-darker" :to="{name: 'painel.categorias'}">Categorias</router-link>
-			</li>
-
-			<li class="mr-1">
-				<router-link class="bg-gray-200 inline-block py-4 px-6 text-blue hover:text-blue-darker" :to="{name: 'painel.contasbancarias'}">Lista de contas bancárias</router-link>
-			</li>
-		</ul>
+    <TabsCadastro/>
 	</div>
 
 	<div class="mx-auto px-8 py-2">
 		<div class="flex justify-between">
 			<div class="mt-3 flex flex-col sm:flex-row">
-				
+
 				<div class="block relative mt-3 sm:mt-0">
 					<span class="absolute inset-y-0 left-0 flex items-center pl-2">
 						<svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
@@ -63,9 +44,9 @@
 					 <router-link class="inline-block px-4 py-2" :to="{name: 'painel.empresas.adicionar'}">Nova Empresa</router-link>
 				</button>
 			</div>
-			
+
 		</div>
-			
+
 		<div class="flex flex-col mt-3">
 			<div class="-my-2 py-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
 				<div class="align-middle inline-block min-w-full overflow-hidden sm:rounded border border-gray-400">
@@ -82,7 +63,7 @@
 
 						<tbody class="bg-white">
 							<tr class=" cursor-pointer" v-for="company in companies.data" :key="company.id" @dblclick.prevent="view(company.id)">
-								
+
 								<td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
 									<div class="flex items-center">
 										<!-- <div class="flex-shrink-0 h-10 w-10">
@@ -108,7 +89,7 @@
 								</td>
 
 								<td class="px-4 py-2 whitespace-no-wrap border-b border-gray-200">
-									
+
 									<button @click.prevent="edit(company.id)" class="mr-1 px-4 py-2  border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
 										<svg class="feather">
 												<use xlink:href="@/assets/svg/feather-sprite.svg#edit-2"></use>
@@ -120,7 +101,7 @@
 										</svg>
 									</button>
 								</td>
-								
+
 							</tr>
 
 						</tbody>
@@ -136,8 +117,9 @@
 
 <script>
     import Middle from './../../share/Middle'
+    import TabsCadastro from '@/components/panel/share/TabsCadastro'
     export default {
-      
+
         created () {
             this.loadCompanies()
         },
@@ -179,11 +161,11 @@
                     position: "centerCenter",
                     timeout: 10000,
                     showProgressBar: true,
-                    closeOnClick: true, 
+                    closeOnClick: true,
                     buttons:[
                         {text: 'Não', action: null },
                         {text: 'Sim', action: (value)=>  {this.delCompany(company.id), this.$snotify.remove(value.id)} }
-                    ] 
+                    ]
                 })
             },
 
@@ -200,6 +182,6 @@
                     })
             },
 		},
-		components: { Middle }
+		components: { TabsCadastro, Middle }
     }
 </script>
