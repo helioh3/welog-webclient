@@ -28,6 +28,12 @@ import ViewExpense from '../components/panel/pages/expenses/ViewExpense'
 import EditExpense from '../components/panel/pages/expenses/EditExpense'
 import PayExpense from '../components/panel/pages/expenses/PayExpense'
 
+import ListBankaccounts from '../components/panel/pages/bankaccounts/ListBankaccounts'
+import NewBankaccount from '../components/panel/pages/bankaccounts/NewBankaccount'
+import ViewBankaccount from '../components/panel/pages/bankaccounts/ViewBankaccount'
+import EditBankaccount from '../components/panel/pages/bankaccounts/EditBankaccount'
+
+
 import IndexPanel from '../components/panel/IndexPanel'
 import HomeDashboard from '../components/panel/pages/dashboard/HomeDashboard'
 
@@ -74,6 +80,12 @@ const routes = [
         { path: 'despesas/:id/visualizar', component: ViewExpense, name: 'painel.despesas.visualizar', props: true },
         { path: 'despesas/:id/editar', component: EditExpense, name: 'painel.despesas.editar', props: true },
         { path: 'despesas/:id/pagar', component: PayExpense, name: 'painel.despesas.pagar', props: true },
+
+        { path: 'cadastros/contasbancarias', component: ListBankaccounts, name: 'painel.contasbancarias'},
+        { path: 'cadastros/contasbancarias/adicionar', component: NewBankaccount, name: 'painel.contasbancarias.adicionar' },
+        { path: 'cadastros/contasbancarias/:id/visualizar', component: ViewBankaccount, name: 'painel.contasbancarias.visualizar', props: true },
+        { path: 'cadastros/contasbancarias/:id/editar', component: EditBankaccount, name: 'painel.contasbancarias.editar', props: true },
+        // { path: 'bancos/:id/pagar', component: PayBanks, name: 'painel.bancos.pagar', props: true },
 
       ]
     },

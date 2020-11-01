@@ -36,6 +36,10 @@
 			<li class="mr-1">
 				<router-link exact class="bg-gray-200 inline-block py-4 px-6 text-blue hover:text-blue-darker" :to="{name: 'painel.categorias'}">Categorias</router-link>
 			</li>
+
+			<li class="mr-1">
+				<router-link class="bg-gray-200 inline-block py-4 px-6 text-blue hover:text-blue-darker" :to="{name: 'painel.contasbancarias'}">Lista de contas bancárias</router-link>
+			</li>
 		</ul>
 	</div>
 

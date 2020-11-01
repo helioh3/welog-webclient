@@ -1,80 +1,5 @@
 <template>
-    <!-- <div class="box">
-        <nav class="breadcrumb">
-            <li><a href="index.html">inicio</a></li>
-            <li><a href="#" class="active">fornecedores</a></li>
-        </nav>  
-
-        <nav class="tabs">
-            <button class="tabs__item tabs__item--active">Fornecedores</button>
-            <router-link class="tabs__item tabs__item" :to="{name: 'painel.empresas'}">Empresas</router-link>
-            <router-link class="tabs__item tabs__item" :to="{name: 'painel.categorias'}">Categorias</router-link>
-
-        </nav>
-
-        <div class="tabs-container">
-
-            <div class="box-but">
-                <div class="box-but-left">
-                    <router-link class="but printer ma-r-small" :to="{name: 'painel.fornecedores.adicionar'}" >
-                        <svg class="feather">
-                            <use xlink:href="@/assets/svg/feather-sprite.svg#plus-circle"></use>
-                        </svg>
-                    </router-link> 
-                </div>
-
-                <div class="box-but-right">
-                    <search 
-                        @search="searchForm"
-                    >
-                    </search>
-
-                    <button class="but printer" disabled>
-                        <svg class="feather">
-                            <use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
-                        </svg>
-                    </button>
-                </div>
-
-            </div>
-          
-            <table class="table-data">
-                <thead>
-                    <tr>
-                        <th>Foto</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
-                        <th>RG</th>
-                        <th>Cidade</th>
-                        <th>Observação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="provider in providers.data" :key="provider.id" @dblclick.prevent="view(provider.id)">
-                        <td>
-                            <img src="" class="logo-companies" alt="">
-                        </td>
-                        <td>{{ provider.nome }}</td>
-                        <td>{{ provider.cpf }}</td>
-                        <td>Dianopolis</td>
-                        <td>helioh3@gmail.com</td>
-                        <td>Responsavel pela TI</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-
-            <pagination
-                :pagination="providers"
-                :offset="6"
-                :paginate="loadProviders"
-            >
-            </pagination>
-            
-        </div>
-
-    </div> -->
-
+    
 <div>
 	<!-- BRANDCRUBS -->
 	<div class="mx-auto px-8 py-2">
@@ -112,6 +37,9 @@
 
 			<li class="mr-1">
 				<router-link class="bg-gray-200 inline-block py-4 px-6 text-blue hover:text-blue-darker" :to="{name: 'painel.categorias'}">Categorias</router-link>
+			</li>
+			<li class="mr-1">
+				<router-link class="bg-gray-200 inline-block py-4 px-6 text-blue hover:text-blue-darker" :to="{name: 'painel.contasbancarias'}">Lista de contas bancárias</router-link>
 			</li>
 			
 		</ul>

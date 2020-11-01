@@ -11,6 +11,8 @@ import Companies from './modules/companies/index'
 
 import Providers from './modules/providers/index'
 
+import Bankaccounts from './modules/bankaccounts/index'
+
 import Categories from './modules/categories/categories'
 
 import Expenses from './modules/expenses/index'
@@ -25,7 +27,8 @@ const store = new Vuex.Store({
       companies: Companies,
       categories: Categories, 
       expenses: Expenses,
-      providers: Providers
+      providers: Providers,
+      bankaccounts: Bankaccounts
     }
 })
 

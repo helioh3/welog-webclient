@@ -1,15 +1,19 @@
 <template>
     
 	<div class="md:w-full px-3">
+		
+
 		<table class="md:w-full">
 			<thead>
 				<tr>
-					<th class="uppercase px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Parcela</th>
-					<th class="uppercase px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Vencimento</th>
-					<th class="uppercase px-6 py-3 border-b-2 border-gray-300 text-right text-sm leading-4 text-blue-500 tracking-wider">Valor (R$)</th>
-					<th class="uppercase px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 text-blue-500 tracking-wider">Anexar Comprovante</th>
-					<th class="uppercase px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Data / Pagamento</th>
-					<th class="uppercase px-6 py-3 border-b-2 border-gray-300"></th>
+					<th class="px-3 py-3 border-b border-gray-400 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">No.</th>
+					<th class="px-3 py-3 border-b border-gray-400 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Valor</th>
+					<th class="px-3 py-3 border-b border-gray-400 text-center text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Venc.</th>
+					<th class="px-3 py-3 border-b border-gray-400 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Banco</th>
+					<th class="px-3 py-3 border-b border-gray-400 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Agência / Conta</th>
+					<th class="px-3 py-3 border-b border-gray-400 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Comprovante</th>
+					<th class="px-3 py-3 border-b border-gray-400 text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Data (PGTO)</th>
+					<th class="px-3 py-3 border-b border-gray-400 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider"></th>
 
 				</tr>
 			</thead>
@@ -18,49 +22,85 @@
 					v-for="(item, index) in expense.installments"
                     :key="index"
 				>
-					<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
-						<div class="flex items-center">
-							<div>
-								<div class="text-sm leading-5 text-gray-800">{{ index + 1 }}/{{ expense.installments.length }}</div>
+					<td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
+						<div class="text-sm leading-5 text-gray-900">
+							<div class="text-sm leading-5 text-gray-800">
+								{{ index + 1 }}/{{ expense.installments.length }}
 							</div>
 						</div>
 					</td>
-					<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
-            <div class="text-sm leading-5 text-blue-900">
-              <AppDate
-                :value="item.data_vencimento"
-                readonly
-              />
-            </div>
-          </td>
-          <td class="px-6 py-3 whitespace-no-wrap border-b text-right text-blue-900 border-gray-500 text-sm leading-5">
-            <AppMoney
-              :value="item.valor"
-              readonly
-            />
-          </td>
-
-					<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
-						<div class="text-sm text-center leading-5 text-blue-900 w-12">
-							<input type="file" name="comprovate" class="w-1/5 field__input text-center appearance-none focus:outline-none" @change="onFileInstallment($event, item)">
+					
+					<td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
+						<div class="text-sm leading-5 text-gray-900">
+							<AppMoney
+							:value="item.valor"
+							class-names="w-20"
+							readonly
+           				/>
 						</div>
 					</td>
 
-          <td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
-            <AppDate v-model="item.data_pagamento" />
-          </td>
-
-					<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
-						<button @click.prevent="pagar(item)" class="mr-1 px-4 py-2  border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
-							<svg class="feather">
-								<use xlink:href="@/assets/svg/feather-sprite.svg#check-square"></use>
-							</svg>
-						</button>
+					<td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
+						<div class="text-sm leading-5 text-gray-900">
+							<AppDate
+								:value="item.data_vencimento"
+								readonly
+							/>
+						</div>
+					</td>
+					
+					<td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
+						<div class="text-sm leading-5 text-gray-900">
+							<div class="w-48 text-sm leading-5 text-gray-900">
+								<select class=" appearance-none w-full bg-grey-lighter text-lg leading-5 text-gray-600" disabled>
+										<option v-for="provider in providers" :key="provider.id" :value="provider.id">{{ provider.nome }}</option>
+								</select>
+							</div>
+						</div>
+					</td>
+					<td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
+						<div class="w-56 text-sm leading-5 text-gray-900">
+							<div class="relative">
+								<v-select
+									ref="categoria"
+									class="style-chooser"
+									:options="bankaccounts"
+									label="conta"
+									v-model="item.bankaccount_id"
+									:reduce="bankaccount => bankaccount.id"
+									
+								/>
+							</div>
+						</div>
+					</td>
+					
+					<td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
+						<div class="w-1/5 text-sm leading-5 text-gray-900">
+							<input type="file" name="comprovate" class="w-1/5  field__input text-center appearance-none focus:outline-none" @change="onFileInstallment($event, item)">
+						</div>
+					</td>
+					<td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
+						<div class=" text-sm text-center leading-5 text-gray-900">
+							<AppDate v-model="item.data_pagamento" />
+						</div>
+					</td>
+					
+					<td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
+						<div class="text-sm leading-5 text-gray-900">
+							<button @click.prevent="pagar(item)" class="mr-1 px-2 py-2  border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+								<svg class="feather">
+									<use xlink:href="@/assets/svg/feather-sprite.svg#check-square"></use>
+								</svg>
+							</button>
+						</div>
 					</td>
 
+					
 				</tr>
+				
+
 			</tbody>
-		</table>
+</table>
 
 	</div>
 
@@ -79,11 +119,15 @@ export default {
             type: Object,
             default: () =>{
                 return{
+					
                     installments: [
                         {
+							bankaccount_id: '',
+							contabancaria: '',
                             data_vencimento: '',
                             data_pagamento: new Date(),
-                            valor: 0
+                            valor: 0,
+							
                         }
                     ]
                 }
@@ -91,12 +135,24 @@ export default {
         }
     },
 
+	created (){
+		this.$store.dispatch('loadBankaccounts')
+		
+	},
+
     data() {
         return {
             errors: {},
             expense: {}
         }
     },
+
+	computed: {
+		bankaccounts () {
+			return this.$store.state.bankaccounts.items.data
+		},
+	},
+
     methods: {
       pagar (installment) {
 
