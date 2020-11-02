@@ -12,14 +12,14 @@
           <th class="px-3 py-3 border-b border-gray-400 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
             Valor
           </th>
-          <th class="px-3 py-3 border-b border-gray-400 text-center text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
+          <!-- <th class="px-3 py-3 border-b border-gray-400 text-center text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
             Venc.
-          </th>
+          </th> -->
           <th class="px-3 py-3 border-b border-gray-400 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
             Banco
           </th>
           <th class="px-3 py-3 border-b border-gray-400 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
-            Agência / Conta
+            Conta
           </th>
           <th class="px-3 py-3 border-b border-gray-400 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
             Comprovante
@@ -54,31 +54,31 @@
             </div>
           </td>
 
-          <td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
+          <!-- <td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
             <div class="text-sm leading-5 text-gray-900">
               <AppDate
                 :value="item.data_vencimento"
                 readonly
               />
             </div>
-          </td>
+          </td> -->
 
-          <td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
-            <div class="text-sm leading-5 text-gray-900">
-              <div class="w-48 text-sm leading-5 text-gray-900">
+          <td class="w-2/6 px-2 py-4 whitespace-no-wrap border-b border-gray-200">
+            <div class="text-xs leading-5 text-gray-900">
+              <div class=" text-xs leading-5 text-gray-900">
                 <v-select
                   ref="banco"
                   class="style-chooser"
                   label="Name"
                   :options="banks"
-                  v-model="item.bank_id"
+                  v-model="item.banco"
                   :reduce="bank => bank.id"
                 />
               </div>
             </div>
           </td>
-          <td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
-            <div class="w-56 text-sm leading-5 text-gray-900">
+          <td class="w-1/5 px-2 py-4 whitespace-no-wrap border-b border-gray-200">
+            <div class="text-xs leading-5 text-gray-900">
               <div class="relative">
                 <v-select
                   ref="categoria"
@@ -153,6 +153,7 @@ export default {
               data_vencimento: '',
               data_pagamento: new Date(),
               valor: 0,
+              banco: ''
 
             }
           ]

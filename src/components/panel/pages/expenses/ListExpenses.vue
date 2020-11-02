@@ -107,10 +107,13 @@
 								</td>
 
 								<td class="px-6 py-4 text-right whitespace-no-wrap border-b border-gray-200">
-									<AppMoney
-										:value="expense.valor"
-										readonly
-									/>
+									<div class="text-sm leading-5 text-gray-900">
+                                        <AppMoney
+                                            :value="expense.valor"
+                                            readonly
+                                        />
+                                    </div>
+                                    
 								</td>
 							</tr>
 
