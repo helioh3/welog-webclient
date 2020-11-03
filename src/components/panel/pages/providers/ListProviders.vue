@@ -120,7 +120,7 @@
 	import Middle from './../../share/Middle'
     import SearchProvider from '../providers/share/SearchProvider'
     import PaginationGeneral from '../../../share/PaginationGeneral'
-  import TabsCadastro from '@/components/panel/share/TabsCadastro'
+  	import TabsCadastro from '@/components/panel/share/TabsCadastro'
 
     export default {
 
