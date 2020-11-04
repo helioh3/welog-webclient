@@ -3,6 +3,8 @@ import IndexHome from '../components/site/IndexHome'
 
 import LoginClient from '../components/site/pages/login/LoginClient'
 
+
+
 import ListUsers from '../components/panel/pages/users/ListUsers'
 import NewUser from '../components/panel/pages/users/NewUser'
 import ViewUser from '../components/panel/pages/users/ViewUser'
@@ -32,6 +34,7 @@ import ListBankaccounts from '../components/panel/pages/bankaccounts/ListBankacc
 import NewBankaccount from '../components/panel/pages/bankaccounts/NewBankaccount'
 import ViewBankaccount from '../components/panel/pages/bankaccounts/ViewBankaccount'
 import EditBankaccount from '../components/panel/pages/bankaccounts/EditBankaccount'
+
 
 
 import IndexPanel from '../components/panel/IndexPanel'
@@ -86,7 +89,8 @@ const routes = [
         { path: 'cadastros/contasbancarias/:id/visualizar', component: ViewBankaccount, name: 'painel.contasbancarias.visualizar', props: true },
         { path: 'cadastros/contasbancarias/:id/editar', component: EditBankaccount, name: 'painel.contasbancarias.editar', props: true },
         // { path: 'bancos/:id/pagar', component: PayBanks, name: 'painel.bancos.pagar', props: true },
-
+		
+		// {path: '*', component: 404Error}
       ]
     },
   ]
