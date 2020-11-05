@@ -81,9 +81,9 @@
             <div class="text-xs leading-5 text-gray-900">
               <div class="relative">
                 <v-select
-                  ref="categoria"
+                  ref="conta"
                   class="style-chooser"
-                  :options="bankaccounts"
+                  :options="getBankAccountOptions(item)"
                   label="conta"
                   v-model="item.bankaccount_id"
                   :reduce="bankaccount => bankaccount.id"
@@ -208,6 +208,24 @@ export default {
 
       item.comprovante = files[0]
 
+    },
+
+    /**
+     * @param {Record<string,unknown>} item
+     */
+    getBankAccountOptions (item) {
+      // quando o item não possui um banco selecionado...
+      if (!item.banco) {
+        // ... retornar um array vazio
+        return []
+      }
+      // quando a lista de contas não é um array válido...
+      if (!Array.isArray(this.bankaccounts)) {
+        // ... retornar um array vazio
+        return []
+      }
+      // ... retornar uma lista de contas filtradas pelo banco selecionado
+      return this.bankaccounts.filter((bankAccount) => Number(bankAccount.banco) === Number(item.banco))
     }
   },
 
