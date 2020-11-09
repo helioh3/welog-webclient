@@ -106,7 +106,7 @@
 	import Middle from './../../share/Middle'
     import SearchBankaccount from '../bankaccounts/share/SearchBankaccount'
     import PaginationGeneral from '../../../share/PaginationGeneral'
-  import TabsCadastro from '@/components/panel/share/TabsCadastro'
+  	import TabsCadastro from '@/components/panel/share/TabsCadastro'
 
     export default {
 

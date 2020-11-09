@@ -172,16 +172,36 @@
 										readonly
 									/>
 								</td>
+								
+								
+								<td class="px-6 py-2 whitespace-no-wrap border-b text-left text-blue-900 border-gray-500 text-sm leading-5">
+									
+									<div class="text-sm leading-5 text-gray-500">
+										{{installments.banco}}
+									</div>
+								</td>
+
+								<td class="px-6 py-3 whitespace-no-wrap border-b text-left text-blue-900 border-gray-500 text-sm leading-5">
+									<div class="text-sm leading-5 text-gray-500">
+										CONTA
+									</div>
+								</td>
+
 								<td class="text-center px-6 py-3 whitespace-no-wrap border-b border-gray-500">
 									<svg class="feather cursor-pointer w-8" @click.prevent="download(expense.anexo)">
 										<use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
 									</svg>
 								</td>
-								<td class="px-6 py-3 whitespace-no-wrap border-b text-right text-blue-900 border-gray-500 text-sm leading-5">
-									<AppMoney
-										:value="item.valor"
-										readonly
-									/>
+								
+								<td class="px-6 py-3 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+									
+									<div class="text-sm leading-5 text-gray-800">
+										<AppMoney
+											:value="item.valor"
+											readonly
+										/>
+									</div>
+									
 								</td>
 								<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500 text-right">
 									<AppStatus :status="item.status" />

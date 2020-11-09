@@ -109,8 +109,6 @@
 			</div>
 
 			<div class="-mx-3 md:flex mb-6">
-				
-				
 				<table>
 					<tbody>
 						<tr>

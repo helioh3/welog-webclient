@@ -185,6 +185,7 @@ import AppMoney from '@/components/share/Form/AppMoney'
 export default {
   created () {
     this.loadExpenses(1)
+    this.$store.dispatch('loadCompanies')
   },
 
   data () {
