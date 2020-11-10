@@ -254,7 +254,8 @@
             this.$store.dispatch('loadExpense', this.id)
                 .then(response => {
 					this.expense = response
-                })
+				}),
+				this.$store.dispatch('loadProviders')
         },
 
         data(){

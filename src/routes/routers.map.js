@@ -35,8 +35,6 @@ import NewBankaccount from '../components/panel/pages/bankaccounts/NewBankaccoun
 import ViewBankaccount from '../components/panel/pages/bankaccounts/ViewBankaccount'
 import EditBankaccount from '../components/panel/pages/bankaccounts/EditBankaccount'
 
-
-
 import IndexPanel from '../components/panel/IndexPanel'
 import HomeDashboard from '../components/panel/pages/dashboard/HomeDashboard'
 
