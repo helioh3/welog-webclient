@@ -16,9 +16,9 @@
 			v-show="isOpen"
 	>
 		<div class="px-4 py-3">
-			<p class="text-sm leading-5">Login como</p>
+			<p class="text-sm leading-5">{{ me.nome }}</p>
 			<p class="text-sm font-medium leading-5 text-gray-900 truncate">
-				tom@example.com
+				{{ me.email }}
 			</p>
 		</div>
 
@@ -38,13 +38,20 @@ export default {
 		}
 	},
 
+
 	data(){
 		return {
 			isOpen: false,
 		}
 	},
 
-	 mounted() {
+	computed: {
+		me() {
+			return this.$store.state.auth.me;
+		}
+	},
+
+	mounted() {
         document.addEventListener('click', this.clickOutListener);
 	},
 	
