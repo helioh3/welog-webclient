@@ -175,7 +175,8 @@
                     })
                     .catch(error => {
                         
-                        this.$snotify.error('Houve um erro ao editar', 'Erro')
+						this.$snotify.error('Houve um erro ao editar', 'Erro')
+						
                     })
             },
 

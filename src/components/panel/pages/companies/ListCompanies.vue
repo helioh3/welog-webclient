@@ -85,7 +85,7 @@
 								</td>
 
 								<td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
-									<div class="text-sm leading-5 text-gray-900">helio@gmail.com</div>
+									<div class="text-sm leading-5 text-gray-900">{{ company.email }}</div>
 								</td>
 
 								<td class="px-4 py-2 whitespace-no-wrap border-b border-gray-200">
