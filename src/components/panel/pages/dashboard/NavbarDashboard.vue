@@ -63,7 +63,7 @@
 					<DropDownItem :to="{name: 'painel.usuarios'}">Configurações</DropDownItem>
 					<DropDownItem :to="{name: 'painel.usuarios'}">Ajuda</DropDownItem>
 					<div class="border-t border-color-gray-200"></div>
-					<DropDownItem>Sair</DropDownItem>
+					<DropDownItem @click="logout">Sair</DropDownItem>
 				</DropDown>
 			</div>
 				

@@ -188,7 +188,7 @@
 								</td>
 
 								<td class="text-center px-6 py-3 whitespace-no-wrap border-b border-gray-500">
-									<svg class="feather cursor-pointer w-8" @click.prevent="download(expense.anexo)">
+									<svg class="feather cursor-pointer w-8" @click.prevent="previewPrint(item.comprovante)">
 										<use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
 									</svg>
 								</td>
@@ -347,6 +347,12 @@
 
             download(anexo) {
                 window.open(`${getBaseURL()}/download${anexo}`)
+                // window.open("http://cvv.test/download" + anexo)
+                // console.log(window.location.origin + "/download/" + anexo)
+			},
+			
+			previewPrint(comprovante) {
+                window.open(`${getBaseURL()}/download${comprovante}`)
                 // window.open("http://cvv.test/download" + anexo)
                 // console.log(window.location.origin + "/download/" + anexo)
             }

@@ -32,7 +32,10 @@
 
 		<div class="mx-auto px-8 py-2">
 
-			<form-user :value="user"></form-user>
+			<form-user 
+				:value="user"
+				:update="true"
+			></form-user>
 
 
 		</div>

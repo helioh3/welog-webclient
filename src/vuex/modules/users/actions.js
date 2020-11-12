@@ -3,6 +3,7 @@ import http from '@/services/http'
 
 const RESOURCE = 'api/v1/usuarios'
 const DELETAR = 'api/v1/deletar'
+const ATUALIZAR = 'api/v1/update'
 
 export default {
 
@@ -41,7 +42,7 @@ export default {
     updateUser (context, params){
         context.commit('PRELOADER', true)
         return new Promise((resolve, reject) => {
-            http.put(`${RESOURCE}/${params.id}`, params)
+            http.post(`${ATUALIZAR}/${params.id}`, params)
                 .then(response => resolve())
                 .catch(error => {
                     context.commit('PRELOADER', false)
