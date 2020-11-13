@@ -14,14 +14,20 @@
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
 						Nome / Empresa *
 					</label>
-					<input type="text" v-model="company.empresa" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" placeholder="Nome Fantasia Completo">
+					<input type="text" v-model="company.empresa" 
+						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" placeholder="Nome Fantasia Completo"
+						oninput="this.value = this.value.toUpperCase()"	
+					>
 				</div>
 
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
 						Cidade
 					</label>
-					<input v-model="company.cidade" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" type="text" placeholder="Cidade">
+					<input v-model="company.cidade" 
+						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" type="text" placeholder="Cidade"
+						oninput="this.value = this.value.toUpperCase()"
+					>
 					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
 				</div>
 				
@@ -43,7 +49,7 @@
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
 						Inscrição Estadual
 					</label>
-					<input v-model="company.inscricao_estadual" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Inscrição Estadual">
+					<input v-model="company.inscricao_estadual" v-mask="'##.###.###.###-#'" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Inscrição Estadual">
 					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
 				</div>
 				
@@ -100,7 +106,10 @@
 						</td>
 						
 						<td class="w-1/3 px-4 py-3 whitespace-no-wrap ">
-							<input v-model="item.nome" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4" type="text" placeholder="Nome completo">
+							<input v-model="item.nome" 
+								class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4" type="text" placeholder="Nome completo"
+								oninput="this.value = this.value.toUpperCase()"
+							>
 						</td>
 
 						<td class="w-1/5 px-4 py-3 whitespace-no-wrap ">

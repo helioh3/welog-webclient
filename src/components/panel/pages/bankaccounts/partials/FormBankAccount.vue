@@ -16,6 +16,7 @@
             v-model="bankaccount.nome"
             class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
             placeholder="Nome para a conta"
+			oninput="this.value = this.value.toUpperCase()"	
           >
         </div>
 

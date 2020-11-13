@@ -29,7 +29,7 @@
                 <span class="text-gray-700 dark:text-gray-400">Nome Completo</span>
                 <input
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  placeholder="Rita Maria"
+                  placeholder="Ex: Rita Maria"
 				  v-model="user.nome"
                 />
               </label>
@@ -38,7 +38,7 @@
                 <span class="text-gray-700 dark:text-gray-400">Telefone</span>
                 <input
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  placeholder="Telefone"
+                  placeholder="telefone"
 				  v-model="user.telefone"
                 />
               </label>
@@ -55,8 +55,9 @@
                 <span class="text-gray-700 dark:text-gray-400">Data de Nascimento *</span>
                 <input
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  placeholder="00-00-0000"
+                  placeholder="nascimento"
 				  v-model="user.nascimento"
+				  v-mask="'##/##/####'"
                 />
               </label>
               <label class="block  mt-4 text-sm">

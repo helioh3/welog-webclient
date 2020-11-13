@@ -15,14 +15,20 @@
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
 						Nome Completo *
 					</label>
-					<input type="text" v-model="provider.nome" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" placeholder="Nome Completo">
+					<input type="text" v-model="provider.nome" 
+						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" placeholder="Nome Completo"
+						oninput="this.value = this.value.toUpperCase()"
+					>
 				</div>
 
 				<div class="md:w-1/5 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
 						ESTADO *
 					</label>
-					<input v-model="provider.estado" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo">
+					<input v-model="provider.estado" 
+						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Codigo"
+						oninput="this.value = this.value.toUpperCase()"
+					>
 					
 				</div>
 
@@ -42,14 +48,17 @@
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
 						Insc. Estadual
 					</label>
-					<input v-model="provider.inscricao_estadual" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Inscrição Estadual">
+					<input v-model="provider.inscricao_estadual" v-mask="'##.###.###.###-#'" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Inscrição Estadual">
 					
 				</div>
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
 						Atuação
 					</label>
-					<input  v-model="provider.atuacao" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Atuação">
+					<input  v-model="provider.atuacao" 
+						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Atuação"
+						oninput="this.value = this.value.toUpperCase()"
+					>
 					
 				</div>
 			</div>
@@ -67,14 +76,20 @@
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
 						CIDADE *
 					</label>
-					<input v-model="provider.cidade" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Cidade">
+					<input v-model="provider.cidade" 
+						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Cidade"
+						oninput="this.value = this.value.toUpperCase()"
+					>
 					
 				</div>
 				<div class="md:w-2/5 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
 						Endereço *
 					</label>
-					<input v-model="provider.endereco" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Endereço">
+					<input v-model="provider.endereco" 
+						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Endereço"
+						oninput="this.value = this.value.toUpperCase()"
+					>
 					
 				</div>
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
@@ -99,7 +114,10 @@
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
 						Observação
 					</label>
-					<textarea v-model="provider.observacao" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="text" placeholder="Anotar uma observação"></textarea>
+					<textarea v-model="provider.observacao" 
+						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="text" placeholder="Anotar uma observação"
+						oninput="this.value = this.value.toUpperCase()"
+					></textarea>
 				</div> 
 			</div>
 			
