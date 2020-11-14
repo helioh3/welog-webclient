@@ -155,7 +155,7 @@ export default {
         pay(id){
             this.$store.dispatch('loadExpense', id)
                 .then(response => {
-                    console.log(response)
+                    // console.log(response)
                     this.$router.push({name: 'painel.despesas.pagar', params:{id: id}})
                 })
                 .catch(error => {
@@ -166,7 +166,7 @@ export default {
         view(id){
             this.$store.dispatch('loadExpense', id)
                 .then(response => {
-                    console.log(response)
+                    // console.log(response)
                     this.$router.push({name: 'painel.despesas.visualizar', params:{id: id}})
                 })
                 .catch(error => {

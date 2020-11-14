@@ -1,27 +1,4 @@
 <template>
-    <!-- <form @submit.prevent="onSubmit">
-        <div class="box-form-user">
-            <h2 class="box-form__title">Dados da categoria</h2>
-            
-            <div class="box-field-user">
-                <div class="field">
-                    <label class="field__label">Nome da categoria*</label>
-                    <input type="text" :class="['field__input', {'has-error': errors.nome}]" v-model="category.nome" > 
-                    
-                </div>
-                <div v-if="errors.nome">{{errors.nome[0]}}</div>
-
-            </div>
-        </div>
-        
-        <div class="box-button">
-
-
-            <router-link class="but secundary" :to="{name: 'painel.categorias'}">X</router-link>
-              
-            <button type="submit" class="but primary">Salvar</button>
-        </div>
-    </form> -->
 
 <!-- component -->
 	<div class="bg-white border rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
@@ -29,9 +6,12 @@
 			<div class="-mx-3 md:flex mb-6">
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-						Nome da categoria
+						Nome da categoria *
 					</label>
-					<input v-model="category.nome" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" type="text" placeholder="Nome da categoria">
+					<input v-model="category.nome" 
+						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" type="text" placeholder="Nome da categoria"
+						oninput="this.value = this.value.toUpperCase()"	
+					>			
 					<!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
 				</div>
 			</div>

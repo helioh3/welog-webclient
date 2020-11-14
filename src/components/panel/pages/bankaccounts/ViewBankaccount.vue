@@ -71,9 +71,7 @@
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Banco</div>
 								<div class="text-lg leading-5 text-gray-600" >
-									<select class="block appearance-none w-full bg-grey-lighter text-lg leading-5 text-gray-600" disabled>
-										<!-- <option v-for="company in companies" :key="company.id" :value="company.id">{{ company.empresa }}</option> -->
-									</select>
+									{{bankaccount.banco.Name}}
 								</div>
 							</td>
 							
@@ -151,7 +149,8 @@
             return {
                 bankaccount: {
                     id: '',
-                    nome: '',
+					nome: '',
+					banco: '',
 					agencia: '',
 					conta: ''
                    

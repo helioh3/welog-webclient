@@ -22,7 +22,7 @@
 
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-						Cidade
+						Cidade *
 					</label>
 					<input v-model="company.cidade" 
 						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" type="text" placeholder="Cidade"
@@ -55,7 +55,7 @@
 				
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-						CNPJ
+						CNPJ *
 					</label>
 					<input v-model="company.cnpj" v-mask="'##.###.###/####-##'" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="CNPJ">
 				</div>

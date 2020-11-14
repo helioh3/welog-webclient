@@ -173,17 +173,16 @@
 									/>
 								</td>
 								
-								
 								<td class="px-6 py-2 whitespace-no-wrap border-b text-left text-blue-900 border-gray-500 text-sm leading-5">
 									
 									<div class="text-sm leading-5 text-gray-500">
-										{{installments.banco}}
+										 banco
 									</div>
 								</td>
 
 								<td class="px-6 py-3 whitespace-no-wrap border-b text-left text-blue-900 border-gray-500 text-sm leading-5">
 									<div class="text-sm leading-5 text-gray-500">
-										CONTA
+										conta
 									</div>
 								</td>
 
@@ -267,8 +266,7 @@
                 },
 				
                 installments: [
-                    {
-						
+                    {				
                         data_vencimento: '',
                         data_pagamento: '',
                         valor: ''

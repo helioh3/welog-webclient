@@ -49,13 +49,11 @@
 					<table class="min-w-full">
 						<thead>
 							<tr>
-
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Nome da conta</th>
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Instituição Bancária</th>
 
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Conta</th>
 								<th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-center text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">Situação</th>
-
 							</tr>
 						</thead>
 
@@ -68,13 +66,14 @@
 									<div class="text-sm leading-5 text-gray-900">{{bankaccount.nome}}</div>
 								</td>
 								<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-200">
-									<div class="text-sm leading-5 text-gray-900">Banco do Brasil S.A</div>
+									<div class="text-sm leading-5 text-gray-900">
+										{{bankaccount.abank.Name}}
+									</div>
 								</td>
 
 								<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-200">
 									<div class="text-sm leading-5 text-gray-900">{{bankaccount.conta}}</div>
 								</td>
-
 
 								<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-200">
 									<div class="text-sm text-center leading-5 text-gray-900">Ativo</div>
@@ -111,7 +110,8 @@
     export default {
 
         created () {
-            this.loadBankaccounts(1)
+			this.loadBankaccounts(1)
+			
         },
 
         data() {
@@ -123,7 +123,11 @@
         computed: {
             bankaccounts () {
                 return this.$store.state.bankaccounts.items
-            },
+			},
+			
+			banks () {
+				return this.$store.state.banks.items
+				},
 
             params() {
                 return {
@@ -149,12 +153,32 @@
 			 searchForm (filter) {
                 this.search = filter,
                 this.loadBankaccounts(1)
-            },
+			},
+			
+			/**
+			 * @param {Record<string,unknown>} item
+			 */
+			getBankAccountOptions (bankaccount) {
+				// quando o item não possui um banco selecionado...
+				if (!bankaccount.banco) {
+					// ... retornar um array vazio
+					return []
+				}
+				
+				// quando a lista de contas não é um array válido...
+				if (!Array.isArray(this.bankaccounts)) {
+					// ... retornar um array vazio
+					return []
+				}
+				// ... retornar uma lista de contas filtradas pelo banco selecionado
+				return this.bankaccounts.filter((bankAccount) => Number(bankAccount.banco) === Number(item.banco))
+			}
 
 
 
 
-        },
+		},
+	
 
         components: {
           TabsCadastro,
