@@ -181,8 +181,10 @@
                         this.$snotify.success('Operaçao realizada com sucesso');
                         this.$router.push({name: 'painel.fornecedores'})
                     })
-                    .catch( ()=> {
-                        this.$snotify.error('Não foi possivel salvar', 'Erro')
+                    .catch( () => {
+						
+						this.$snotify.error('Não foi possivel salvar', 'Erro')
+						
                     })
             },
         },

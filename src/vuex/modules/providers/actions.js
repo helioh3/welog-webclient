@@ -1,4 +1,3 @@
-
 import http from '@/services/http'
 
 const RESOURCE = 'api/v1/fornecedores'
@@ -33,7 +32,9 @@ export default {
                 .catch(error => {
                     context.commit('PRELOADER', false)
 
-                    reject(error.response)
+					reject(error.response)
+					
+					console.log(error.response)
                 })
         })
     },
