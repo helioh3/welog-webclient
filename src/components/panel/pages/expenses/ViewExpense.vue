@@ -136,14 +136,14 @@
 					<table class="md:w-full">
 						<thead>
 							<tr>
-								<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-gray-700 tracking-wider">Parcela</th>
-								<th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-gray-700 tracking-wider">Vencimento</th>
-								<th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-gray-700 tracking-wider">Pagamento</th>
-								<th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-gray-700 tracking-wider">Banco</th>
-								<th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-gray-700 tracking-wider">Conta</th>
-								<th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-gray-700 tracking-wider">Comprovante</th>
-								<th class="px-6 py-3 border-b-2 border-gray-300 text-right text-sm leading-4 text-gray-700 tracking-wider">Valor (R$)</th>
-								<th class="px-6 py-3 border-b-2 border-gray-300 text-right text-sm leading-4 text-gray-700 tracking-wider">Status</th>
+								<th class="px-6 py-3 border-b-2 border-gray-500 text-left leading-4 text-gray-700 tracking-wider">Parcela</th>
+								<th class="px-6 py-3 border-b-2 border-gray-500 text-left text-sm leading-4 text-gray-700 tracking-wider">Vencimento</th>
+								<th class="px-6 py-3 border-b-2 border-gray-500 text-left text-sm leading-4 text-gray-700 tracking-wider">Pagamento</th>
+								<th class="px-6 py-3 border-b-2 border-gray-500 text-left text-sm leading-4 text-gray-700 tracking-wider">Banco</th>
+								<th class="px-6 py-3 border-b-2 border-gray-500 text-left text-sm leading-4 text-gray-700 tracking-wider">Conta</th>
+								<th class="px-6 py-3 border-b-2 border-gray-500 text-left text-sm leading-4 text-gray-700 tracking-wider">Comprovante</th>
+								<th class="px-6 py-3 border-b-2 border-gray-500 text-right text-sm leading-4 text-gray-700 tracking-wider">Valor (R$)</th>
+								<th class="px-6 py-3 border-b-2 border-gray-500 text-right text-sm leading-4 text-gray-700 tracking-wider">Status</th>
 							</tr>
 						</thead>
 						<tbody class="bg-white">
@@ -151,7 +151,7 @@
 								v-for="(item, index) in expense.installments"
 								:key="index"
 							>
-								<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
+								<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-300">
 									<div class="flex items-center">
 										<div>
 											<div class="text-sm leading-5 text-gray-800">
@@ -160,41 +160,41 @@
 										</div>
 									</div>
 								</td>
-								<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
+								<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-300">
 									<AppDate
 										:value="item.data_vencimento"
 										readonly
 									/>
 								</td>
-								<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
+								<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-300">
 									<AppDate
 										:value="item.data_pagamento"
 										readonly
 									/>
 								</td>
 
-								<td class="px-6 py-2 whitespace-no-wrap border-b text-left text-blue-900 border-gray-500 text-sm leading-5">
+								<td class="px-6 py-2 whitespace-no-wrap border-b text-left text-blue-900 border-gray-300 text-sm leading-5">
 
-									<div class="text-sm leading-5 text-gray-500">
+									<div class="text-sm leading-5 text-gray-800">
 										<!-- {{ item.bank.Name }} -->
 										{{ $get(item, 'bank.Name', '-') }}
 									</div>
 								</td>
 
-								<td class="px-6 py-3 whitespace-no-wrap border-b text-left text-blue-900 border-gray-500 text-sm leading-5">
-									<div class="text-sm leading-5 text-gray-500">
+								<td class="px-6 py-3 whitespace-no-wrap border-b text-left text-blue-900 border-gray-300 text-sm leading-5">
+									<div class="text-sm leading-5 text-gray-800">
 										<!-- {{ item.bank_account.nome }} -->
 										{{ $get(item, 'bank_account.nome', '-') }}
 									</div>
 								</td>
 
-								<td class="text-center px-6 py-3 whitespace-no-wrap border-b border-gray-500">
+								<td class="text-center px-6 py-3 whitespace-no-wrap border-b border-gray-300">
 									<svg class="feather cursor-pointer w-8" @click.prevent="previewPrint(item.comprovante)">
 										<use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
 									</svg>
 								</td>
 
-								<td class="px-6 py-3 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+								<td class="px-6 py-3 whitespace-no-wrap border-b text-blue-900 border-gray-300 text-sm leading-5">
 
 									<div class="text-sm leading-5 text-gray-800">
 										<AppMoney
@@ -204,7 +204,7 @@
 									</div>
 
 								</td>
-								<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500 text-right">
+								<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-300 text-right">
 									<AppStatus :status="item.status" />
 								</td>
 
