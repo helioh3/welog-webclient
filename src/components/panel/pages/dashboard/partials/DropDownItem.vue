@@ -1,74 +1,44 @@
 <template>
-	<div>
-		<Component 
-			:is="is" 
-			:href="localHref"
-			:to="to"
-			class="block items-center w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 cursor-pointer"
-			@click="onClick"
-		>
-			<slot/>
-		</Component>
-	</div>		
-	
+  <div>
+    <a
+      class="block items-center w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 cursor-pointer"
+      @click="onClick"
+    >
+      <slot />
+    </a>
+  </div>
+
 </template>
 <script>
 export default {
-	name: 'DropDownItem',
-	
-	inject: ['dropdown'],
+  name: 'DropDownItem',
 
-	props: {
-		href: {
-			type: String,
-			default: undefined
-		},
+  inject: ['dropdown'],
 
-		to: {
-			type: [String, Object],
-			default: undefined
-		}
-	},
+  props: {
+    to: {
+      type: [String, Object],
+      default: undefined
+    }
+  },
 
-	data() {
-		return {
-			
-		};
-	},
-	
-	computed: {
-		localHref(){
-			if(typeof this.to !== 'undefined') {
-				return undefined
-			}
-			return this.href
-		},
+  data () {
+    return {}
+  },
 
-		is(){
-			if(typeof this.to !== 'undefined') {
-				return 'RouterLink'
-			}
+  methods: {
+    onClick (evt) {
+      if (this.to) {
+        this.$router.push(this.to)
+      }
+      this.$emit('click', evt)
+      this.closeDropDown()
+    },
 
-			if(typeof this.href !== 'undefined') {
-				return 'a'
-			
-			}
+    closeDropDown () {
+      this.dropdown.close()
+    }
+  }
 
-			return 'a'
-		}
-	},
-
-	methods: {
-		onClick(evt){
-			this.$emit('click', evt)
-			this.closeDropDown()
-		},
-
-		closeDropDown(){
-			this.dropdown.close();
-			
-		}
-	}
-	
 }
 </script>

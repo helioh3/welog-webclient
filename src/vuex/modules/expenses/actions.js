@@ -15,7 +15,7 @@ export default {
     loadExpenses (context, params) {
         context.commit('PRELOADER', true)
         http.get(`${RESOURCE}`, {params})
-            .then(response => context.commit('LOAD_EXPENSES', response.data))
+            .then(response => context.commit('LOAD_EXPENSES', response?.data))
             .catch(error => {
                 console.log(error)
             })

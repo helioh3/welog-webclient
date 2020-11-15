@@ -2,7 +2,7 @@ import http from '@/services/http'
 
 import Vue from 'vue'
 
-import router from './routes/routers'
+import index from './router'
 import store from './vuex/store'
 import App from './App.vue'
 
@@ -52,7 +52,7 @@ Vue.component('index-panel', () => import('./components/panel/IndexPanel'))
 Vue.component('preloader-panel', () => import('./components/share/PreloaderPanel'))
 
 window.app = new Vue({
-  router,
+  router: index,
   store,
   el: '#app',
   render: h => h(App),
@@ -68,7 +68,7 @@ if (token) {
 
 // VERIFICA SE O
 store.dispatch('checkLogin')
-  .then(() => router.push({ name: store.state.auth.urlBack }))
+  .then(() => index.push({ name: store.state.auth.urlBack }))
 
 
 
