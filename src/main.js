@@ -32,8 +32,10 @@ import './assets/tailwind.css'
 
 import components from '@/boot/components'
 import polyfill from '@/boot/polyfill'
+import util from '@/boot/util'
 components({ Vue })
 polyfill({ Vue })
+util({ Vue })
 
 const feather = require('feather-icons')
 

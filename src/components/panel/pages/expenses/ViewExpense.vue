@@ -177,14 +177,14 @@
 
 									<div class="text-sm leading-5 text-gray-500">
 										<!-- {{ item.bank.Name }} -->
-										{{ item.bank ? item.bank.Name : '' }}
+										{{ $get(item, 'bank.Name', '-') }}
 									</div>
 								</td>
 
 								<td class="px-6 py-3 whitespace-no-wrap border-b text-left text-blue-900 border-gray-500 text-sm leading-5">
 									<div class="text-sm leading-5 text-gray-500">
 										<!-- {{ item.bank_account.nome }} -->
-										{{ item.bank_account ? item.bank_account.nome : '' }}
+										{{ $get(item, 'bank_account.nome', '-') }}
 									</div>
 								</td>
 
