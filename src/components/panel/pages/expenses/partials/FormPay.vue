@@ -72,7 +72,7 @@
                   label="Name"
                   :options="banks"
                   v-model="item.banco"
-                  :reduce="bank => bank.id"
+                  :reduce="bank => String(bank.id)"
                 />
               </div>
             </div>

@@ -172,17 +172,17 @@
 										readonly
 									/>
 								</td>
-								
+
 								<td class="px-6 py-2 whitespace-no-wrap border-b text-left text-blue-900 border-gray-500 text-sm leading-5">
-									
+
 									<div class="text-sm leading-5 text-gray-500">
-										 banco
+										{{ item.bank.Name }}
 									</div>
 								</td>
 
 								<td class="px-6 py-3 whitespace-no-wrap border-b text-left text-blue-900 border-gray-500 text-sm leading-5">
 									<div class="text-sm leading-5 text-gray-500">
-										conta
+										{{ item.bank_account.nome }}
 									</div>
 								</td>
 
@@ -191,16 +191,16 @@
 										<use xlink:href="@/assets/svg/feather-sprite.svg#printer"></use>
 									</svg>
 								</td>
-								
+
 								<td class="px-6 py-3 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-									
+
 									<div class="text-sm leading-5 text-gray-800">
 										<AppMoney
 											:value="item.valor"
 											readonly
 										/>
 									</div>
-									
+
 								</td>
 								<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500 text-right">
 									<AppStatus :status="item.status" />
@@ -264,9 +264,9 @@
                     numero: ''
 
                 },
-				
+
                 installments: [
-                    {				
+                    {
                         data_vencimento: '',
                         data_pagamento: '',
                         valor: ''
@@ -292,7 +292,7 @@
         },
 
         methods: {
-			
+
             edit(id){
                 this.$store.dispatch('loadExpense', id)
                     .then(response => {
@@ -300,7 +300,7 @@
                         this.$router.push({name: 'painel.despesas.editar', params:{id: id}})
                     })
                     .catch(error => {
-						
+
                         this.$snotify.error('Houve um erro ao editar', 'Erro')
                     })
             },
@@ -348,7 +348,7 @@
                 // window.open("http://cvv.test/download" + anexo)
                 // console.log(window.location.origin + "/download/" + anexo)
 			},
-			
+
 			previewPrint(comprovante) {
                 window.open(`${getBaseURL()}/download${comprovante}`)
                 // window.open("http://cvv.test/download" + anexo)
