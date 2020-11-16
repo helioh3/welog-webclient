@@ -184,7 +184,7 @@
 								<td class="px-6 py-3 whitespace-no-wrap border-b text-left text-blue-900 border-gray-300 text-sm leading-5">
 									<div class="text-sm leading-5 text-gray-800">
 										<!-- {{ item.bank_account.nome }} -->
-										{{ $get(item, 'bank_account.nome', '-') }}
+										{{ $get(item, 'bank_account.conta', '-') }}
 									</div>
 								</td>
 
