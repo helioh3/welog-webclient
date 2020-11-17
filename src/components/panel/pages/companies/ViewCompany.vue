@@ -60,17 +60,17 @@
 					<tr>
 						<td class="px-6 py-4 whitespace-no-wrap">
 							<div class="text-sm leading-3 text-gray-900">Empresa</div>
-							<div class="text-sm leading-5 text-gray-500">{{ company.empresa }}</div>
+							<div class="text-sm leading-5 text-gray-900">{{ company.empresa }}</div>
 						</td>
 						
 						<td class="px-6 py-4 whitespace-no-wrap">
 							<div class="text-sm leading-5 text-gray-900">Cidade</div>
-							<div class="text-sm leading-5 text-gray-500">{{ company.cidade }}</div>
+							<div class="text-sm leading-5 text-gray-900">{{ company.cidade }}</div>
 						</td>
 						
 						<td class="px-6 py-4 whitespace-no-wrap">
 							<div class="text-sm leading-5 text-gray-900">Data de Registro</div>
-							<div class="text-sm leading-5 text-gray-500">
+							<div class="text-sm leading-5 text-gray-900">
 								<AppDate
 									:value="company.data_registro"
 									readonly
@@ -80,24 +80,27 @@
 
 						<td class="px-6 py-4 whitespace-no-wrap">
 							<div class="text-sm leading-5 text-gray-900">Inscricão Estadual</div>
-							<div class="text-sm leading-5 text-gray-500">
+							<div class="text-sm leading-5 text-gray-900">
 								{{ company.inscricao_estadual }}
+							</div>
+						</td>
+
+					</tr>
+					<tr>
+						<td class="px-6 py-4 whitespace-no-wrap">
+							<div class="text-sm leading-5 text-gray-900">E-mail</div>
+							<div class="text-sm leading-5 text-gray-900">
+								{{ company.email }}
 							</div>
 						</td>
 
 						<td class="px-6 py-4 whitespace-no-wrap">
 							<div class="text-sm leading-5 text-gray-900">CNPJ</div>
-							<div class="text-sm leading-5 text-gray-500">
+							<div class="text-sm leading-5 text-gray-900">
 								{{ company.cnpj }}
 							</div>
 						</td>
 
-						<td class="px-6 py-4 whitespace-no-wrap">
-							<div class="text-sm leading-5 text-gray-900">E-mail</div>
-							<div class="text-sm leading-5 text-gray-500">
-								{{ company.email }}
-							</div>
-						</td>
 
 					</tr>
 				</tbody>
