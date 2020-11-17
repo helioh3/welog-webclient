@@ -55,7 +55,7 @@
 				
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-						CNPJ *
+						CNPJ / CPF *
 					</label>
 					<input v-model="company.cnpj" v-mask="'##.###.###/####-##'" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="CNPJ">
 				</div>
@@ -117,10 +117,6 @@
 								ref="data"
 								v-model="item.data_nascimento"
 							/>
-						</td>
-
-						<td class="w-1/4 px-4 py-3 whitespace-no-wrap ">
-							<input v-model="item.cpf" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4" type="text" placeholder="CPF">
 						</td>
 
 						<td class="w-1/6 px-4 py-3 whitespace-no-wrap ">
