@@ -120,11 +120,11 @@
 						</td>
 
 						<td class="w-1/4 px-4 py-3 whitespace-no-wrap ">
-							<input v-model="item.cpf" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4" type="text" placeholder="CPF">
+							<input v-model="item.cpf" v-mask="['###.###.###-##']" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4" type="text" placeholder="CPF">
 						</td>
 
 						<td class="w-1/6 px-4 py-3 whitespace-no-wrap ">
-							<input v-model="item.rg" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4" type="text" placeholder="RG">
+							<input v-model="item.rg" v-mask="['###.###.###-#']" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4" type="text" placeholder="RG">
 						</td>
 
 						<td class="px-4 py-3 whitespace-no-wrap text-right  text-sm">
