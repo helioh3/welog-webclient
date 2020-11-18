@@ -173,7 +173,7 @@
                 this.$store.dispatch('delCompany', id)
                     .then( () => {
                         this.$snotify.success(`Empresa deletada com sucessu`)
-                        this.$router.push({name: 'painel.empresas'})
+                        this.$router.refresh({name: 'painel.empresas'})
                     })
                     .catch(error => {
                         console.log(error)

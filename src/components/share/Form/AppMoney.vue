@@ -3,7 +3,7 @@
     v-if="readonly"
     :value="receivedValue"
     disabled
-    class="text-sm leading-5 bg-transparent"
+    class="text-sm bg-transparent"
     :class="classNames"
   />
   <money

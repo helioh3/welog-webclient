@@ -136,12 +136,15 @@
                     <AppStatus :status="expense.status" />
                   </td>
 
-                  <td class="px-6 py-4 text-right whitespace-no-wrap border-b border-gray-200">
-                    <div class="text-sm leading-5 text-gray-900">
+                  <td class="whitespace-no-wrap border-b text-sm  border-gray-200">
+                    <div class="text-sm text-gray-900">
                       <AppMoney
                         :value="expense.valor"
                         readonly
+						classNames="text-right"
                       />
+
+					  
                     </div>
 
                   </td>
