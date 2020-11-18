@@ -109,9 +109,9 @@
 
                   <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                     <div class="flex items-center">
-                      <div class="flex-shrink-0 h-10 w-10">
+                      <div class="flex-shrink-0 h-6 w-6">
                         <img
-                          class="h-10 w-10 rounded-full"
+                          class="h-6 w-6 rounded-full"
                           src="@/assets/images/provider.png"
                           alt=""
                         />
