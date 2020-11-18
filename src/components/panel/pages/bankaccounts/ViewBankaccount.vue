@@ -71,7 +71,7 @@
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Banco</div>
 								<div class="text-lg leading-5 text-gray-600" >
-									{{bankaccount.banco.Name}}
+									{{bankaccount.abank.Name}}
 								</div>
 							</td>
 							
