@@ -70,13 +70,11 @@
         <button class="mr-4 px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
           Salvar
         </button>
-        <button class=" border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">
           <router-link
-            class="inline-block  px-5 py-2"
+            class="inline-block  px-5 py-2 border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none"
             :to="{name: 'painel.contasbancarias'}"
           >Cancelar
           </router-link>
-        </button>
       </div>
 
     </form>
