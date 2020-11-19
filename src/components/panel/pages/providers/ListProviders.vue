@@ -118,8 +118,8 @@
 </template>
 <script>
 	import Middle from './../../share/Middle'
-    import SearchProvider from '../providers/share/SearchProvider'
-    import PaginationGeneral from '../../../share/PaginationGeneral'
+	import PaginationGeneral from '../../../share/PaginationGeneral'
+	import SearchPanel from '../../share/SearchPanel'
   	import TabsCadastro from '@/components/panel/share/TabsCadastro'
 
     export default {
@@ -149,7 +149,8 @@
 
         methods: {
             loadProviders(page){
-                this.$store.dispatch('loadProviders', {...this.params, page})
+				this.$store.dispatch('loadProviders', {...this.params, page})
+				
             },
 
             view(id) {
@@ -161,15 +162,14 @@
             },
 
             searchForm (filter) {
-                this.search = filter,
+				this.search = filter,
                 this.loadProviders(1)
             },
 
         },
 
         components: {
-          TabsCadastro,
-            search: SearchProvider, pagination: PaginationGeneral, Middle
+          TabsCadastro, search: SearchPanel, pagination: PaginationGeneral, Middle
         }
     }
 </script>

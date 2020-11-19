@@ -244,8 +244,8 @@ export default {
     },
 
     searchForm (filter) {
-      this.search = filter,
-        this.loadExpenses(1)
+      	this.search = filter,
+    	this.loadExpenses(1)
     },
 
     edit (id) {
