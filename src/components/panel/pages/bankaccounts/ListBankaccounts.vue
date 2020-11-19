@@ -67,7 +67,8 @@
 								</td>
 								<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-200">
 									<div class="text-sm leading-5 text-gray-900">
-										{{bankaccount.abank.Name}}
+										{{ bankaccount ? bankaccount.abank.Name : '' }}
+										<!-- {{bankaccount.abank.Name}} -->
 									</div>
 								</td>
 
