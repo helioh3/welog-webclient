@@ -15,7 +15,7 @@
 						Nome / Empresa *
 					</label>
 					<input type="text" v-model="company.empresa" 
-						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" placeholder="Nome Fantasia Completo"
+						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" placeholder="Nome fantasia"
 						oninput="this.value = this.value.toUpperCase()"	
 					>
 				</div>

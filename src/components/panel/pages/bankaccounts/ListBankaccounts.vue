@@ -175,12 +175,8 @@
 				return this.bankaccounts.filter((bankAccount) => Number(bankAccount.banco) === Number(item.banco))
 			}
 
-
-
-
 		},
 	
-
         components: {
           TabsCadastro,
             search: SearchBankaccount, pagination: PaginationGeneral, Middle

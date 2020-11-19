@@ -169,7 +169,7 @@
 
 							<td class="px-6 py-3 whitespace-no-wrap border-b border-gray-500">
 								<div class="md:w-1/3">
-									{{item.participacao}}
+									{{item.participacao}}%
 								</div>
 							</td>
 							
