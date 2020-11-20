@@ -42,7 +42,6 @@
 			</div>
 
 		</div>
-
 		<div class="flex flex-col mt-3">
 			<div class="-my-2 py-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
 				<div class="align-middle inline-block min-w-full overflow-hidden sm:rounded border border-gray-400">
@@ -72,7 +71,7 @@
 										</div>
 
 										<div class="ml-4">
-											<div class="text-sm leading-5 font-medium text-gray-900">{{ provider.nome }}</div>
+											<div class="overflow-hidden truncate w-48 text-sm leading-5 font-medium text-gray-900">{{ provider.nome }}</div>
 											<div class="text-sm leading-5 text-gray-500">{{ provider.email }}</div>
 										</div>
 									</div>

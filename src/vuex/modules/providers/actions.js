@@ -37,7 +37,9 @@ export default {
 					console.log(error.response)
                 })
         })
-    },
+	},
+	
+	
 
     updateProvider (context, params){
         context.commit('PRELOADER', true)
