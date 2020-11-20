@@ -21,7 +21,7 @@
 	
 	<ul class="flex mt-2">
 		<li v-if="pagination.current_page"  class="mx-1/2 border border-gray-500 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded">
-			<a  class="block px-4 py-2 flex items-center font-bold" @click.prevent="changePage(pagination.current_page - 1)" href="#">
+			<a  class="block px-4 py-2 items-center font-bold" @click.prevent="changePage(pagination.current_page - 1)" href="#">
 				<span class="">Anterior</span>
 			</a>
 		</li>
@@ -32,7 +32,7 @@
 		
 		
 		<li  v-if="pagination.current_page < pagination.last_page ? 'disabled' : 'disabled' " class="mx-1/2 border border-gray-500 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded">
-			<a class="block px-4 py-2 flex items-center font-bold" @click.prevent="changePage(pagination.current_page + 1)" href="#">
+			<a class="block px-4 py-2 items-center font-bold" @click.prevent="changePage(pagination.current_page + 1)" href="#">
 				<span class="">Proximo</span>
 			</a>
 		</li>
@@ -51,7 +51,7 @@
         },
         offset: {
           type: Number,
-          default: 5
+          default: 7
         }
     },
     computed: {
