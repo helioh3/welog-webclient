@@ -105,7 +105,7 @@
 			<div class="flex justify-center">
 				<pagination
 					:pagination="providers"
-					:offset="5"
+					:offset="7"
 					@paginate="loadProviders"
 				>
 				</pagination>
