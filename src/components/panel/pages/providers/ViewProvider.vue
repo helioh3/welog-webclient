@@ -95,12 +95,12 @@
 						</tr> 
 
 						<tr>
-							<td class="px-6 py-4 whitespace-no-wrap">
+							<td class="px-6 py-4 wwhite-space: nowrap overflow: hidden">
 								<div class="text-sm leading-5 text-gray-900">CIDADE</div>
 								<div class="text-sm leading-5 text-gray-500">{{ provider.cidade }}</div>
 							</td>
 
-							<td class="px-6 py-4 whitespace-no-wrap">
+							<td class="px-6 py-4 whitespace-no-wrap ">
 								<div class="text-sm leading-5 text-gray-900">Endereço</div>
 								<div class="text-sm leading-5 text-gray-500">{{ provider.endereco }}</div>
 							</td>
