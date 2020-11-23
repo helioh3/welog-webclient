@@ -88,9 +88,10 @@
 							</td>
 
 							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="text-sm leading-5 text-gray-900">Atuação</div>
-								<div class="text-sm leading-5 text-gray-500">{{ provider.atuacao }}</div>
-							</td>	
+								<div class="text-sm leading-5 text-gray-900">Telefone</div>
+								<div class="text-sm leading-5 text-gray-500">{{ provider.telefone }}</div>
+							</td>
+	
 		
 						</tr> 
 
@@ -108,14 +109,13 @@
 								<div class="text-sm leading-5 text-gray-900">E-email</div>
 								<div class="text-sm leading-5 text-gray-500">{{ provider.email }}</div>
 							</td>
-							
-		
 						</tr> 
 
 						<tr>
+						
 							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="text-sm leading-5 text-gray-900">Telefone</div>
-								<div class="text-sm leading-5 text-gray-500">{{ provider.telefone }}</div>
+								<div class="text-sm leading-5 text-gray-900">Atuação</div>
+								<div class="text-sm leading-5 text-gray-500">{{ provider.atuacao }}</div>
 							</td>
 						</tr>
 					</tbody>

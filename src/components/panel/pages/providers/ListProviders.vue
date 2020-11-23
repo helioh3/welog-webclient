@@ -190,7 +190,8 @@ export default {
       let size = Math.floor((window.innerHeight - TABLE_HEIGHT_UP - TABLE_HEIGHT_DOWN) / TABLE_HEIGHT_CELL)
       if (size < 5) {
         size = 5
-      }
+	  }
+	  
       this.$store.dispatch('loadProviders', { ...this.params, page, size })
 
     },
