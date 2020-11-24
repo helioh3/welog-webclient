@@ -24,7 +24,7 @@ client.interceptors.response.use(function (response) {
   // Do something with response data
   return response
 }, function (error) {
-  if ([401, 403, 422].includes(Number(error?.response?.status))) {
+  if ([401, 403].includes(Number(error?.response?.status))) {
     logout();
   }
   // Any status codes that falls outside the range of 2xx cause this function to trigger

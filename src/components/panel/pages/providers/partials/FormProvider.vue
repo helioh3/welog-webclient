@@ -16,10 +16,26 @@
 						Nome Completo *
 					</label>
 					<input type="text" v-model="provider.nome" 
-						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" placeholder="Nome Completo"
+						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" placeholder="Nome da empresa"
 						oninput="this.value = this.value.toUpperCase()"
 					>
 				</div>
+
+				<div class="md:w-2/5 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+						Fantasia
+					</label>
+					<input type="text" v-model="provider.fantasia" 
+						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" placeholder="Fantasia"
+						oninput="this.value = this.value.toUpperCase()"
+					>
+				</div>
+
+				
+
+			</div>
+
+			<div class="-mx-3 md:flex mb-10">
 
 				<div class="md:w-1/5 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
@@ -31,10 +47,6 @@
 					>
 					
 				</div>
-
-			</div>
-
-			<div class="-mx-3 md:flex mb-10">
 				
 				<div class="md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
@@ -141,7 +153,8 @@
                 default: () => {
                     return {
                         id: '',
-                        nome: '',
+						nome: '',
+						fantasia: '',
 						rg: '',
 						estado: '',
 						cnpj: '',
