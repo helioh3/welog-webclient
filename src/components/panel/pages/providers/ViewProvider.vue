@@ -60,7 +60,7 @@
 				<table class="min-w-full">
 					<tbody class="bg-white">
 						<tr>
-							<td class="px-6 py-4 whitespace-no-wrap">
+							<td class="px-6 py-4 wwhite-space: nowrap">
 								<div class="text-sm leading-5 text-gray-900">Razão Social</div>
 								<div class="text-sm leading-5 text-gray-500">{{ provider.nome }}</div>
 							</td>
@@ -120,7 +120,7 @@
 						
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Atuação</div>
-								<div class="text-sm leading-5 text-gray-500">{{ provider.atuacao }}</div>
+								<div class="w-12 text-sm leading-5 text-gray-500">{{ provider.atuacao }}</div>
 							</td>
 						</tr>
 					</tbody>
