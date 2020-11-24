@@ -61,7 +61,7 @@
 					<tbody class="bg-white">
 						<tr>
 							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="text-sm leading-5 text-gray-900">Nome Completo</div>
+								<div class="text-sm leading-5 text-gray-900">Razão Social</div>
 								<div class="text-sm leading-5 text-gray-500">{{ provider.nome }}</div>
 							</td>
 
