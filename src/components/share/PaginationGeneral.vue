@@ -51,7 +51,7 @@
         },
         offset: {
           type: Number,
-          default: 7
+          default: 3
         }
     },
     computed: {
