@@ -66,7 +66,7 @@
                 <tr>
                   <th class="px-6 py-3 border-b border-gray-400 bg-gray-100"></th>
                   <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
-                    Nome
+                    Razão Social
                   </th>
 
 				  <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
