@@ -68,6 +68,10 @@
                   <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
                     Nome
                   </th>
+
+				  <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
+                    Fantasia
+                  </th>
                   <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
                     CNPJ / CPF
                   </th>
@@ -77,9 +81,9 @@
                   <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
                     E-mail
                   </th>
-                  <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
+                  <!-- <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
                     Observação
-                  </th>
+                  </th> -->
                 </tr>
               </thead>
 
@@ -114,6 +118,9 @@
                       </div>
                     </div>
                   </td>
+				  <td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
+                    <div class="text-sm leading-5 text-gray-900">{{ provider.fantasia }}</div>
+                  </td>
 
                   <td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
                     <div class="text-sm leading-5 text-gray-900">{{ provider.cnpj }}</div>
@@ -127,9 +134,9 @@
                     <div class="text-sm leading-5 text-gray-900">{{ provider.email }}</div>
                   </td>
 
-                  <td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
+                  <!-- <td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
                     <div class="text-sm leading-5 text-gray-900">{{ provider.observacao }}</div>
-                  </td>
+                  </td> -->
 
                 </tr>
 
