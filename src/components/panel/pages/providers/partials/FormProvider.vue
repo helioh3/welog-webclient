@@ -67,8 +67,7 @@
 						Atuação
 					</label>
 					<input  v-model="provider.atuacao" 
-						class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Atuação"
-						oninput="this.value = this.value.toUpperCase()"
+						class="uppercase block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"  type="text" placeholder="Atuação"
 					>
 					
 				</div>
