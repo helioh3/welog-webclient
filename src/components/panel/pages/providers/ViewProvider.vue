@@ -119,8 +119,8 @@
 						<tr>
 						
 							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="uppercase text-sm leading-5 text-gray-900">Atuação</div>
-								<div class="w-12 text-sm leading-5 text-gray-500">{{ provider.atuacao }}</div>
+								<div class=" text-sm leading-5 text-gray-900">Atuação</div>
+								<div class="uppercase w-12 text-sm leading-5 text-gray-500">{{ provider.atuacao }}</div>
 							</td>
 						</tr>
 					</tbody>
