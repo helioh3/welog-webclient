@@ -119,7 +119,7 @@
                     </div>
                   </td>
 				  <td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
-                    <div class="overflow-hidden truncate w-48 text-sm leading-5 text-gray-900">{{ provider.fantasia }}</div>
+                    <div class="overflow-hidden truncate w-40 text-sm leading-5 text-gray-900">{{ provider.fantasia }}</div>
                   </td>
 
                   <td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
