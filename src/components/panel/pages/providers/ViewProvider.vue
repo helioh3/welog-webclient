@@ -1,5 +1,6 @@
 <template>
 <div>
+	
 	<div class="mx-auto px-8 py-2">
 		<nav class="text-black font-bold my-1" aria-label="Breadcrumb">
 			<ol class="list-none p-0 inline-flex">
@@ -95,9 +96,7 @@
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Telefone</div>
 								<div class="text-sm leading-5 text-gray-500">{{ provider.telefone }}</div>
-							</td>
-	
-		
+							</td>		
 						</tr> 
 
 						<tr>
@@ -149,7 +148,9 @@
 </template>
 
 <script>
-    import ButtonBack from './share/ButtonBack'
+	import ButtonBack from './share/ButtonBack'
+	import PrintProvider from './partials/PrintProvider'
+	
 
     export default {
 		name: 'ViewProvider',
@@ -218,7 +219,7 @@
         },
 
         components: {
-            ButtonBack
+            ButtonBack, PrintProvider
         }
         
     }

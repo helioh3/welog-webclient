@@ -1,11 +1,13 @@
 <template>
     <div>
-        <preloader-panel></preloader-panel>
-            <navbar-dashboard></navbar-dashboard>
-            
-            <main class="flex-1 bg-white">
-				<router-view></router-view> 
-            </main>
+			<div class="print:hidden">
+				<preloader-panel></preloader-panel>
+				<navbar-dashboard></navbar-dashboard>
+				
+				<main class="flex-1 bg-white">
+					<router-view></router-view> 
+				</main>
+			</div>
       
     </div>
 
