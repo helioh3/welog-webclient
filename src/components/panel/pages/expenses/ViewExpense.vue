@@ -83,6 +83,18 @@
 								<div class="text-sm leading-5 text-gray-900">Numero NFe</div>
 								<div class="text-lg leading-5 text-gray-600">{{ expense.numero }}</div>
 							</td>
+							
+							<td class="px-6 py-4 whitespace-no-wrap">
+								<div class="text-sm leading-5 text-gray-900">Fornecedor</div>
+								<div class="text-lg leading-5 text-gray-600" >
+									<select class=" appearance-none w-full bg-grey-lighter text-lg leading-5 text-gray-600" disabled>
+										<option v-for="provider in providers" :key="provider.id" :value="provider.id">{{ provider.fantasia }}</option>
+									</select>
+								</div>
+							</td>
+						</tr>
+
+						<tr>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Empresa</div>
 								<div class="text-lg leading-5 text-gray-600" >
@@ -91,17 +103,6 @@
 									</select>
 								</div>
 							</td>
-							<td class="px-6 py-4 whitespace-no-wrap">
-								<div class="text-sm leading-5 text-gray-900">Fornecedor</div>
-								<div class="text-lg leading-5 text-gray-600" >
-									<select class=" appearance-none w-full bg-grey-lighter text-lg leading-5 text-gray-600" disabled>
-										<option v-for="provider in providers" :key="provider.id" :value="provider.id">{{ provider.nome }}</option>
-									</select>
-								</div>
-							</td>
-						</tr>
-
-						<tr>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Categoria</div>
 								<div class="text-lg leading-5 text-gray-600" >

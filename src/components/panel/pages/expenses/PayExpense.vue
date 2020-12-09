@@ -75,7 +75,11 @@
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Empresa</div>
-								<div class="text-sm leading-5 text-gray-500">Sao Sebastião Energia Ltda</div>
+								<div class="text-sm leading-5 text-gray-500">
+									<select class="block appearance-none w-full bg-grey-lighter text-lg leading-5 text-gray-600" disabled>
+										<option v-for="company in companies" :key="company.id" :value="company.id">{{ company.nome }}</option>
+									</select>
+								</div>
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Fornecedor</div>
@@ -83,7 +87,12 @@
 							</td>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Categoria</div>
-								<div class="text-sm leading-5 text-gray-500">Web dev</div>
+								<div class="text-sm leading-5 text-gray-500">
+									
+									<select class="block appearance-none w-full bg-grey-lighter text-lg leading-5 text-gray-600" disabled>
+										<option v-for="category in categories" :key="category.id" :value="category.id">{{ category.nome }}</option>
+									</select>
+								</div>
 							</td>	
 						</tr>
 						
@@ -114,7 +123,7 @@
 						<tr>
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Observação</div>
-								<div class="text-sm leading-5 text-gray-500">T adicionado para teste de observacao em despesa</div>
+								<div class="text-sm leading-5 text-gray-500">{{ expense.observacao }}</div>
 							</td>
 						</tr>
 					</tbody>
@@ -163,7 +172,11 @@
         computed: {
             categories(){
                 return this.$store.state.categories.items.data
-            }
+			},
+
+			providers() {
+				return this.$store.state.providers.items.data
+			},
         },
 
         methods: {
