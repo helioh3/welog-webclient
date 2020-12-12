@@ -9,9 +9,8 @@ module.exports = {
       sm: '640px',
       md: '768px',
       lg: '1024px',
-	  xl: '1280px',
-	  'print': {'raw': 'print'},
-	  
+      xl: '1280px',
+      print: { raw: 'print' }
     },
     colors: {
       transparent: 'transparent',
