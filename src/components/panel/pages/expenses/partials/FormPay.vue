@@ -176,7 +176,7 @@ export default {
 
   computed: {
     bankaccounts () {
-      return this.$store.state.bankaccounts.items.data
+      return this.$store.state.bankaccounts.items
     },
     banks () {
       return this.$store.state.banks.items

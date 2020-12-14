@@ -123,7 +123,8 @@
 
         computed: {
             bankaccounts () {
-                return this.$store.state.bankaccounts.items
+				debugger
+                return this.$store.state.bankaccounts.items.data
 			},
 			
 			banks () {

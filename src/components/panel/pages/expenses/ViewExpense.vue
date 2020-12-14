@@ -98,7 +98,7 @@
 							<td class="px-6 py-4 whitespace-no-wrap">
 								<div class="text-sm leading-5 text-gray-900">Empresa</div>
 								<div class="text-lg leading-5 text-gray-600" >
-									<select class="block appearance-none w-full bg-grey-lighter text-lg leading-5 text-gray-600" disabled>
+									<select v-model="expense.company_id" class="block appearance-none w-full bg-grey-lighter text-lg leading-5 text-gray-600" disabled>
 										<option v-for="company in companies" :key="company.id" :value="company.id">{{ company.empresa }}</option>
 									</select>
 								</div>
