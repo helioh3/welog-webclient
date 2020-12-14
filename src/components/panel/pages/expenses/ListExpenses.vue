@@ -118,7 +118,7 @@
                       </div>
 
                       <div class="ml-4">
-                        <div class="text-sm leading-5 font-medium text-gray-900">{{ expense.provider.nome }}</div>
+                        <div class="text-sm leading-5 font-medium text-gray-900">{{ expense.provider.fantasia }}</div>
                         <!-- <div class="text-sm leading-5 text-gray-500">(63) 992099291</div> -->
                       </div>
                     </div>

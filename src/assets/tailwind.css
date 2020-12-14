@@ -4,7 +4,7 @@
 
 @tailwind utilities;
 
-/* 
+/*
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
 
 @import 'tailwindcss/base';
@@ -27,4 +27,14 @@
 
 ::-webkit-scrollbar-thumb:hover{
   background: #718096;
+}
+
+@media screen {
+  .printable {
+    display: none;
+  }
+}
+
+.printable {
+  background: #ffffff;
 }

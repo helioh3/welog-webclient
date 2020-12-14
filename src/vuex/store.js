@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import App from './modules/app'
+
 import PreloaderPanel from './modules/preloaders/preloader'
 
 import Auth from './modules/auth/index'
@@ -24,6 +26,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   modules: {
     PreloaderPanel,
+    app: App,
     auth: Auth,
     users: Users,
     companies: Companies,
