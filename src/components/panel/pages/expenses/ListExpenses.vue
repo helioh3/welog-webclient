@@ -135,11 +135,19 @@
                   </td>
 
                   <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                    19/03/2020
+                    <AppDate
+                      :value="expense.data"
+                      class-names="text-lg leading-5 text-gray-600"
+                      readonly
+                    />
                   </td>
 
                   <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                    19/03/2020
+                    <AppDate
+                      :value="expense.vencimento"
+                      class-names="text-lg leading-5 text-gray-600"
+                      readonly
+                    />
                   </td>
 
                   <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">

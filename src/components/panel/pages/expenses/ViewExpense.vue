@@ -185,6 +185,16 @@
                     />
                   </div>
                 </td>
+				<td class="px-6 py-4 whitespace-no-wrap">
+                  <div class="text-sm leading-5 text-gray-900">Vencimento</div>
+                  <div class="">
+                    <AppDate
+                      :value="expense.vencimento"
+                      class-names="text-lg leading-5 text-gray-600"
+                      readonly
+                    />
+                  </div>
+                </td>
                 
               </tr>
 

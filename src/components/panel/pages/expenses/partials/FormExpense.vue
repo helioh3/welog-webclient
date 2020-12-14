@@ -92,6 +92,16 @@
             v-model="expense.data"
           />
         </div>
+
+		<div class="md:w-1/4 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+            Vencimento
+          </label>
+          <AppDate
+            ref="vencimento"
+            v-model="expense.vencimento"
+          />
+        </div>
       </div>
 
       <div class="-mx-3 md:flex mb-12">
@@ -238,7 +248,8 @@ export default {
           provider_id: '',
           category_id: '',
           numero: '0000',
-          data: new Date(),
+		  data: new Date(),
+		  vencimento: '',
           observacao: '',
           installments: [
             {
