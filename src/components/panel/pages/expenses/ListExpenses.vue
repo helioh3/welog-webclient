@@ -97,10 +97,15 @@
                       :checked="selected.includes(expense.id)"
                     >
                   </td>
-				  
+
 
                   <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                    <div class="text-sm leading-5 text-gray-900">{{ expense.id }}</div>
+                    <div
+                      class="text-sm leading-5 text-gray-900"
+                      @click="edit(expense.id)"
+                    >
+                      <a href="javascript:void(0)">{{ expense.id }}</a>
+                    </div>
                   </td>
 
                   <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
@@ -118,7 +123,12 @@
                       </div>
 
                       <div class="ml-4">
-                        <div class="text-sm leading-5 font-medium text-gray-900">{{ expense.provider.fantasia }}</div>
+                        <div
+                          class="text-sm leading-5 font-medium text-gray-900"
+                          :title="expense.provider.fantasia"
+                        >
+                          {{ expense.provider.nome }}
+                        </div>
                         <!-- <div class="text-sm leading-5 text-gray-500">(63) 992099291</div> -->
                       </div>
                     </div>
@@ -141,10 +151,10 @@
                       <AppMoney
                         :value="expense.valor"
                         readonly
-						classNames="text-right"
+                        classNames="text-right"
                       />
 
-					  
+
                     </div>
 
                   </td>
@@ -187,9 +197,10 @@ import AppStatus from '@/components/share/AppStatus'
 import AppMoney from '@/components/share/Form/AppMoney'
 
 export default {
+  name: 'ListExpenses',
+
   created () {
     this.loadExpenses(1)
-    this.$store.dispatch('loadCompanies')
   },
 
   data () {
@@ -244,8 +255,8 @@ export default {
     },
 
     searchForm (filter) {
-      	this.search = filter,
-    	this.loadExpenses(1)
+      this.search = filter,
+        this.loadExpenses(1)
     },
 
     edit (id) {

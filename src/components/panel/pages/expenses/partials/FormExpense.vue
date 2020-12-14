@@ -23,33 +23,11 @@
           <input
             v-model="expense.numero"
             class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
-            
             type="text"
             placeholder="Codigo"
           >
-          <!-- <p class="text-red text-xs italic">Please fill out this field.</p> -->
         </div>
 
-        <div class="md:w-1/2 px-3">
-          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
-            Empresa
-          </label>
-          <div class="relative">
-            <v-select
-              ref="empresa"
-              class="style-chooser"
-              :options="companies"
-              label="empresa"
-              v-model="expense.company_id"
-              @input="focusTo('fornecedor', $event)"
-              :reduce="company => company.id"
-            />
-          </div>
-        </div>
-
-      </div>
-
-      <div class="-mx-3 md:flex mb-10">
         <div class="md:w-1/2 px-3">
           <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
             Fornecedor
@@ -67,15 +45,31 @@
           </div>
         </div>
 
+      </div>
+
+      <div class="-mx-3 md:flex mb-10">
+        <div class="md:w-1/2 px-3">
+          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
+            Empresa
+          </label>
+          <div class="relative">
+            <v-select
+              ref="empresa"
+              class="style-chooser"
+              :options="companies"
+              label="empresa"
+              v-model="expense.company_id"
+              @input="focusTo('fornecedor', $event)"
+              :reduce="company => company.id"
+            />
+          </div>
+        </div>
+
         <div class="md:w-1/3 px-3">
           <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
             Categoria
           </label>
           <div class="relative">
-            <!-- <select v-model="expense.category_id" class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="grid-state">
-              <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.nome }}</option>
-            </select> -->
-
             <v-select
               ref="categoria"
               class="style-chooser"
@@ -179,7 +173,7 @@
               </tr>
 
             </tbody>
-			
+
           </table>
 
           <button
@@ -322,7 +316,7 @@ export default {
         dataVencimento.setTime(anterior.getTime())
         dataVencimento.addMonths(1, true)
       }
-		
+
       this.expense.installments.push({
         data_vencimento: dataVencimento,
         valor: 0
