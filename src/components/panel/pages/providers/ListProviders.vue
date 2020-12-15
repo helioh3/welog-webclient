@@ -110,6 +110,7 @@
                         />
                       </div>
 
+
                       <div class="ml-4">
                         <div class="overflow-hidden truncate w-48 text-sm leading-5 font-medium text-gray-900">
                           {{ provider.nome }}
