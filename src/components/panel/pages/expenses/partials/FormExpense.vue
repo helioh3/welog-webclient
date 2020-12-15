@@ -39,7 +39,7 @@
               :options="providers"
               label="nome"
               v-model="expense.provider_id"
-              @input="focusTo('categoria', $event)"
+              @input="focusTo('empresa', $event)"
               :reduce="provider => provider.id"
             />
           </div>
@@ -59,7 +59,7 @@
               :options="companies"
               label="empresa"
               v-model="expense.company_id"
-              @input="focusTo('fornecedor', $event)"
+              @input="focusTo('categoria', $event)"
               :reduce="company => company.id"
             />
           </div>
@@ -93,13 +93,15 @@
           />
         </div>
 
-		<div class="md:w-1/4 px-3 mb-6 md:mb-0">
+        <div class="md:w-1/4 px-3 mb-6 md:mb-0">
           <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
             Vencimento
           </label>
           <AppDate
             ref="vencimento"
-            v-model="expense.vencimento"
+            readonly
+            class-names="text-sm leading-5 text-blue-900 py-3"
+            :value="vencimento"
           />
         </div>
       </div>
@@ -248,8 +250,8 @@ export default {
           provider_id: '',
           category_id: '',
           numero: '0000',
-		  data: new Date(),
-		  vencimento: '',
+          data: new Date(),
+          vencimento: '',
           observacao: '',
           installments: [
             {
@@ -294,6 +296,13 @@ export default {
         return 0
       }
       return this.expense.installments.reduce((accumulator, installment) => accumulator + installment?.valor, 0)
+    },
+    vencimento () {
+      const installments = this.expense?.installments
+      if (!Array.isArray(installments)) {
+        return undefined
+      }
+      return installments[0].data_vencimento
     }
   },
   methods: {
@@ -316,6 +325,7 @@ export default {
     },
     addItem () {
       let dataVencimento = new Date()
+      let ultimoValor = 0
 
       if (this.expense.installments.length > 0) {
         const tamanho = this.expense.installments.length
@@ -324,13 +334,15 @@ export default {
         if (!(anterior instanceof Date)) {
           anterior = new Date(anterior)
         }
+        ultimoValor = ultimo.valor
+
         dataVencimento.setTime(anterior.getTime())
         dataVencimento.addMonths(1, true)
       }
 
       this.expense.installments.push({
         data_vencimento: dataVencimento,
-        valor: 0
+        valor: ultimoValor
       })
     },
 
@@ -365,6 +377,9 @@ export default {
     },
     total (total) {
       this.expense.valor = total
+    },
+    vencimento (vencimento) {
+      this.expense.vencimento = vencimento
     }
   }
 }

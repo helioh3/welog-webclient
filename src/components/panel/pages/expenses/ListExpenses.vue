@@ -71,7 +71,7 @@
                   <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
                     Vencimento
                   </th>
-				  <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
+                  <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
                     Parcelas
                   </th>
                   <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
@@ -146,15 +146,20 @@
                   </td>
 
                   <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                    <AppDate
-                      :value="expense.vencimento"
-                      class-names="text-lg leading-5 text-gray-600"
-                      readonly
-                    />
+                    <template v-if="expense.vencimento">
+                      <AppDate
+                        :value="expense.vencimento"
+                        class-names="text-lg leading-5 text-gray-600"
+                        readonly
+                      />
+                    </template>
+                    <template v-else>
+                      -
+                    </template>
                   </td>
 
-				  <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                   2/3
+                  <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                    {{ expense.parcela || '-' }}
                   </td>
 
                   <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
@@ -168,8 +173,6 @@
                         readonly
                         classNames="text-right"
                       />
-
-
                     </div>
 
                   </td>
