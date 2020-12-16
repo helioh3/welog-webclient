@@ -65,9 +65,7 @@
                   <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
                     Fornecedor
                   </th>
-                  <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
-                    Data
-                  </th>
+                  
                   <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-left text-xs leading-4 font-semi-bold text-gray-700 uppercase tracking-wider">
                     Vencimento
                   </th>
@@ -78,7 +76,11 @@
                     status
                   </th>
                   <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-right text-xs leading-4 ffont-semi-bold text-gray-700 uppercase tracking-wider">
-                    Valor
+                    A pagar
+                  </th>
+
+				  <th class="px-6 py-3 border-b border-gray-400 bg-gray-100 text-right text-xs leading-4 ffont-semi-bold text-gray-700 uppercase tracking-wider">
+                    Total
                   </th>
                 </tr>
               </thead>
@@ -112,7 +114,7 @@
                   </td>
 
                   <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                    <div class="text-sm leading-5 text-gray-900">{{ expense.numero }}</div>
+                    <div class="text-sm leading-5 text-gray-900 overflow-hidden truncate w-20">{{ expense.numero }}</div>
                   </td>
 
                   <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
@@ -137,15 +139,7 @@
                     </div>
                   </td>
 
-                  <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                    <AppDate
-                      :value="expense.data"
-                      class-names="text-lg leading-5 text-gray-600"
-                      readonly
-                    />
-                  </td>
-
-                  <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                  <td class="px-6 py-4 text-center whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
                     <template v-if="expense.vencimento">
                       <AppDate
                         :value="expense.vencimento"
@@ -158,7 +152,7 @@
                     </template>
                   </td>
 
-                  <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                  <td class="px-6 py-4 text-center whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
                     {{ expense.parcela || '-' }}
                   </td>
 
@@ -174,6 +168,16 @@
                         classNames="text-right"
                       />
                     </div>
+
+                  </td>
+				  <td class="px-6 py-1 whitespace-no-wrap border-b text-right text-sm  border-gray-200">
+                    <div class="w-22 text-sm text-gray-900">
+						<AppMoney
+							:value="expense.total"
+							readonly
+							classNames="text-right"
+						/>
+					</div>
 
                   </td>
                 </tr>
