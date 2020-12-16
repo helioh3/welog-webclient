@@ -1,6 +1,6 @@
 <template>
   <div class="printable bg-white border rounded mt-2 px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
-    <h1>Vida Loka</h1>
+    <h1>Logo</h1>
 
     <div class="-mx-3 md:flex mb-6 text-left">
       <table class="min-w-full">
