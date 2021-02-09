@@ -93,7 +93,7 @@
           </td>
 
           <td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
-            <div class="w-1/5 text-sm leading-5 text-gray-900">
+            <div class="text-sm leading-5 text-gray-900">
               <input
                 type="file"
                 name="comprovate"
