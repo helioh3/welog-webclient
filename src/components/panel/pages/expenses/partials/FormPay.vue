@@ -97,7 +97,7 @@
               <input
                 type="file"
                 name="comprovate"
-                class="w-3/5  field__input text-center appearance-none focus:outline-none"
+                class="w-3/4  field__input text-center appearance-none focus:outline-none"
                 @change="onFileInstallment($event, item)"
               >
             </div>
