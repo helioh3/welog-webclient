@@ -93,12 +93,13 @@
           </td>
 
           <td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
-            <div class="w-1/5 text-sm leading-5 text-gray-900">
+            <div class="text-sm leading-5 text-gray-900">
               <input
                 type="file"
                 name="comprovate"
-                class="w-3/5  field__input text-center appearance-none focus:outline-none"
+                class="w-3/4  field__input text-center appearance-none focus:outline-none"
                 @change="onFileInstallment($event, item)"
+	
               >
             </div>
           </td>
